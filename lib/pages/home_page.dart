@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/pages/utils/home_api_provider.dart';
+import 'package:flutter_template_3/models/home_api_provider.dart';
 import 'package:flutter_template_3/utils/app_storage_helper.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 /// On 09-07-2022 07:24 PM
 ///
 class HomePage extends StatefulWidget {
+  static const String routeName = '/home';
   const HomePage({Key? key}) : super(key: key);
 
   @override
