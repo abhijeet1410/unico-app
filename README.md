@@ -2,7 +2,7 @@
 
 ### Step 1
 Clone this repository
-[Flutter mobile template 2.0!](https://gitlab.com/boiler-plates2/flutter-mobile-template-3.0.git)
+[Flutter mobile template 3.0!](https://gitlab.com/boiler-plates2/flutter-mobile-template-3.0.git)
 
 ### Step 2: Update git configurations
 Run below command
