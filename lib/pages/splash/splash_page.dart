@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_template_3/pages/dashboard/dashboard_page.dart';
+import 'package:flutter_template_3/pages/home_page.dart';
 import 'package:get/get.dart';
 
 class SplashPage extends StatefulWidget {
@@ -25,17 +25,16 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return GetRouterOutlet.builder(
-      builder: (context, rDelegate, currentRoute) {
-        final title = currentRoute?.location;
+    return RouterOutlet<GetDelegate, Object>.builder(
+      builder: (context, key, obj) {
         return Scaffold(
           body: GetRouterOutlet(
-            initialRoute: DashboardPage.routeName,
-            // emptyPage: (delegate) =>
-            //     Get.routeTree.matchRoute(DashboardPage.routeName).route!,
-            // pickPages: (currentNavStack) {
-            //   return currentNavStack.currentTreeBranch.skip(1).take(1).toList();
-            // },
+            initialRoute: HomePage.routeName,
+            // delegate: Get.nestedKey(null),
+            anchorRoute: '/',
+            filterPages: (afterAnchor) {
+              return afterAnchor.take(1);
+            },
           ),
         );
       },

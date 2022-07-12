@@ -16,15 +16,8 @@ class HomeProvider extends GetConnect {
     super.onInit();
   }
 
-  Future<Response<List<City>>> getCities() => get("/v1/city");
-}
-
-class HomeRepository {
-  HomeRepository({required this.provider});
-  final HomeProvider provider;
-
   Future<List<City>> getCities() async {
-    final cases = await provider.getCities();
+    final cases = await get("/v1/city");
     if (cases.status.hasError) {
       return Future.error(cases.statusText!);
     } else {
@@ -34,14 +27,14 @@ class HomeRepository {
 }
 
 class HomeController extends SuperController<List<City>> {
-  HomeController({required this.homeRepository});
+  HomeController({required this.homeApiProvider});
 
-  final HomeRepository homeRepository;
+  final HomeProvider homeApiProvider;
 
   @override
   void onInit() {
     super.onInit();
-    append(() => homeRepository.getCities);
+    append(() => homeApiProvider.getCities);
   }
 
   @override

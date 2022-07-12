@@ -17,9 +17,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late HomeProvider provider = Get.put(HomeProvider());
-  late HomeRepository repository = Get.put(HomeRepository(provider: provider));
   late HomeController controller =
-      Get.put(HomeController(homeRepository: repository));
+      Get.put(HomeController(homeApiProvider: provider));
 
   @override
   Widget build(BuildContext context) {

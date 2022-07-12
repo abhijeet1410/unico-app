@@ -11,7 +11,7 @@ import 'package:flutter_template_3/pages/users/unverfied_users/unverified_users_
 import 'package:get/get.dart';
 
 class DashboardPage extends StatefulWidget {
-  static const String routeName = '/';
+  static const String routeName = '/home';
 
   @override
   _DashboardPageState createState() => _DashboardPageState();
@@ -23,7 +23,6 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return GetRouterOutlet.builder(
-      routerDelegate: Get.nestedKey(HomePage.routeName),
       builder: (context, delegate, currentRoute) {
         final currentLocation = currentRoute?.location;
         print('CURRENT LOC $currentLocation');
@@ -60,11 +59,8 @@ class _DashboardPageState extends State<DashboardPage> {
                     flex: 5,
                     child: GetRouterOutlet(
                       initialRoute: DashboardPage.routeName,
-                      // delegate: Get.nestedKey(null),
                       anchorRoute: HomePage.routeName,
-                      // filterPages: (afterAnchor) {
-                      //   return afterAnchor.take(1);
-                      // },
+                      key: Get.nestedKey(HomePage.routeName),
                     ),
                   ),
                 ],
