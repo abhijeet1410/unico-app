@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/configs/theme_config/app_decorations.dart';
+import 'package:flutter_template_3/configs/app_decorations.dart';
+import 'package:flutter_template_3/configs/theme_configs/colors.dart';
 import 'package:flutter_template_3/widgets/app_buttons/app_primary_button.dart';
 import 'package:get/get.dart';
 

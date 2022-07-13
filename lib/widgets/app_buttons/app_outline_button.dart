@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/configs/api_config/environment.dart';
-import 'package:flutter_template_3/configs/theme_config/theme_config.dart';
+import 'package:flutter_template_3/configs/environment.dart';
+import 'package:flutter_template_3/configs/theme_configs/theme_config.dart';
 import '../app_loader.dart';
 
 ///
@@ -80,7 +80,7 @@ class AppOutlineButtonState extends State<AppOutlineButton> {
               padding: widget.padding ??
                   const EdgeInsets.symmetric(vertical: 14, horizontal: 48),
               textStyle: widget.textStyle ??
-                  const TextStyle(
+                  TextStyle(
                       fontSize: 18,
                       fontFamily: AppThemes.fontFamily,
                       letterSpacing: 1.4,

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_template_3/pages/home_page.dart';
+import 'package:flutter_template_3/pages/dashboard/dashboard_page.dart';
+import 'package:flutter_template_3/pages/login/login_page.dart';
 import 'package:get/get.dart';
 
 class SplashPage extends StatefulWidget {
-  static const String routeName = '/';
+  static const String routeName = '/splash';
 
   @override
   _SplashPageState createState() => _SplashPageState();
@@ -14,30 +15,22 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       // if (SharedPreferenceHelper.accessToken == null)
       //   Get.offAndToNamed(LoginPage.routeName);
       // else
-
-      // Get.offAndToNamed(DashboardPage.routeName);
+      Future.delayed(Duration(seconds: 3)).then((value) {
+        Get.offAndToNamed(DashboardPage.routeName);
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return RouterOutlet<GetDelegate, Object>.builder(
-      builder: (context, key, obj) {
-        return Scaffold(
-          body: GetRouterOutlet(
-            initialRoute: HomePage.routeName,
-            // delegate: Get.nestedKey(null),
-            anchorRoute: '/',
-            filterPages: (afterAnchor) {
-              return afterAnchor.take(1);
-            },
-          ),
-        );
-      },
+    return Scaffold(
+      body: Center(
+        child: Text("Splash"),
+      ),
     );
   }
 }

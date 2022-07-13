@@ -18,13 +18,10 @@ class _UserProfilePageState extends State<UserProfilePage> {
       appBar: AppBar(title: Text('User Profile')),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.snackbar(
-            "Title",
-            "Message",
-            showProgressIndicator: true,
-            maxWidth: 200,
-            snackPosition: SnackPosition.TOP,
-          );
+          Get.snackbar("Title", "Message",
+              showProgressIndicator: true,
+              maxWidth: 200,
+              snackPosition: SnackPosition.TOP);
         },
       ),
       body: Center(child: Text('PARAMS ${Get.parameters}')),

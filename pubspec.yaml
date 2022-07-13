@@ -9,8 +9,11 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.5
-  get: ^4.6.5
-  get_storage: ^2.0.3
+#  get: ^4.6.5
+#  get_storage: ^2.0.3
+  get:
+    git:
+      url: https://github.com/jonataslaw/getx
 
 dev_dependencies:
   flutter_test:
