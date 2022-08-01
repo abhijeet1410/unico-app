@@ -43,4 +43,7 @@ flutter pub run intl_utils:generate
 
 ### Step 6: Configure App Widgets
 - Update app_decorations.dart for textfield decorations
--
+
+## SPIDER CONFIG
+- flutter pub global activate spider
+- spider build
