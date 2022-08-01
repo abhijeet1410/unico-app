@@ -20,11 +20,10 @@ class _DashboardPageState extends State<DashboardPage> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return RouterOutlet.builder(
-      delegate: Get.nestedKey(DashboardPage.routeName),
-      builder: (context) {
-        final delegate = context.navigation;
-        final currentLocation = context.location;
+    return GetRouterOutlet.builder(
+      // routerDelegate: Get.nestedKey(DashboardPage.routeName),
+      builder: (context, delegate, currentRoute) {
+        final currentLocation = currentRoute?.location ?? "";
         print('CURRENT LOC $currentLocation');
         var currentIndex = 0;
         if (currentLocation.startsWith(UsersPage.routeName) == true) {
@@ -63,7 +62,6 @@ class _DashboardPageState extends State<DashboardPage> {
                     child: GetRouterOutlet(
                       anchorRoute: DashboardPage.routeName,
                       initialRoute: HomePage.routeName,
-                      delegate: Get.nestedKey(null),
                       filterPages: (afterAnchor) {
                         print(afterAnchor);
                         return afterAnchor.take(1);
