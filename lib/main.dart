@@ -1,11 +1,12 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_template_3/configs/theme_configs/theme_config.dart';
+import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:get/get.dart';
-import 'configs/page_routes.dart';
-import 'pages/splash/splash_page.dart';
-import 'utils/app_storage_helper.dart';
+import 'package:flutter_template_3/configs/page_routes.dart';
+import 'package:flutter_template_3/pages/splash/splash_page.dart';
+import 'package:flutter_template_3/utils/app_storage_helper.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -26,10 +27,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Template',
-      localizationsDelegates: [
-        // S.delegate,
-        // GlobalMaterialLocalizations.delegate,
-        // GlobalWidgetsLocalizations.delegate
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
       ],
       themeMode: ThemeMode.light,
       theme: AppThemes.lightTheme,

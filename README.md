@@ -28,7 +28,7 @@ Rename project name in following files/folders
 - Update font files in ./assets/fonts/ and add them to `pubspec.yaml`
 - Add assets or logo to ./assets/icons/
 - Add your assets to app_assets.dart
-- Update font family in environmant.dart
+- Update font family in theme_config.dart
 - Review flutter_launcher_icons configurations
 - Run below command
 ```
