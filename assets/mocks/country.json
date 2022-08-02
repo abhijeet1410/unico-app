@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "61f2edfe32f0430e07ed9373",
+    "stateAlias": "state",
+    "name": "India",
+    "createdBy": "61f135f61cb8954d2a92f9f0",
+    "createdAt": "2022-01-27T19:09:50.983Z",
+    "updatedAt": "2022-04-05T05:31:13.911Z",
+    "__v": 0,
+    "code": "91",
+    "flag": "https://kemnu-dev.s3.ap-south-1.amazonaws.com/2022/0208/1644331515742_1634761942923_india.jpg",
+    "isoCode": "IN",
+    "phoneNumberMaxLength": 10,
+    "phoneNumberMinLength": 10
+  },
+  {
+    "_id": "622133a1791f7840156ab8a3",
+    "stateAlias": "state",
+    "name": "Canada",
+    "code": "1",
+    "isoCode": "CAN",
+    "flag": "https://kemnu-dev.s3.ap-south-1.amazonaws.com/2022/0303/1646343072653_upload-1646343068504.png",
+    "phoneNumberMinLength": 10,
+    "phoneNumberMaxLength": 10,
+    "createdBy": "61f135f61cb8954d2a92f9f0",
+    "status": 1,
+    "createdAt": "2022-03-03T21:31:13.556Z",
+    "updatedAt": "2022-03-03T21:31:13.556Z",
+    "__v": 0
+  },
+  {
+    "_id": "624bcfbbf168490d5e4664cb",
+    "stateAlias": "state",
+    "name": "Australia",
+    "code": "61",
+    "isoCode": "AU",
+    "flag": "https://kemnu-dev.s3.ap-south-1.amazonaws.com/2022/0405/1649135546824_upload-1649135546544.png",
+    "phoneNumberMinLength": 10,
+    "phoneNumberMaxLength": 10,
+    "createdBy": "61f135f61cb8954d2a92f9f0",
+    "status": 1,
+    "createdAt": "2022-04-05T05:12:27.012Z",
+    "updatedAt": "2022-04-05T05:12:27.012Z",
+    "__v": 0
+  }
+]

@@ -44,6 +44,17 @@ flutter pub run intl_utils:generate
 ### Step 6: Configure App Widgets
 - Update app_decorations.dart for textfield decorations
 
-## SPIDER CONFIG
-- flutter pub global activate spider
-- spider build
+### STEP 7: Adding assets
+- ```cmd
+  flutter pub global activate spider
+  ```
+- Add asset inside assets/icons/ with proper name.
+- ```cmd
+  spider build
+  ```
+- Import the resource
+  ```dart
+  import 'package:flutter_template_3/configs/asset_configs/resources.dart';
+  ```
+- Use the asset as AppAssets.<your_asset_name>
+HOLA 😎😎

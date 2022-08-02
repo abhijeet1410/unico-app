@@ -6,8 +6,8 @@ mixin Environment {
       String.fromEnvironment("env", defaultValue: 'dev');
 
   static const String baseApiUrl = environment == 'prod'
-      ? 'https://api.ruchi.smarttersstudio.in'
-      : 'https://api.ruchi.smarttersstudio.in';
+      ? 'https://api.test.kemnu.com'
+      : 'https://api.test.kemnu.com';
 
   static const bool useMockData = false;
 }

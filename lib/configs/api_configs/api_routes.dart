@@ -1,3 +1,3 @@
 mixin AppApiRoutes {
-  static const user = "/v1/user";
+  static const country = "/v1/country";
 }

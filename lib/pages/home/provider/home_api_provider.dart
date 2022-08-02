@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 ///
 class HomeApiProvider extends BaseProvider {
   Future<List<City>> getCountries() async {
-    final res = await get<List<City>>(AppApiRoutes.user);
+    final res = await get<List<City>>(AppApiRoutes.country);
     if (res.hasError) {
       return Future.error(res.statusText!);
     } else {
@@ -19,12 +19,7 @@ class HomeApiProvider extends BaseProvider {
   @override
   void onInit() {
     super.onInit();
-    httpClient.defaultDecoder = (val) {
-      print("VALUE ${val.runtimeType}");
-      return List<City>.from(val["data"].map((x) => City.fromJson(x)));
-    };
+    httpClient.defaultDecoder =
+        (val) => List<City>.from(val.map((x) => City.fromJson(x)));
   }
-
-  @override
-  bool get isMock => true;
 }

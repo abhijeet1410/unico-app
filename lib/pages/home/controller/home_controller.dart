@@ -19,10 +19,5 @@ class HomeController extends GetxController with StateMixin<List<City>> {
 
   Future loadData() async {
     append(() => provider.getCountries);
-    try {
-      await provider.getCountries();
-    } catch (e, s) {
-      log("ERROR ", error: e, stackTrace: s);
-    }
   }
 }
