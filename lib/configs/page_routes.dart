@@ -1,5 +1,6 @@
 import 'package:flutter_template_3/pages/dashboard/dashboard_page.dart';
 import 'package:flutter_template_3/pages/feedback/feedback_page.dart';
+import 'package:flutter_template_3/pages/home/binding/home_binding.dart';
 import 'package:flutter_template_3/pages/home/home_page.dart';
 import 'package:flutter_template_3/pages/review/review_page.dart';
 import 'package:flutter_template_3/pages/splash/splash_page.dart';
@@ -33,7 +34,8 @@ class AppPageRoutes {
           GetPage(
             name: HomePage.routeName,
             title: 'Dashboard',
-            page: () => HomePage(),
+            page: () => const HomePage(),
+            binding: HomeBinding(),
             transition: Transition.noTransition,
           ),
           GetPage(

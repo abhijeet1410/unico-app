@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_template_3/models/city.dart';
 import 'package:flutter_template_3/pages/home/provider/home_api_provider.dart';
 import 'package:get/get.dart';
@@ -17,5 +19,10 @@ class HomeController extends GetxController with StateMixin<List<City>> {
 
   Future loadData() async {
     append(() => provider.getCountries);
+    try {
+      await provider.getCountries();
+    } catch (e, s) {
+      log("ERROR ", error: e, stackTrace: s);
+    }
   }
 }

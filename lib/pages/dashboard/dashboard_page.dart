@@ -21,7 +21,8 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return GetRouterOutlet.builder(
-      // routerDelegate: Get.nestedKey(DashboardPage.routeName),
+      // key: Get.nestedKey(DashboardPage.routeName),
+      routerDelegate: GetDelegate(),
       builder: (context, delegate, currentRoute) {
         final currentLocation = currentRoute?.location ?? "";
         print('CURRENT LOC $currentLocation');
@@ -45,7 +46,10 @@ class _DashboardPageState extends State<DashboardPage> {
             drawer: Responsive.isMobile(context)
                 ? SideMenu(
                     currentIndex: currentIndex,
-                    onSelect: (value) => _onSelect(value, delegate))
+                    onSelect: (value) {
+                      _onSelect(value, delegate);
+                      Get.back();
+                    })
                 : null,
             appBar: AppBar(
               title: Text('Dashboard'),
@@ -63,7 +67,6 @@ class _DashboardPageState extends State<DashboardPage> {
                       anchorRoute: DashboardPage.routeName,
                       initialRoute: HomePage.routeName,
                       filterPages: (afterAnchor) {
-                        print(afterAnchor);
                         return afterAnchor.take(1);
                       },
                     ),

@@ -17,14 +17,18 @@ FutureOr<dynamic> responseInterceptor(
   return response;
 }
 
-void handleErrorStatus(Response response) {
+dynamic handleErrorStatus(Response response) {
   switch (response.statusCode) {
-    case 400:
-      // final message = ErrorResponse.fromJson(response.body);
-      // CommonWidget.toast(message.error);
-      break;
+    case 200:
+    case 201:
+    case 202:
+      var responseJson = response.body.toString();
+      return responseJson;
+    case 500:
+      throw "Server Error pls retry later";
+    case 403:
+      throw 'Error occurred pls check internet and retry.';
     default:
+      throw 'Error occurred retry';
   }
-
-  return;
 }
