@@ -7,19 +7,21 @@ import '../app_loader.dart';
 /// Created by Sunil Kumar from Boiler plate
 ///
 class AppOutlineButton extends StatefulWidget {
-  const AppOutlineButton(
-      {required this.child,
-      Key? key,
-      this.onPressed,
-      this.height,
-      this.width,
-      this.color,
-      this.shape,
-      this.padding,
-      this.textStyle})
-      : super(key: key);
+  const AppOutlineButton({
+    required this.child,
+    Key? key,
+    this.onPressed,
+    this.height,
+    this.width,
+    this.color,
+    this.shape,
+    this.padding,
+    this.textStyle,
+    this.borderSide,
+  }) : super(key: key);
 
-  final ShapeBorder? shape;
+  final OutlinedBorder? shape;
+  final BorderSide? borderSide;
   final Widget child;
   final VoidCallback? onPressed;
   final double? height, width;
@@ -53,38 +55,16 @@ class AppOutlineButtonState extends State<AppOutlineButton> {
         ? AppProgress(color: widget.color ?? theme.primaryColor)
         : OutlinedButton(
             onPressed: widget.onPressed,
-            // style: ButtonStyle(
-            //   padding: MaterialStateProperty.all(
-            //     widget.padding ??
-            //         const EdgeInsets.symmetric(vertical: 14, horizontal: 48),
-            //   ),
-            //   textStyle: MaterialStateProperty.resolveWith(
-            //       (Set<MaterialState> states) {
-            //     if (states.contains(MaterialState.disabled))
-            //       return TextStyle(color: Colors.grey.shade500);
-
-            //     return TextStyle(color: AppColors.brightPrimary);
-            //   }),
-            //   foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-            //     (Set<MaterialState> states) {
-            //       if (states.contains(MaterialState.pressed))
-            //         return AppColors.brightPrimary.shade800;
-            //       else if (states.contains(MaterialState.disabled))
-            //         return Colors.grey.shade500;
-            //         return AppColors.brightPrimary;
-            //     },
-            //   ),
-            // ),
             style: OutlinedButton.styleFrom(
-              primary: theme.primaryColor,
+              primary: widget.color ?? theme.primaryColor,
+              shape: widget.shape,
+              side: widget.borderSide,
               padding: widget.padding ??
                   const EdgeInsets.symmetric(vertical: 14, horizontal: 48),
               textStyle: widget.textStyle ??
-                  TextStyle(
+                  const TextStyle(
                       fontSize: 18,
                       fontFamily: AppThemes.fontFamily,
-                      letterSpacing: 1.4,
-                      color: Colors.white,
                       fontWeight: FontWeight.w500),
             ),
             child: widget.child);
