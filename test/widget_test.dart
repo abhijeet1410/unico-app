@@ -6,11 +6,24 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_template_3/app/my_app.dart';
+import 'package:flutter_template_3/flavors/build_config.dart';
+import 'package:flutter_template_3/flavors/env_config.dart';
+import 'package:flutter_template_3/flavors/environment.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_template_3/main.dart';
-
 void main() {
+  EnvConfig devConfig = EnvConfig(
+    appName: "Flutter Template Dev",
+    baseUrl: "https://api.test.kemnu.com",
+    useMockData: true,
+  );
+
+  BuildConfig.instantiate(
+    envType: Environment.DEVELOPMENT,
+    envConfig: devConfig,
+  );
+
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/configs/theme_configs/theme_config.dart';
-import 'package:flutter_template_3/widgets/app_buttons/app_circle_button.dart';
-import 'package:flutter_template_3/widgets/app_buttons/app_outline_button.dart';
-import 'package:flutter_template_3/widgets/app_buttons/app_primary_button.dart';
+import 'package:flutter_template_3/app/core/values/app_theme.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import 'buttons.dart';

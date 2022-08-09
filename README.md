@@ -54,7 +54,7 @@ flutter pub run intl_utils:generate
   ```
 - Import the resource
   ```dart
-  import 'package:flutter_template_3/configs/asset_configs/resources.dart';
+  import 'package:flutter_template_3/app/core/asset/resources.dart';
   ```
 - Use the asset as AppAssets.<your_asset_name>
 HOLA 😎😎
