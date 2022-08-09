@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/values/app_theme.dart';
+import 'package:flutter_template_3/app/core/theme/app_theme.dart';
 import '../app_loader.dart';
 
 ///

@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_template_3/app/core/values/app_theme.dart';
+import 'package:flutter_template_3/app/core/theme/app_theme.dart';
 
 Future<bool?> showAppAlertDialog(
     {String title = '',

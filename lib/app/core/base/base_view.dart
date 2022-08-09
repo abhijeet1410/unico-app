@@ -7,7 +7,7 @@ import 'package:logger/logger.dart';
 
 import '/app/core/base/base_controller.dart';
 import '/app/core/model/page_state.dart';
-import '/app/core/values/app_colors.dart';
+import '../theme/app_colors.dart';
 import '/flavors/build_config.dart';
 
 abstract class BaseView<Controller extends BaseController>

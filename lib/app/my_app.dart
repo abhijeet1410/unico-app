@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_template_3/app/bindings/initial_binding.dart';
-import 'package:flutter_template_3/app/core/values/app_theme.dart';
+import 'package:flutter_template_3/app/core/theme/app_theme.dart';
 import 'package:flutter_template_3/app/modules/splash/splash_page.dart';
 import 'package:flutter_template_3/app/route/app_page_routes.dart';
 import 'package:flutter_template_3/generated/l10n.dart';
