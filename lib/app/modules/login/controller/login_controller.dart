@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
- import 'package:get/get.dart';
+import 'package:get/get.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -67,7 +67,7 @@ class LoginController extends GetxController {
       buttonKey.currentState?.showLoader();
 
       Future.delayed(Duration(seconds: 3)).then((value) {
-         buttonKey.currentState?.hideLoader();
+        buttonKey.currentState?.hideLoader();
         Get.offAllNamed(DashboardPage.routeName);
       });
       // buttonKey.currentState?.showLoader();

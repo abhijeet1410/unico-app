@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_template_3/app/core/widget/app_loader.dart';
- import 'package:fluttertoast/fluttertoast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
 import '/app/core/base/base_controller.dart';
 import '/app/core/model/page_state.dart';
 import '/app/core/values/app_colors.dart';
- import '/flavors/build_config.dart';
+import '/flavors/build_config.dart';
 
 abstract class BaseView<Controller extends BaseController>
     extends GetView<Controller> {

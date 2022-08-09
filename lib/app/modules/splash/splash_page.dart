@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
- import 'package:get/get.dart';
+import 'package:get/get.dart';
 
 class SplashPage extends StatefulWidget {
   static const String routeName = '/splash';

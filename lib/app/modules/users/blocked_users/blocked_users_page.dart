@@ -8,7 +8,6 @@ class BlockedUsersPage extends StatefulWidget {
 }
 
 class _BlockedUsersPageState extends State<BlockedUsersPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

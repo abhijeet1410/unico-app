@@ -8,7 +8,6 @@ class UnverifiedUsersPage extends StatefulWidget {
 }
 
 class _UnverifiedUsersPageState extends State<UnverifiedUsersPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

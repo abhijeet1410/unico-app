@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/modules/feedback/feedback_page.dart';
- import 'package:flutter_template_3/app/modules/home/home_page.dart';
+import 'package:flutter_template_3/app/modules/home/home_page.dart';
 import 'package:flutter_template_3/app/modules/review/review_page.dart';
 import 'package:flutter_template_3/app/modules/users/all_users/users_page.dart';
 import 'package:flutter_template_3/app/modules/users/blocked_users/blocked_users_page.dart';
