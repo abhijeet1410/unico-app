@@ -29,7 +29,7 @@ dependencies:
   dio: ^4.0.6
   logger: ^1.1.0
   pretty_dio_logger: ^1.1.1
-
+  dartz: ^0.10.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -37,6 +37,7 @@ dev_dependencies:
   widgetbook: ^2.4.1
   build_runner:
   widgetbook_generator:
+  intl_utils:
 flutter:
   uses-material-design: true
   assets:
