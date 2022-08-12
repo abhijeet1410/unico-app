@@ -3,7 +3,7 @@ import 'package:flutter_template_3/app/core/utils/app_decorations.dart';
 import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
 import 'package:get/get.dart';
 
-import 'controller/login_controller.dart';
+import '../controller/login_controller.dart';
 
 class LoginPage extends StatefulWidget {
   static const String routeName = '/login';

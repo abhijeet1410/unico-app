@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_template_3/app/core/utils/snackbar_helper.dart';
+import 'package:flutter_template_3/app/core/widget/app_error_widget.dart';
 import 'package:flutter_template_3/app/core/widget/app_loader.dart';
+import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
 import '/app/core/base/base_controller.dart';
-import '/app/core/model/page_state.dart';
 import '../theme/app_colors.dart';
 import '/flavors/build_config.dart';
 
 abstract class BaseView<Controller extends BaseController>
     extends GetView<Controller> {
-  final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
-
-  // AppLocalizations get appLocalization => AppLocalizations.of(Get.context!)!;
+  S get appLocalization => S.of(Get.context!);
 
   final Logger logger = BuildConfig.instance.config.logger;
 
@@ -27,26 +27,16 @@ abstract class BaseView<Controller extends BaseController>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Stack(
-        children: [
-          annotatedRegion(context),
-          Obx(() => controller.pageState == PageState.LOADING
-              ? _showLoading()
-              : Container()),
-          Obx(() => controller.errorMessage.isNotEmpty
-              ? showErrorSnackBar(controller.errorMessage)
-              : Container()),
-          Container(),
-        ],
-      ),
-    );
+        onTap: FocusScope.of(context).unfocus,
+        child: controller.obx((state) => annotatedRegion(context),
+            onError: (e) => AppErrorWidget(
+                  title: e.toString(),
+                )));
   }
 
   Widget annotatedRegion(BuildContext context) {
     return AnnotatedRegion(
       value: const SystemUiOverlayStyle(
-        //Status bar color for android
-        // statusBarColor: statusBarColor(),
         statusBarIconBrightness: Brightness.dark,
       ),
       child: Material(
@@ -58,9 +48,6 @@ abstract class BaseView<Controller extends BaseController>
 
   Widget pageScaffold(BuildContext context) {
     return Scaffold(
-      //sets ios status bar color
-      // backgroundColor: pageBackgroundColor(),
-      key: globalKey,
       appBar: appBar(context),
       floatingActionButton: floatingActionButton(),
       body: pageContent(context),
@@ -75,28 +62,9 @@ abstract class BaseView<Controller extends BaseController>
     );
   }
 
-  Widget showErrorSnackBar(String message) {
-    // SnackBarHelper.show(message);
-    final snackBar = SnackBar(content: Text(message));
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      ScaffoldMessenger.of(Get.context!).showSnackBar(snackBar);
-    });
-
-    return Container();
-  }
-
   void showToast(String message) {
-    Fluttertoast.showToast(
-        msg: message, toastLength: Toast.LENGTH_SHORT, timeInSecForIosWeb: 1);
+    SnackBarHelper.show(message);
   }
-  //
-  // Color pageBackgroundColor() {
-  //   return AppColors.pageBackground;
-  // }
-  //
-  // Color statusBarColor() {
-  //   return AppColors.pageBackground;
-  // }
 
   Widget? floatingActionButton() {
     return null;

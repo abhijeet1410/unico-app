@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter_template_3/app/core/utils/snackbar_helper.dart';
 import 'package:flutter_template_3/app/network/exceptions/api_exception.dart';
 import 'package:flutter_template_3/app/network/exceptions/app_exception.dart';
 import 'package:flutter_template_3/app/network/exceptions/json_format_exception.dart';
@@ -11,57 +12,23 @@ import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
-import 'package:flutter_template_3/app/core/model/page_state.dart';
 import 'package:flutter_template_3/flavors/build_config.dart';
 
-abstract class BaseController extends GetxController {
+abstract class BaseController<T> extends SuperController<T> {
   final Logger logger = BuildConfig.instance.config.logger;
 
   S get appLocalization => S.of(Get.context!);
 
-  final logoutController = false.obs;
-
-  //Reload the page
-  final _refreshController = false.obs;
-
-  refreshPage(bool refresh) => _refreshController(refresh);
-
-  //Controls page state
-  final _pageSateController = PageState.DEFAULT.obs;
-
-  PageState get pageState => _pageSateController.value;
-
-  updatePageState(PageState state) => _pageSateController(state);
-
-  resetPageState() => _pageSateController(PageState.DEFAULT);
-
-  showLoading() => updatePageState(PageState.LOADING);
-
-  hideLoading() => resetPageState();
-
-  final _messageController = ''.obs;
-
-  String get message => _messageController.value;
-
-  showMessage(String msg) => _messageController(msg);
-
-  final _errorMessageController = ''.obs;
-
-  String get errorMessage => _errorMessageController.value;
-
-  showErrorMessage(String msg) {
-    _errorMessageController(msg);
+  void showError(String message) {
+    change(null, status: RxStatus.error(message));
   }
 
-  final _successMessageController = ''.obs;
+  void showErrorMessage(String message) {
+    SnackBarHelper.show(message);
+  }
 
-  String get successMessage => _messageController.value;
-
-  showSuccessMessage(String msg) => _successMessageController(msg);
-
-  // ignore: long-parameter-list
-  dynamic callDataService<T>(
-    Future<T> future, {
+  dynamic callDataService(
+    Future<T?> future, {
     Function(Exception exception)? onError,
     Function(T response)? onSuccess,
     Function? onStart,
@@ -69,14 +36,16 @@ abstract class BaseController extends GetxController {
   }) async {
     Exception? _exception;
 
-    onStart == null ? showLoading() : onStart();
+    onStart == null ? change(null, status: RxStatus.loading()) : onStart();
 
     try {
-      final T response = await future;
+      final T? response = await future;
 
-      if (onSuccess != null) onSuccess(response);
+      if (onSuccess != null && response != null) onSuccess(response);
 
-      onComplete == null ? hideLoading() : onComplete();
+      onComplete == null
+          ? change(response, status: RxStatus.success())
+          : onComplete();
 
       return response;
     } on ServiceUnavailableException catch (exception) {
@@ -107,16 +76,12 @@ abstract class BaseController extends GetxController {
       logger.e("Controller>>>>>> error $error");
     }
 
-    if (onError != null) onError(_exception);
-
-    onComplete == null ? hideLoading() : onComplete();
+    onError?.call(_exception);
+    onComplete?.call();
   }
 
   @override
   void onClose() {
-    _messageController.close();
-    _refreshController.close();
-    _pageSateController.close();
     super.onClose();
   }
 }
