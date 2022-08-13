@@ -19,6 +19,8 @@ abstract class BaseController<T> extends SuperController<T> {
 
   S get appLocalization => S.of(Get.context!);
 
+  RxnString errorMessage = RxnString();
+
   void showError(String message) {
     change(null, status: RxStatus.error(message));
   }

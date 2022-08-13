@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_template_3/app/core/asset/resources.dart';
 import 'package:flutter_template_3/app/core/utils/snackbar_helper.dart';
 import 'package:flutter_template_3/app/core/widget/app_buttons/app_circle_button.dart';
 import 'package:flutter_template_3/app/core/widget/app_buttons/app_outline_button.dart';
@@ -59,8 +61,7 @@ WidgetbookComponent buttonsBook() {
               },
               color: Colors.red,
               size: const Size.square(80),
-              child: Image.network(
-                  "https://gitlab.com/uploads/-/system/user/avatar/8964701/avatar.png?width=96"),
+              child: SvgPicture.asset(AppAssets.userPlaceholder),
             ),
           );
         },
