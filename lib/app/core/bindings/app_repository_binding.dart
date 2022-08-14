@@ -1,3 +1,4 @@
+import 'package:flutter_template_3/app/modules/home/domain/repositories/home_repository.dart';
 import 'package:flutter_template_3/app/modules/login/domain/repositories/login_repo.dart';
 
 ///
@@ -6,4 +7,5 @@ import 'package:flutter_template_3/app/modules/login/domain/repositories/login_r
 ///
 abstract class AppRepositoryBinding {
   LoginRepository getLoginRepo();
+  HomeRepository getHomeRepo();
 }

@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
- import 'package:flutter_template_3/app/core/utils/snackbar_helper.dart';
+import 'package:flutter_template_3/app/core/utils/snackbar_helper.dart';
 import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
@@ -66,34 +66,12 @@ class LoginController extends GetxController {
                 timeZoneOffset: "+5.30"));
         Get.find<PreferenceManager>().storeAccessToken(res.accessToken!);
         Get.find<UserController>().updateUser(res.user);
-        print("LOGIN SUCCESS ${Get.find<PreferenceManager>().accessToken}");
         Get.offAllNamed(DashboardPage.routeName);
       } catch (e, s) {
-        log("LOGIN ERROR ${e}", stackTrace: s);
         SnackBarHelper.show(e.toString());
+      } finally {
+        buttonKey.currentState?.hideLoader();
       }
-      buttonKey.currentState?.hideLoader();
-      // Future.delayed(Duration(seconds: 3)).then((value) {
-
-      // Get.offAllNamed(DashboardPage.routeName);
-      // });
-      // buttonKey.currentState?.showLoader();
-      // AuthHelper.userLoginWithEmailOrPhone(_emailId, _password)
-      //     .then((response) {})
-      //     .catchError((err, s) {
-      //   log('$err $s');
-      //   if (err is RestError) {
-      //     if (err.code == 425) {
-      //       SnackBarHelper.show('New User', 'Please sign up to continue');
-      //       Get.toNamed(RegisterPage.routeName,
-      //           arguments: {"email": _emailId, "password": _password});
-      //     } else {
-      //       SnackBarHelper.show('Error', '$err');
-      //     }
-      //   } else {
-      //     SnackBarHelper.show('Error', '$err');
-      //   }
-      // }).whenComplete(() => {buttonKey.currentState?.hideLoader()});
     }
   }
 

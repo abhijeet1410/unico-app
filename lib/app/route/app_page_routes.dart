@@ -1,8 +1,7 @@
 import 'package:flutter_template_3/app/core/middlewares/auth_check_middleware.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
 import 'package:flutter_template_3/app/modules/feedback/feedback_page.dart';
-import 'package:flutter_template_3/app/modules/home/binding/home_binding.dart';
-import 'package:flutter_template_3/app/modules/home/home_page.dart';
+import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
 import 'package:flutter_template_3/app/modules/onboarding/presentation/onboarding_page.dart';
 import 'package:flutter_template_3/app/modules/review/review_page.dart';
@@ -45,7 +44,6 @@ class AppPageRoutes {
             name: HomePage.routeName,
             title: 'Dashboard',
             page: () => const HomePage(),
-            binding: HomeBinding(),
             transition: Transition.noTransition,
           ),
           GetPage(

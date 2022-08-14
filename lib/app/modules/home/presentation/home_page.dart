@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/core/widget/app_error_widget.dart';
-import 'package:flutter_template_3/app/modules/home/controller/home_controller.dart';
+import 'package:flutter_template_3/app/modules/home/presentation/controller/home_controller.dart';
 import 'package:get/get.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -10,8 +10,6 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    const content = "  KUMARSUNIL17";
     const divider = Divider();
 
     return Scaffold(
@@ -21,7 +19,7 @@ class HomePage extends GetView<HomeController> {
                   child: ListView.separated(
                       itemBuilder: (context, index) {
                         return ListTile(
-                          title: Text(state?[index].name ?? "DEMo"),
+                          title: Text(state?[index].name ?? "Demo"),
                         );
                       },
                       separatorBuilder: (ctx, index) => divider,
