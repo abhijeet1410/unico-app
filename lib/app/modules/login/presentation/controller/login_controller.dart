@@ -1,6 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+ import 'package:flutter_template_3/app/core/utils/snackbar_helper.dart';
 import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
+import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
+import 'package:flutter_template_3/app/modules/login/data/models/login_request_model.dart';
+import 'package:flutter_template_3/app/modules/login/domain/usecases/login_with_email_password_usecase.dart';
+import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
+import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:get/get.dart';
 
 ///
@@ -28,25 +36,8 @@ class LoginController extends GetxController {
     super.dispose();
   }
 
-  String? emailValidator(String? value, BuildContext context) {
-    if (value == null || value.trim().isEmpty) {
-      return '*required';
-    } else {
-      if (!GetUtils.isEmail(value.trim())) {
-        return 'Not a valid email id.';
-      }
-    }
-  }
-
   void onEmailSaved(String? newValue) {
     _emailId = newValue!.trim();
-  }
-
-  String? passwordValidator(String? value) {
-    if (value == null || value.trim().isEmpty) {
-      return '*required';
-    }
-    return null;
   }
 
   void onPasswordSaved(String? newValue) {
@@ -57,7 +48,7 @@ class LoginController extends GetxController {
     isObscure.value = !(isObscure.value);
   }
 
-  void loginEmailAddress() {
+  void loginEmailAddress() async {
     final state = formKey.currentState;
     if (state == null) return;
     if (!state.validate()) {
@@ -65,11 +56,27 @@ class LoginController extends GetxController {
     } else {
       state.save();
       buttonKey.currentState?.showLoader();
-
-      Future.delayed(Duration(seconds: 3)).then((value) {
-        buttonKey.currentState?.hideLoader();
+      try {
+        final res = await Get.find<LoginWithEmailPasswordUseCase>().call(
+            LoginRequestModel(
+                action: "authentication",
+                locale: "en",
+                email: _emailId,
+                password: _password,
+                timeZoneOffset: "+5.30"));
+        Get.find<PreferenceManager>().storeAccessToken(res.accessToken!);
+        Get.find<UserController>().updateUser(res.user);
+        print("LOGIN SUCCESS ${Get.find<PreferenceManager>().accessToken}");
         Get.offAllNamed(DashboardPage.routeName);
-      });
+      } catch (e, s) {
+        log("LOGIN ERROR ${e}", stackTrace: s);
+        SnackBarHelper.show(e.toString());
+      }
+      buttonKey.currentState?.hideLoader();
+      // Future.delayed(Duration(seconds: 3)).then((value) {
+
+      // Get.offAllNamed(DashboardPage.routeName);
+      // });
       // buttonKey.currentState?.showLoader();
       // AuthHelper.userLoginWithEmailOrPhone(_emailId, _password)
       //     .then((response) {})

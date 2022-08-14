@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
+import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
 import 'package:get/get.dart';
 
 class SplashPage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _SplashPageState extends State<SplashPage> {
       //   Get.offAndToNamed(LoginPage.routeName);
       // else
       Future.delayed(Duration(seconds: 3)).then((value) {
-        Get.offAndToNamed(DashboardPage.routeName);
+        Get.offAndToNamed(LoginPage.routeName);
       });
     });
   }

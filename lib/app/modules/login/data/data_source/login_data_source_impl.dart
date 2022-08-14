@@ -1,6 +1,7 @@
-import 'package:flutter_template_3/app/core/models/user.dart';
+import 'package:flutter_template_3/app/modules/login/data/models/login_request_model.dart';
 import 'package:flutter_template_3/app/modules/login/data/data_source/login_data_source.dart';
 import 'package:flutter_template_3/app/route/api_routes.dart';
+import 'package:get/get.dart';
 
 ///
 /// Created by Sunil Kumar
@@ -8,43 +9,79 @@ import 'package:flutter_template_3/app/route/api_routes.dart';
 ///
 class LoginDataSourceImpl extends LoginDataSource {
   @override
-  Future<UserResponse> loginWithApple() async {
-    throw UnimplementedError();
+  Future<Response> loginWithApple(LoginRequestModel loginData,
+      {String? mockPath}) {
+    return post(
+      AppApiRoutes.loginApple,
+      loginData.toJson(),
+      mockPath: mockPath,
+      authRequired: false,
+    );
   }
 
   @override
-  Future<UserResponse> loginWithEmailPassword() {
-    // TODO: implement loginWithEmailPassword
-    throw UnimplementedError();
+  Future<Response> loginWithEmailPassword(LoginRequestModel loginData,
+      {String? mockPath}) {
+    return post(
+      AppApiRoutes.loginEmailPassword,
+      loginData.toJson(),
+      mockPath: mockPath,
+      authRequired: false,
+    );
   }
 
   @override
-  Future<UserResponse> loginWithFacebook() {
-    // TODO: implement loginWithFacebook
-    throw UnimplementedError();
+  Future<Response> loginWithFacebook(LoginRequestModel loginData,
+      {String? mockPath}) {
+    return post(
+      AppApiRoutes.loginFacebook,
+      loginData.toJson(),
+      mockPath: mockPath,
+      authRequired: false,
+    );
   }
 
   @override
-  Future<UserResponse> loginWithGoogle() {
-    // TODO: implement loginWithGoogle
-    throw UnimplementedError();
+  Future<Response> loginWithGoogle(LoginRequestModel loginData,
+      {String? mockPath}) {
+    return post(
+      AppApiRoutes.loginGoogle,
+      loginData.toJson(),
+      mockPath: mockPath,
+      authRequired: false,
+    );
   }
 
   @override
-  Future<UserResponse> loginWithPhonePassword() {
-    // TODO: implement loginWithPhonePassword
-    throw UnimplementedError();
+  Future<Response> loginWithPhonePassword(LoginRequestModel loginData,
+      {String? mockPath}) {
+    return post(
+      AppApiRoutes.loginEmailPassword,
+      loginData.toJson(),
+      mockPath: mockPath,
+      authRequired: false,
+    );
   }
 
   @override
-  Future<UserResponse> sendEmailOTP() {
-    // TODO: implement sendEmailOTP
-    throw UnimplementedError();
+  Future<Response> sendEmailOTP(LoginRequestModel loginData,
+      {String? mockPath}) {
+    return post(
+      AppApiRoutes.loginEmailOTP,
+      loginData.toJson(),
+      mockPath: mockPath,
+      authRequired: false,
+    );
   }
 
   @override
-  Future<UserResponse> sendPhoneOTP() {
-    // TODO: implement sendPhoneOTP
-    throw UnimplementedError();
+  Future<Response> sendPhoneOTP(LoginRequestModel loginData,
+      {String? mockPath}) {
+    return post(
+      AppApiRoutes.loginPhoneOTP,
+      loginData.toJson(),
+      mockPath: mockPath,
+      authRequired: false,
+    );
   }
 }

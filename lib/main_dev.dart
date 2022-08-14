@@ -11,7 +11,7 @@ void main() {
   EnvConfig devConfig = EnvConfig(
       appName: "Flutter Template Dev",
       baseUrl: "https://api.ausicare.smarttersstudio.com",
-      useMockData: false,
+      useMockData: true,
       allowAutoSignedCert: true);
 
   BuildConfig.instantiate(

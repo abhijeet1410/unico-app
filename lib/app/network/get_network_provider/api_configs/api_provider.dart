@@ -18,19 +18,17 @@ import 'interceptors/response_interceptor.dart';
 class BaseProvider extends GetConnect implements GetxService {
   final EnvConfig _envConfig = BuildConfig.instance.config;
 
-  bool? isMock;
   bool? authRequired;
 
   static const _jsonDir = 'assets/mocks/';
   static const _jsonExtension = '.json';
+
   @override
   bool get allowAutoSignedCert => _envConfig.allowAutoSignedCert;
 
   @override
   void onInit() {
     super.onInit();
-    httpClient.baseUrl = _envConfig.baseUrl;
-    if (authRequired == true) httpClient.addAuthenticator(authInterceptor);
     httpClient.addRequestModifier(requestInterceptor);
     // httpClient.addResponseModifier(responseInterceptor);
   }
@@ -42,10 +40,20 @@ class BaseProvider extends GetConnect implements GetxService {
       Map<String, String>? headers,
       Map<String, dynamic>? query,
       Decoder<T>? decoder,
-      Progress? uploadProgress}) async {
-    if (_envConfig.useMockData || isMock == true) {
+      Progress? uploadProgress,
+      String? mockPath,
+      bool authRequired = true,
+      String? baseUrl}) async {
+    httpClient.baseUrl = baseUrl ?? _envConfig.baseUrl;
+
+    if (_envConfig.useMockData && mockPath == null) {
+      throw ArgumentError("Please provide mock path in Mock Environment");
+    }
+    if (authRequired == true) httpClient.addAuthenticator(authInterceptor);
+
+    if (_envConfig.useMockData || mockPath != null) {
       try {
-        final mockData = await loadMockData<T>(url.split("/").last);
+        final mockData = await loadMockData<T>(mockPath!);
         return Future.value(Response(
             headers: headers,
             statusCode: 200,
@@ -82,12 +90,18 @@ class BaseProvider extends GetConnect implements GetxService {
       {Map<String, String>? headers,
       String? contentType,
       Map<String, dynamic>? query,
-      Decoder<T>? decoder}) async {
+      Decoder<T>? decoder,
+      String? mockPath,
+      bool authRequired = true,
+      String? baseUrl}) async {
     return request<T>(url, "get",
         headers: headers,
         decoder: decoder,
         query: query,
-        contentType: contentType);
+        contentType: contentType,
+        mockPath: mockPath,
+        authRequired: authRequired,
+        baseUrl: baseUrl);
   }
 
   @override
@@ -96,7 +110,10 @@ class BaseProvider extends GetConnect implements GetxService {
       Map<String, String>? headers,
       Map<String, dynamic>? query,
       Decoder<T>? decoder,
-      Progress? uploadProgress}) async {
+      Progress? uploadProgress,
+      String? mockPath,
+      bool authRequired = true,
+      String? baseUrl}) async {
     if (url == null) throw ArgumentError("URL is required");
 
     return request<T>(
@@ -108,6 +125,9 @@ class BaseProvider extends GetConnect implements GetxService {
       contentType: contentType,
       query: query,
       decoder: decoder,
+      baseUrl: baseUrl,
+      authRequired: authRequired,
+      mockPath: mockPath,
     );
   }
 
@@ -117,7 +137,10 @@ class BaseProvider extends GetConnect implements GetxService {
       Map<String, String>? headers,
       Map<String, dynamic>? query,
       Decoder<T>? decoder,
-      Progress? uploadProgress}) async {
+      Progress? uploadProgress,
+      String? mockPath,
+      bool authRequired = true,
+      String? baseUrl}) async {
     return request<T>(
       url,
       "put",
@@ -127,6 +150,9 @@ class BaseProvider extends GetConnect implements GetxService {
       contentType: contentType,
       query: query,
       decoder: decoder,
+      mockPath: mockPath,
+      authRequired: authRequired,
+      baseUrl: baseUrl,
     );
   }
 
@@ -136,7 +162,10 @@ class BaseProvider extends GetConnect implements GetxService {
       Map<String, String>? headers,
       Map<String, dynamic>? query,
       Decoder<T>? decoder,
-      Progress? uploadProgress}) async {
+      Progress? uploadProgress,
+      String? mockPath,
+      bool authRequired = true,
+      String? baseUrl}) async {
     return request<T>(
       url,
       "patch",
@@ -146,6 +175,9 @@ class BaseProvider extends GetConnect implements GetxService {
       contentType: contentType,
       query: query,
       decoder: decoder,
+      mockPath: mockPath,
+      baseUrl: baseUrl,
+      authRequired: authRequired,
     );
   }
 
@@ -154,7 +186,10 @@ class BaseProvider extends GetConnect implements GetxService {
       {Map<String, String>? headers,
       String? contentType,
       Map<String, dynamic>? query,
-      Decoder<T>? decoder}) async {
+      Decoder<T>? decoder,
+      String? mockPath,
+      bool authRequired = true,
+      String? baseUrl}) async {
     return request<T>(
       url,
       "delete",
@@ -162,6 +197,9 @@ class BaseProvider extends GetConnect implements GetxService {
       contentType: contentType,
       query: query,
       decoder: decoder,
+      mockPath: mockPath,
+      authRequired: authRequired,
+      baseUrl: baseUrl,
     );
   }
 

@@ -1,0 +1,16 @@
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJzdWIiOiI2MmIwOWU3YTZjMzFjMGMwNmJmNzdlZWQiLCJpYXQiOjE2NjAzOTcwMjYsImV4cCI6MTY2Mjk4OTAyNiwiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwianRpIjoiYjE1ZTNiNzgtMDk1My00ZmI1LWFkMTItZWQ5YjI4YzNlNDljIn0.U3wZxK4XyA8AjAVsaaipbhOYc3RF-rKL0VcPtYCtnVM",
+  "user": {
+    "_id": "62b09e7a6c31c0c06bf77eed",
+    "phone": "1234567890",
+    "status": 1,
+     "createdAt": "2022-06-20T16:21:14.505Z",
+    "updatedAt": "2022-06-21T05:46:08.164Z",
+    "dob": "2022-06-21T05:46:08.164Z",
+    "role": 1,
+    "avatar": "https://img.freepik.com/premium-photo/shot-high-iso-with-low-light-group-friend-toasting-with-wine_42667-12.jpg?w=400",
+    "email": "skmuduli17@gmail.com",
+    "name": "Sunil Kumar",
+    "bio": "Hehehehehehehe"
+  }
+}

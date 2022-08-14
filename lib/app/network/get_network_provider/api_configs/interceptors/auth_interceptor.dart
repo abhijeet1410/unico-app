@@ -12,7 +12,7 @@ FutureOr<Request> authInterceptor(Request request) async {
   final PreferenceManager preferenceManager = Get.find<PreferenceManager>();
   final String? accessToken = preferenceManager.accessToken;
   if (accessToken != null && accessToken.trim().isNotEmpty) {
-    request.headers['Authorization'] = "Bearer $accessToken";
+    request.headers['Authorization'] = accessToken;
   }
   return request;
 }

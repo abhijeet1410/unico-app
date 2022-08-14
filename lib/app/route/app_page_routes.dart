@@ -1,7 +1,10 @@
+import 'package:flutter_template_3/app/core/middlewares/auth_check_middleware.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
 import 'package:flutter_template_3/app/modules/feedback/feedback_page.dart';
 import 'package:flutter_template_3/app/modules/home/binding/home_binding.dart';
 import 'package:flutter_template_3/app/modules/home/home_page.dart';
+import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
+import 'package:flutter_template_3/app/modules/onboarding/presentation/onboarding_page.dart';
 import 'package:flutter_template_3/app/modules/review/review_page.dart';
 import 'package:flutter_template_3/app/modules/splash/splash_page.dart';
 import 'package:flutter_template_3/app/modules/users/all_users/users_page.dart';
@@ -17,8 +20,15 @@ class AppPageRoutes {
     GetPage(
       name: SplashPage.routeName,
       page: () => SplashPage(),
-      participatesInRootNavigator: true,
-      preventDuplicates: true,
+    ),
+    GetPage(
+      name: LoginPage.routeName,
+      middlewares: [NoAuthCheckMiddleware()],
+      page: () => const LoginPage(),
+    ),
+    GetPage(
+      name: OnBoardingPage.routeName,
+      page: () => const OnBoardingPage(),
     ),
     GetPage(
         name: DashboardPage.routeName,
@@ -26,7 +36,7 @@ class AppPageRoutes {
         preventDuplicates: true,
         transition: Transition.noTransition,
         middlewares: [
-          // RouterOutletContainerMiddleWare('/'),
+          AuthCheckMiddleware(),
         ],
         page: () => DashboardPage(),
         title: null,
