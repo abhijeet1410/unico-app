@@ -1,6 +1,8 @@
 import 'package:flutter_template_3/app/core/bindings/app_repository_binding.dart';
 import 'package:flutter_template_3/app/core/bindings/mock_binding.dart';
 import 'package:flutter_template_3/app/core/bindings/prod_binding.dart';
+import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification.dart';
+import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification_impl.dart';
 import 'package:flutter_template_3/app/modules/home/data/data_source/home_data_source.dart';
 import 'package:flutter_template_3/app/modules/home/data/data_source/home_data_source_impl.dart';
 import 'package:flutter_template_3/app/modules/home/domain/usecases/home_countries_usecase.dart';
@@ -22,6 +24,9 @@ class InitialBinding implements Bindings {
     /// Global dependencies
     LocalSourceBindings().dependencies();
     Get.put<UserController>(UserController());
+    Get.put<AppNotificationManager>(AppNotificationManagerImpl())
+        .configureInAppNotification(
+            reqAlert: true, reqBadge: true, reqSound: true);
 
     /// Data sources
     Get.lazyPut<LoginDataSource>(() => LoginDataSourceImpl());

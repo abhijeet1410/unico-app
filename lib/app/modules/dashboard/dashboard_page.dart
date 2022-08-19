@@ -25,7 +25,6 @@ class _DashboardPageState extends State<DashboardPage> {
       routerDelegate: GetDelegate(),
       builder: (context, delegate, currentRoute) {
         final currentLocation = currentRoute?.location ?? "";
-        print('CURRENT LOC $currentLocation');
         var currentIndex = 0;
         if (currentLocation.startsWith(UsersPage.routeName) == true) {
           currentIndex = 1;

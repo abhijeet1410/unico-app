@@ -19,5 +19,5 @@ void main() {
     envConfig: devConfig,
   );
 
-  runApp(const MyApp());
+  mainDelegate();
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification_impl.dart';
 import 'package:flutter_template_3/app/core/widget/app_error_widget.dart';
 import 'package:flutter_template_3/app/modules/home/presentation/controller/home_controller.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,12 @@ class HomePage extends GetView<HomeController> {
     const divider = Divider();
 
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            // Get.find<AppNotificationManagerImpl>().showNotification(data);
+          },
+          child: const Icon(Icons.notification_important),
+        ),
         body: controller.obx(
             (state) => RefreshIndicator(
                   onRefresh: controller.loadData,

@@ -1,11 +1,39 @@
+import 'dart:async';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_template_3/app/core/bindings/initial_binding.dart';
- import 'package:flutter_template_3/app/core/theme/app_theme.dart';
+import 'package:flutter_template_3/app/core/theme/app_theme.dart';
 import 'package:flutter_template_3/app/modules/splash/splash_page.dart';
 import 'package:flutter_template_3/app/route/app_page_routes.dart';
+import 'package:flutter_template_3/firebase_options.dart';
 import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:get/get.dart';
+
+void mainDelegate() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+  FirebaseCrashlytics.instance;
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ),
+  );
+
+  runZonedGuarded(() async {
+    runApp(const MyApp());
+  }, (object, stackTrace) {
+    FirebaseCrashlytics.instance.recordError(object, stackTrace);
+  });
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
