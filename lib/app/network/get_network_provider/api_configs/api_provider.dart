@@ -2,13 +2,10 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/services.dart';
 import 'package:flutter_template_3/app/network/exceptions/json_format_exception.dart';
+import 'package:flutter_template_3/app/network/get_network_provider/api_configs/api.dart';
 import 'package:flutter_template_3/flavors/build_config.dart';
 import 'package:flutter_template_3/flavors/env_config.dart';
 import 'package:get/get.dart';
-
-import 'interceptors/auth_interceptor.dart';
-import 'interceptors/request_interceptor.dart';
-import 'interceptors/response_interceptor.dart';
 
 ///
 /// Created by Sunil Kumar
@@ -45,6 +42,8 @@ class BaseProvider extends GetConnect implements GetxService {
       bool authRequired = true,
       String? baseUrl}) async {
     httpClient.baseUrl = baseUrl ?? _envConfig.baseUrl;
+    final logger = BuildConfig.instance.config.logger;
+    logger.i("NETWORK_CALL: $url $method $body $headers");
 
     if (_envConfig.useMockData && mockPath == null) {
       throw ArgumentError("Please provide mock path in Mock Environment");
@@ -72,11 +71,13 @@ class BaseProvider extends GetConnect implements GetxService {
             headers: headers,
             contentType: contentType,
             query: query,
+            body: body,
+            uploadProgress: uploadProgress,
             decoder: decoder);
 
         return handleErrorStatus(res);
       } catch (e, s) {
-        log("ERROR $e ${e.runtimeType}", stackTrace: s);
+        logger.e("NETWORK_ERROR", e, s);
         if (e is TypeError) {
           throw JsonFormatException("Unable to parse data.");
         }
