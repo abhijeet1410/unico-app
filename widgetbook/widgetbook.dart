@@ -18,49 +18,55 @@ class WidgetbookHotReload extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Widgetbook(
-      categories: [
-        WidgetbookCategory(
-          name: 'material',
-          widgets: [
-            WidgetbookComponent(
-              name: 'FAB',
-              useCases: [
-                WidgetbookUseCase(
-                  name: 'Icon',
-                  builder: (context) {
-                    return FloatingActionButton(
-                      onPressed: () {},
-                      child: const Icon(Icons.add),
-                    );
-                  },
+    return MaterialApp(
+      home: Builder(
+        builder: (context) => Widgetbook(
+          categories: [
+            WidgetbookCategory(
+              name: 'material',
+              widgets: [
+                WidgetbookComponent(
+                  name: 'FAB',
+                  useCases: [
+                    WidgetbookUseCase(
+                      name: 'Icon',
+                      builder: (context) {
+                        return FloatingActionButton(
+                          onPressed: () {},
+                          child: const Icon(Icons.add),
+                        );
+                      },
+                    ),
+                  ],
                 ),
+                buttonsBook(),
+                alertDialogBook(),
+                collapsableTextBook(),
+                photoChooserBook(),
+                responsiveBook(),
+                userCircleAvatarBook(),
+                errorWidgetBook(),
+                loaderBook(),
+                networkImageBook(),
+                sheetBook()
               ],
             ),
-            buttonsBook(),
-            alertDialogBook(),
-            collapsableTextBook(),
-            photoChooserBook(),
-            responsiveBook(),
-            userCircleAvatarBook(),
-            errorWidgetBook(),
-            loaderBook(),
-            networkImageBook(),
-            sheetBook()
+          ],
+          appInfo: AppInfo(
+            name: 'Flutter Template',
+          ),
+          themes: [
+            WidgetbookTheme(
+              name: 'Light',
+              data: AppThemes.lightTheme,
+            ),
+            WidgetbookTheme(
+              name: 'Dark',
+              data: AppThemes.darkTheme,
+            ),
           ],
         ),
-      ],
-      appInfo: AppInfo(name: 'Flutter Template'),
-      themes: [
-        WidgetbookTheme(
-          name: 'Light',
-          data: AppThemes.lightTheme,
-        ),
-        WidgetbookTheme(
-          name: 'Dark',
-          data: AppThemes.darkTheme,
-        ),
-      ],
+      ),
     );
   }
 }

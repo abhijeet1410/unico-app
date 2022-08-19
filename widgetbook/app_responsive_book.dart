@@ -14,10 +14,22 @@ WidgetbookComponent responsiveBook() {
       WidgetbookUseCase(
         name: 'App responsive',
         builder: (context) {
-          return const Center(
-              child: Responsive(
-                  mobile: Text("Mobile screen"),
-                  desktop: Text("Desktop screen")));
+          return Center(
+            child: Responsive(
+              mobile: Container(
+                  color: Colors.red,
+                  alignment: Alignment.center,
+                  child: const Text("Mobile screen")),
+              desktop: Container(
+                  color: Colors.blue,
+                  alignment: Alignment.center,
+                  child: const Text("Desktop screen")),
+              tablet: Container(
+                  color: Colors.yellow,
+                  alignment: Alignment.center,
+                  child: const Text("Tablet screen")),
+            ),
+          );
         },
       ),
     ],
