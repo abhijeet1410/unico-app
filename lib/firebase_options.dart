@@ -27,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -67,7 +64,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '24272398369',
     projectId: 'flutter-template-369aa',
     storageBucket: 'flutter-template-369aa.appspot.com',
-    iosClientId: '24272398369-747l8ad03hpremgmi08r4m4o6ndtcjjq.apps.googleusercontent.com',
+    iosClientId:
+        '24272398369-747l8ad03hpremgmi08r4m4o6ndtcjjq.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterTemplate3',
   );
 
@@ -77,7 +75,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '24272398369',
     projectId: 'flutter-template-369aa',
     storageBucket: 'flutter-template-369aa.appspot.com',
-    iosClientId: '24272398369-747l8ad03hpremgmi08r4m4o6ndtcjjq.apps.googleusercontent.com',
+    iosClientId:
+        '24272398369-747l8ad03hpremgmi08r4m4o6ndtcjjq.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterTemplate3',
   );
 }

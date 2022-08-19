@@ -20,20 +20,20 @@ mixin AppColors {
   });
   static const int _brightPrimaryValue = 0xFF00C6FB;
 
-  static const MaterialColor darkprimary =
-      MaterialColor(_darkprimaryPrimaryValue, <int, Color>{
+  static const MaterialColor darkPrimary =
+      MaterialColor(darkPrimaryPrimaryValue, <int, Color>{
     50: Color(0xFFFFE1E9),
     100: Color(0xFFFFB5C7),
     200: Color(0xFFFF84A2),
     300: Color(0xFFFF527C),
     400: Color(0xFFFF2D60),
-    500: Color(_darkprimaryPrimaryValue),
+    500: Color(darkPrimaryPrimaryValue),
     600: Color(0xFFFF073E),
     700: Color(0xFFFF0635),
     800: Color(0xFFFF042D),
     900: Color(0xFFFF021F),
   });
-  static const int _darkprimaryPrimaryValue = 0xFFFF0844;
+  static const int darkPrimaryPrimaryValue = 0xFFFF0844;
 }
 Color hexToColor(String hex) {
   assert(RegExp(r'^#([0-9a-fA-F]{6})|([0-9a-fA-F]{8})$').hasMatch(hex),

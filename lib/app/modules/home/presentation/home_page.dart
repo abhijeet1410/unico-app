@@ -16,7 +16,8 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // Get.find<AppNotificationManagerImpl>().showNotification(data);
+            Get.changeThemeMode(
+                Get.isDarkMode ? ThemeMode.light : ThemeMode.dark);
           },
           child: const Icon(Icons.notification_important),
         ),
