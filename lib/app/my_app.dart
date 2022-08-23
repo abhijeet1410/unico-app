@@ -18,8 +18,10 @@ void mainDelegate() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-  FirebaseCrashlytics.instance;
+  // if (!kIsWeb) {
+  //   await FirebaseCrashlytics.instance
+  //       .setCrashlyticsCollectionEnabled(!kDebugMode);
+  // }
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
   SystemChrome.setSystemUIOverlayStyle(

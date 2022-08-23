@@ -31,8 +31,12 @@ dependencies:
   logger: ^1.1.0
   pretty_dio_logger: ^1.1.1
   dartz: ^0.10.1
-  connectivity_plus: ^2.3.6+1
-
+#  connectivity_plus: ^2.3.6+1
+  permission_handler: ^10.0.0
+  package_info: ^2.0.2
+  google_sign_in: ^5.4.1
+  sign_in_with_apple: ^4.1.0
+  flutter_facebook_auth: ^4.4.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

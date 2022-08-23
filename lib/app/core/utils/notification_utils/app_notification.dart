@@ -24,13 +24,4 @@ abstract class AppNotificationManager {
   Future<void> showProgressNotification(NotificationDatum data);
   Future<void> showNotificationWithAttachment(NotificationDatum data);
   void onNotificationTapped(NotificationDatum data);
-
-  Future<String> downloadAndSaveFile(String url, String fileName) async {
-    final Directory directory = await getApplicationDocumentsDirectory();
-    final String filePath = '${directory.path}/$fileName';
-    final http.Response response = await http.get(Uri.parse(url));
-    final File file = File(filePath);
-    await file.writeAsBytes(response.bodyBytes);
-    return filePath;
-  }
 }

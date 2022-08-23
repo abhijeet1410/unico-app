@@ -5,6 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_template_3/app/core/theme/app_colors.dart';
+import 'package:flutter_template_3/app/core/utils/file_util.dart';
 import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification.dart';
 import 'package:flutter_template_3/app/modules/notification/data/models/notification_response.dart';
 import 'package:flutter_template_3/firebase_options.dart';
@@ -128,7 +129,7 @@ class AppNotificationManagerImpl extends AppNotificationManager {
 
   @override
   Future<void> showNotificationWithAttachment(NotificationDatum data) async {
-    final String bigPicturePath = await downloadAndSaveFile(
+    final String bigPicturePath = await AppFileUtil.downloadAndSaveImage(
         data.createdBy?.avatar ?? "https://via.placeholder.com/600x200",
         '${data.id}.jpg');
     final IOSNotificationDetails iOSPlatformChannelSpecifics =

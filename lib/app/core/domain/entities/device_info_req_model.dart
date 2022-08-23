@@ -3,27 +3,34 @@ class DeviceInfoReqModel {
       deviceManufacturer,
       deviceOsVersion,
       deviceType,
+      platform,
       deviceTimeZone,
+      deviceLocale,
       deviceToken,
       appVersion,
       deviceBrand;
 
   DeviceInfoReqModel(
-      this.deviceId,
+      {required this.deviceId,
+      required this.deviceType,
+      this.deviceTimeZone,
+      this.deviceLocale,
       this.deviceManufacturer,
       this.deviceOsVersion,
-      this.deviceType,
-      this.deviceTimeZone,
+      this.platform,
       this.deviceToken,
       this.appVersion,
-      this.deviceBrand);
+      this.deviceBrand});
 
   Map<String, dynamic> toJson() => {
         'deviceId': deviceId,
         'deviceManufacturer': deviceManufacturer,
         'deviceOSVersion': deviceOsVersion,
         'deviceTimezone': deviceTimeZone,
-        'deviceToken': deviceToken,
-        'deviceType': deviceType
+        'fcmId': deviceToken,
+        'deviceType': deviceType,
+        'platform': platform,
+        'deviceBrand': deviceBrand,
+        'deviceLocale': deviceLocale
       };
 }

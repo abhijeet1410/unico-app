@@ -1,6 +1,8 @@
 import 'package:flutter_template_3/app/core/bindings/app_repository_binding.dart';
 import 'package:flutter_template_3/app/core/bindings/mock_binding.dart';
 import 'package:flutter_template_3/app/core/bindings/prod_binding.dart';
+import 'package:flutter_template_3/app/core/device/DeviceInfoDataSource.dart';
+import 'package:flutter_template_3/app/core/device/DeviceInfoDataSourceImpl.dart';
 import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification.dart';
 import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification_impl.dart';
 import 'package:flutter_template_3/app/modules/home/data/data_source/home_data_source.dart';
@@ -27,6 +29,7 @@ class InitialBinding implements Bindings {
     Get.put<AppNotificationManager>(AppNotificationManagerImpl())
         .configureInAppNotification(
             reqAlert: true, reqBadge: true, reqSound: true);
+    Get.lazyPut<DeviceInfoDataSource>(() => DeviceInfoDataSourceImpl());
 
     /// Data sources
     Get.lazyPut<LoginDataSource>(() => LoginDataSourceImpl());
@@ -42,7 +45,7 @@ class InitialBinding implements Bindings {
     Get.lazyPut(() => HomeCountriesUseCase(getter.getHomeRepo()));
 
     /// Controllers
-    Get.lazyPut<LoginController>(() => LoginController());
+    Get.lazyPut<LoginController>(() => LoginController(), fenix: true);
     Get.lazyPut<HomeController>(() => HomeController());
   }
 }

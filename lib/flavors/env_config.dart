@@ -12,12 +12,14 @@ class EnvConfig {
   final bool useMockData;
   final bool allowAutoSignedCert;
   late final Logger logger;
+  late final String? googleClientId;
 
   EnvConfig(
       {required this.appName,
       required this.baseUrl,
       required this.useMockData,
-      this.allowAutoSignedCert = false}) {
+      this.allowAutoSignedCert = false,
+      this.googleClientId}) {
     logger = Logger(
       printer: PrettyPrinter(
           methodCount: AppValues.loggerMethodCount,
