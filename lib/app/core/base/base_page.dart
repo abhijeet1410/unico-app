@@ -6,8 +6,7 @@ import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 13-08-2022 10:40 AM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 abstract class BasePage extends StatefulWidget {

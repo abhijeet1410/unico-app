@@ -1,6 +1,8 @@
 import 'dart:convert';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
+
+///
+/// Created by Sunil Kumar from Boiler plate
+///
 
 UserResponse userResponseFromJson(String str) =>
     UserResponse.fromJson(json.decode(str));

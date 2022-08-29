@@ -11,12 +11,9 @@ import 'package:flutter_template_3/app/modules/forgot_password_otp/domain/usecas
 import 'package:flutter_template_3/app/modules/forgot_password_otp/presentation/controller/forgot_password_otp_controller.dart';
 import 'package:flutter_template_3/app/modules/home/data/data_source/home_data_source.dart';
 import 'package:flutter_template_3/app/modules/home/data/data_source/home_data_source_impl.dart';
-import 'package:flutter_template_3/app/modules/home/domain/usecases/home_countries_usecase.dart';
 import 'package:flutter_template_3/app/modules/home/presentation/controller/home_controller.dart';
 import 'package:flutter_template_3/app/modules/login/data/data_source/login_data_source.dart';
 import 'package:flutter_template_3/app/modules/login/data/data_source/login_data_source_impl.dart';
-import 'package:flutter_template_3/app/modules/login/data/repositories/mock_login_repo_impl.dart';
-import 'package:flutter_template_3/app/modules/login/domain/repositories/login_repo.dart';
 import 'package:flutter_template_3/app/modules/login/domain/usecases/login_with_phone_password_usecase.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/login_controller.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
@@ -29,6 +26,10 @@ import 'package:flutter_template_3/app/modules/update_password/domain/usecases/u
 import 'package:flutter_template_3/app/modules/update_password/presentations/controller/update_password_controller.dart';
 import 'package:flutter_template_3/flavors/build_config.dart';
 import 'package:get/get.dart';
+
+///
+/// Created by Sunil Kumar from Boiler plate
+///
 
 class InitialBinding implements Bindings {
   @override

@@ -1,3 +1,7 @@
+///
+/// Created by Sunil Kumar from Boiler plate
+///
+
 abstract class IRequest<T> {
   T toRequest();
 }
@@ -7,10 +11,12 @@ abstract class IFileRequest {
   late final String filePath;
   late final String contentType;
 }
+
 class NoRequest implements IRequest {
   @override
   Object toRequest() {
     return {};
   }
 }
+
 class NoParams {}

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/my_app.dart';
 import 'package:flutter_template_3/flavors/build_config.dart';
 import 'package:flutter_template_3/flavors/env_config.dart';

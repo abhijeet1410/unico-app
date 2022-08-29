@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 ///
-/// Created by Sisira Sahoo
-/// On 18/08/22 1:49 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 ForgotPassWordOtpRequestModel forgotPassWordOtpRequestModelFromJson(
         String str) =>
     ForgotPassWordOtpRequestModel.fromJson(json.decode(str));

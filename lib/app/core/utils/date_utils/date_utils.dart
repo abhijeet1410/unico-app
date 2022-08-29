@@ -1,6 +1,10 @@
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
+///
+/// Created by Sunil Kumar from Boiler plate
+///
+
 class AppDateUtils {
   static const String DATE_FORMAT_DD_MM_YY = "dd/MM/yy";
   static const String SINGLE_SPACE = ' ';

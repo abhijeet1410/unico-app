@@ -1,16 +1,14 @@
 import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
-import 'package:flutter_template_3/app/modules/login/data/models/login_request_model.dart';
 import 'package:flutter_template_3/app/modules/register/data/models/register_phone_otp_request_model.dart';
 import 'package:flutter_template_3/app/modules/register/data/models/register_phone_password_request_model.dart';
 import 'package:flutter_template_3/app/route/api_routes.dart';
 import 'package:get/get.dart';
-
-import 'register_data_source.dart';
+import 'package:flutter_template_3/app/modules/register/data/data_source/register_data_source.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 12-08-2022 02:12 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class RegisterDataSourceImpl extends RegisterDataSource {
   @override
   Future<Response> registerWithPhonePassword(

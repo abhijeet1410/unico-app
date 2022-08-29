@@ -1,9 +1,8 @@
-///
-/// Created by Sisira Sahoo
-/// On 18/08/22 4:45 PM
-///
-
 import 'dart:convert';
+
+///
+/// Created by Sunil Kumar from Boiler plate
+///
 
 UpdatePasswordRequest updatePasswordRequestFromJson(String str) =>
     UpdatePasswordRequest.fromJson(json.decode(str));

@@ -4,8 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 08-08-2022 03:37 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class MockInterceptor extends Interceptor {

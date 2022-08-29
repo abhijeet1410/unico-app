@@ -4,8 +4,7 @@ import 'package:flutter_template_3/app/route/api_routes.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 17/08/22 6:22 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class ForgotPasswordSourceImpl extends ForgotPasswordDataSource {

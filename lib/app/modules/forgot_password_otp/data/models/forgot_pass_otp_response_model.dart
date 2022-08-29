@@ -1,9 +1,8 @@
-///
-/// Created by Sisira Sahoo
-/// On 18/08/22 1:52 PM
-///
-
 import 'dart:convert';
+
+///
+/// Created by Sunil Kumar from Boiler plate
+///
 
 ForgotPassWordOtpResponseModel forgotPassWordOtpResponseModelFromJson(
         String str) =>

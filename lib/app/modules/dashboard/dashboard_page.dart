@@ -8,6 +8,10 @@ import 'package:flutter_template_3/app/modules/users/blocked_users/blocked_users
 import 'package:flutter_template_3/app/modules/users/unverfied_users/unverified_users_page.dart';
 import 'package:get/get.dart';
 
+///
+/// Created by Sunil Kumar from Boiler plate
+///
+
 class DashboardPage extends StatefulWidget {
   static const String routeName = '/';
 

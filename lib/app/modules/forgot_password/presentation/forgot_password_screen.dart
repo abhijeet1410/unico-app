@@ -7,8 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 17/08/22 5:50 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class ForgotPasswordScreen extends GetView<ForgotPasswordController> {

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+///
+/// Created by Sunil Kumar from Boiler plate
+///
+
 class AppSnackBarUtil {
   static Future<void> show(String message, {isLong = false}) async {
     Fluttertoast.showToast(

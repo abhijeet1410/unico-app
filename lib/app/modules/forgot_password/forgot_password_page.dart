@@ -2,8 +2,7 @@ import 'package:flutter_template_3/app/modules/forgot_password/presentation/forg
 import 'package:flutter/material.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 03/08/22 11:02 AM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class ForgotPasswordPage extends StatefulWidget {

@@ -14,8 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 04/08/22 12:29 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class RegisterController extends GetxController {

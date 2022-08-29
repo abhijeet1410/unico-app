@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 ///
-/// Created by Sunil Kumar
-/// On 29-08-2022 04:57 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class AppColorUtils {
   static int getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll("#", "");

@@ -6,8 +6,7 @@ import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 18/08/22 12:47 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class ForgotPasswordOtpScreen extends GetView<ForgotPasswordOtpController> {

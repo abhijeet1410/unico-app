@@ -1,9 +1,8 @@
-///
-/// Created by Sunil Kumar
-/// On 13-08-2022 09:27 AM
-///
-
 import 'dart:convert';
+
+///
+/// Created by Sunil Kumar from Boiler plate
+///
 
 LoginRequestModel loginRequestModelFromJson(String str) =>
     LoginRequestModel.fromJson(json.decode(str));

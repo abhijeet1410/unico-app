@@ -5,6 +5,7 @@ import 'package:flutter_template_3/app/core/theme/app_colors.dart';
 ///
 /// Created by Sunil Kumar from Boiler plate
 ///
+
 mixin AppThemes {
   static const String fontFamily = "Roboto";
   static final lightTheme = createTheme(

@@ -1,12 +1,15 @@
 import 'dart:async';
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
-import 'package:flutter_template_3/app/core/widget/user_circle_avatar.dart';
 import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
 import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 import 'package:flutter_template_3/flavors/build_config.dart';
+
+///
+/// Created by Sunil Kumar from Boiler plate
+///
 
 abstract class BaseController<T> extends SuperController<T> {
   int skip = 0;

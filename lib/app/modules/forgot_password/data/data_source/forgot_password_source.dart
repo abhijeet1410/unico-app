@@ -3,8 +3,7 @@ import 'package:flutter_template_3/app/network/get_network_provider/api_configs/
 import 'package:get/get.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 17/08/22 6:20 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 abstract class ForgotPasswordDataSource extends BaseProvider {

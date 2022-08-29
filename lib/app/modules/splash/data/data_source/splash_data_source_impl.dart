@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:flutter_template_3/app/modules/splash/data/data_source/splash_data_source.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 12-08-2022 02:12 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class SplashDataSourceImpl extends SplashDataSource {
   @override
   Future<Response> refreshAccessToken(RefreshTokenRequestModel requestData,

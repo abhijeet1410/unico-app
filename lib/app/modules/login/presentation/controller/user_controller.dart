@@ -1,9 +1,8 @@
-import 'dart:developer';
 import 'package:flutter_template_3/app/modules/login/data/models/user.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Kumar Sunil from Boiler plate
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class UserController extends SuperController<User> {

@@ -8,8 +8,7 @@ import 'package:flutter_template_3/flavors/env_config.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 12-07-2022 04:49 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class BaseProvider extends GetConnect implements GetxService {

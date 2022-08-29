@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+///
+/// Created by Sunil Kumar from Boiler plate
+///
+
 class AppErrorWidget extends StatelessWidget {
   final String? title, subtitle, buttonText, assetPath;
   final VoidCallback? onRetry;

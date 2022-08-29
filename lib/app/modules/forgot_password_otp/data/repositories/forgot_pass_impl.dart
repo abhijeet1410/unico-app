@@ -4,8 +4,7 @@ import 'package:flutter_template_3/app/modules/forgot_password_otp/data/models/f
 import 'package:flutter_template_3/app/modules/forgot_password_otp/domain/repositories/forgot_pass_otp_repo.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 18/08/22 2:01 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class RemoteForgotPasswordOtpRepoImpl implements ForgotPassOtpRepository {

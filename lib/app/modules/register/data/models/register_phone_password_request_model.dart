@@ -1,12 +1,8 @@
-///
-/// Created by Sunil Kumar
-/// On 16-08-2022 11:37 AM
-///
-// To parse this JSON data, do
-//
-//     final registerPhonePasswordRequestModel = registerPhonePasswordRequestModelFromJson(jsonString);
-
 import 'dart:convert';
+
+///
+/// Created by Sunil Kumar from Boiler plate
+///
 
 RegisterPhonePasswordRequestModel registerPhonePasswordRequestModelFromJson(
         String str) =>

@@ -3,9 +3,9 @@ import 'package:flutter_template_3/app/modules/register/data/models/register_pho
 import 'package:flutter_template_3/app/modules/register/domain/repositories/register_repo.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 16-08-2022 11:57 AM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class RegisterSendPhoneOTPUseCase
     extends UseCase<String, RegisterPhoneOtpRequestModel> {
   late final RegisterRepository repository;

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sunil Kumar (sunil@smarttersstudio.com)
-/// On 19-07-2021 01:49 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class CollapsableText extends StatefulWidget {
   final String text;
   final TextStyle? style;

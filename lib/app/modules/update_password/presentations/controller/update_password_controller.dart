@@ -9,8 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 04/08/22 11:10 AM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class UpdatePasswordController extends GetxController {

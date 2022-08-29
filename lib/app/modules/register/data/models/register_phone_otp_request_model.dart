@@ -1,12 +1,8 @@
-///
-/// Created by Sunil Kumar
-/// On 16-08-2022 11:35 AM
-///
-// To parse this JSON data, do
-//
-//     final registerPhoneOtpRequestModel = registerPhoneOtpRequestModelFromJson(jsonString);
-
 import 'dart:convert';
+
+///
+/// Created by Sunil Kumar from Boiler plate
+///
 
 RegisterPhoneOtpRequestModel registerPhoneOtpRequestModelFromJson(String str) =>
     RegisterPhoneOtpRequestModel.fromJson(json.decode(str));

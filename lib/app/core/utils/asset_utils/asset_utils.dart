@@ -4,19 +4,17 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 ///
-/// Created by Sunil Kumar
-/// On 29-08-2022 04:53 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class AppAssetUtils {
   static Future<ui.Image> getImageFromUrlPath(String url, [Size? size]) async {
     final imageFile = NetworkImage(url);
     final Completer<ui.Image> completer = Completer();
     imageFile
-        .resolve(ImageConfiguration(size: size ?? Size(150, 150)))
+        .resolve(ImageConfiguration(size: size ?? const Size(150, 150)))
         .addListener(ImageStreamListener((ImageInfo info, bool _) {
       if (!completer.isCompleted) completer.complete(info.image);
     }));

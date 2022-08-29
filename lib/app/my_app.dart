@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -12,14 +11,12 @@ import 'package:flutter_template_3/app/route/app_page_routes.dart';
 import 'package:flutter_template_3/firebase_options.dart';
 import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
 import 'package:flutter_template_3/app/data/local/preference/preference_manager_impl.dart';
-import 'package:flutter_template_3/app/my_app.dart';
-import 'package:flutter_template_3/flavors/build_config.dart';
-import 'package:flutter_template_3/flavors/env_config.dart';
-import 'package:flutter_template_3/flavors/environment.dart';
-import 'package:get/get.dart';
+
+///
+/// Created by Sunil Kumar from Boiler plate
+///
 
 void mainDelegate() async {
   WidgetsFlutterBinding.ensureInitialized();

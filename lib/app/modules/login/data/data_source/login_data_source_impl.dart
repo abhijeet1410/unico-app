@@ -4,9 +4,9 @@ import 'package:flutter_template_3/app/route/api_routes.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 12-08-2022 02:12 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class LoginDataSourceImpl extends LoginDataSource {
   @override
   Future<Response> loginWithApple(LoginRequestModel loginData,

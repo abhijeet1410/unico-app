@@ -7,7 +7,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
 ///
-/// Created by Sunil Kumar on 22-01-2021 08:29 PM.
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class PhotoChooser extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:url_launcher/url_launcher_string.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 29-08-2022 04:56 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class AppStringUtils {
   static void launchURL(String url) async {
     if (await canLaunchUrlString(url)) {

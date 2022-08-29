@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sunil Kumar (sunil@smarttersstudio.com)
-/// On 15-11-2021 01:24 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 mixin AppFormValidators {
   static String? validateEmpty(dynamic data, [BuildContext? context]) {
     if (data == null) return "*required";

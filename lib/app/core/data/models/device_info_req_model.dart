@@ -1,3 +1,7 @@
+///
+/// Created by Sunil Kumar from Boiler plate
+///
+
 class DeviceInfoReqModel {
   final String? deviceId,
       deviceManufacturer,
@@ -12,25 +16,25 @@ class DeviceInfoReqModel {
 
   DeviceInfoReqModel(
       {required this.deviceId,
-        required this.deviceType,
-        this.deviceTimeZone,
-        this.deviceLocale,
-        this.deviceManufacturer,
-        this.deviceOsVersion,
-        this.platform,
-        this.deviceToken,
-        this.appVersion,
-        this.deviceBrand});
+      required this.deviceType,
+      this.deviceTimeZone,
+      this.deviceLocale,
+      this.deviceManufacturer,
+      this.deviceOsVersion,
+      this.platform,
+      this.deviceToken,
+      this.appVersion,
+      this.deviceBrand});
 
   Map<String, dynamic> toJson() => {
-    'deviceId': deviceId,
-    'deviceManufacturer': deviceManufacturer,
-    'deviceOSVersion': deviceOsVersion,
-    'deviceTimezone': deviceTimeZone,
-    'fcmId': deviceToken,
-    'deviceType': deviceType,
-    'platform': platform,
-    'deviceBrand': deviceBrand,
-    'deviceLocale': deviceLocale
-  };
+        'deviceId': deviceId,
+        'deviceManufacturer': deviceManufacturer,
+        'deviceOSVersion': deviceOsVersion,
+        'deviceTimezone': deviceTimeZone,
+        'fcmId': deviceToken,
+        'deviceType': deviceType,
+        'platform': platform,
+        'deviceBrand': deviceBrand,
+        'deviceLocale': deviceLocale
+      };
 }

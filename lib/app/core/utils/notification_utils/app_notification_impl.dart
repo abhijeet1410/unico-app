@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_template_3/app/core/theme/app_colors.dart';
 import 'package:flutter_template_3/app/core/utils/file_util/file_util.dart';
@@ -13,9 +12,9 @@ import 'package:flutter_template_3/flavors/build_config.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 18-08-2022 06:09 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 BackgroundMessageHandler get backgroundMessageHandler =>
     (RemoteMessage message) async {
       final logger = BuildConfig.instance.config.logger;

@@ -1,16 +1,13 @@
 import 'package:flutter_template_3/app/core/base/base_controller.dart';
 import 'package:flutter_template_3/app/core/device/device_info_data_source.dart';
-import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
-import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
 import 'package:flutter_template_3/app/modules/splash/data/models/splash_refresh_token_request_model.dart';
 import 'package:flutter_template_3/app/modules/splash/domain/usecases/splash_refresh_token_usecase.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 04/08/22 12:29 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class SplashController extends BaseController {

@@ -1,7 +1,7 @@
 ///
-/// Created by Sunil Kumar
-/// On 12-07-2022 04:49 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 export 'interceptors/auth_interceptor.dart';
 export 'interceptors/response_interceptor.dart';
 export 'interceptors/request_interceptor.dart';

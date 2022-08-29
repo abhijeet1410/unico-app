@@ -2,12 +2,11 @@ import 'package:flutter_template_3/app/modules/login/data/models/login_request_m
 import 'package:flutter_template_3/app/modules/login/data/models/user.dart';
 import 'package:flutter_template_3/app/core/domain/usercases/usecase.dart';
 import 'package:flutter_template_3/app/modules/login/domain/repositories/login_repo.dart';
-import 'package:dartz/dartz.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 13-08-2022 10:03 AM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class LoginWithPhonePasswordUseCase
     extends UseCase<UserResponse, LoginRequestModel> {
   late final LoginRepository loginRepository;

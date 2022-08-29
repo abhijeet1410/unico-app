@@ -1,9 +1,8 @@
- import 'package:flutter_template_3/app/modules/update_password/presentations/update_password_screen.dart';
+import 'package:flutter_template_3/app/modules/update_password/presentations/update_password_screen.dart';
 import 'package:flutter/material.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 04/08/22 10:42 AM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class UpdatePasswordPage extends StatefulWidget {
@@ -15,10 +14,8 @@ class UpdatePasswordPage extends StatefulWidget {
 }
 
 class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
-
-
   @override
   Widget build(BuildContext context) {
-   return const UpdatePasswordScreen();
+    return const UpdatePasswordScreen();
   }
 }

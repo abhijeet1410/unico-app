@@ -6,9 +6,9 @@ import 'package:flutter_template_3/app/modules/login/presentation/login_page.dar
 import 'package:get/get.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 14-08-2022 10:46 AM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class AuthCheckMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {

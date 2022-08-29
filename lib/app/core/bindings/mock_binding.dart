@@ -9,7 +9,6 @@ import 'package:flutter_template_3/app/modules/home/data/data_source/home_data_s
 import 'package:flutter_template_3/app/modules/home/data/repositories/mock_home_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/home/domain/repositories/home_repository.dart';
 import 'package:flutter_template_3/app/modules/login/data/data_source/login_data_source.dart';
-import 'package:flutter_template_3/app/modules/login/data/data_source/login_data_source_impl.dart';
 import 'package:flutter_template_3/app/modules/login/data/repositories/mock_login_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/login/domain/repositories/login_repo.dart';
 import 'package:flutter_template_3/app/modules/register/data/data_source/register_data_source.dart';
@@ -22,6 +21,10 @@ import 'package:flutter_template_3/app/modules/update_password/data/data_source/
 import 'package:flutter_template_3/app/modules/update_password/data/repositories/mock_login_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/update_password/domain/repositories/update_password_repo.dart';
 import 'package:get/get.dart';
+
+///
+/// Created by Sunil Kumar from Boiler plate
+///
 
 ///
 /// Created by Sunil Kumar

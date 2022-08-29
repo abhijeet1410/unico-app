@@ -5,6 +5,10 @@ import 'package:flutter_template_3/app/core/widget/alert_dialog.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+///
+/// Created by Sunil Kumar from Boiler plate
+///
+
 class AppPermissions {
   static Future<bool> getStoragePermission(
       {BuildContext? context, String? subTitle}) async {

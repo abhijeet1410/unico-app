@@ -1,9 +1,9 @@
 import 'package:intl/intl.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 29-08-2022 04:54 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class AppNumberUtils {
   String compactNumber(double number) {
     return NumberFormat.compact().format(number);

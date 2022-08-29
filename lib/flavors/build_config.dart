@@ -2,8 +2,7 @@ import 'package:flutter_template_3/flavors/env_config.dart';
 import 'package:flutter_template_3/flavors/environment.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 03-08-2022 06:03 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class BuildConfig {

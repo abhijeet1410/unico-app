@@ -4,9 +4,9 @@ import 'package:flutter_template_3/app/modules/register/data/models/register_pho
 import 'package:flutter_template_3/app/modules/register/domain/repositories/register_repo.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 13-08-2022 10:03 AM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class RegisterWithPhonePasswordUseCase
     extends UseCase<UserResponse, RegisterPhonePasswordRequestModel> {
   late final RegisterRepository repository;

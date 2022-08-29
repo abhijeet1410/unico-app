@@ -7,9 +7,9 @@ import 'package:flutter_template_3/app/modules/splash/domain/repositories/splash
 import 'package:flutter_template_3/app/modules/update_password/domain/repositories/update_password_repo.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 13-08-2022 08:20 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 abstract class AppRepositoryBinding {
   SplashRepository getSplashRepo();
   LoginRepository getLoginRepo();

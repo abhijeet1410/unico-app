@@ -4,8 +4,7 @@ import 'package:flutter_template_3/app/modules/update_password/data/models/updat
 import 'package:flutter_template_3/app/modules/update_password/domain/repositories/update_password_repo.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 04/08/22 11:10 AM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class RemoteUpdatePasswordRepositoryImpl implements UpdatePasswordRepository {

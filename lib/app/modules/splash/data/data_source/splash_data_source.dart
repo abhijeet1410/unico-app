@@ -3,9 +3,9 @@ import 'package:flutter_template_3/app/network/get_network_provider/api_configs/
 import 'package:get/get.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 12-08-2022 02:11 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 abstract class SplashDataSource extends BaseProvider {
   Future<Response> refreshAccessToken(RefreshTokenRequestModel requestData,
       {String? mockPath});

@@ -6,6 +6,7 @@ import 'package:flutter_template_3/app/core/asset/resources.dart';
 ///
 /// Created by Sunil Kumar from Boiler plate
 ///
+
 class UserCircleAvatar extends StatelessWidget {
   final String? userId;
   final String? name;

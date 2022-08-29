@@ -4,9 +4,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 23-08-2022 01:44 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class AppSocialLoginHelper {
   static Future<String?> getGoogleAccessToken() async {
     final appConfig = BuildConfig.instance.config;

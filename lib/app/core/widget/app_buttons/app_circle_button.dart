@@ -10,7 +10,13 @@ class AppCircleButton extends StatelessWidget {
   final Widget? child;
   final Size? size;
   const AppCircleButton(
-      {this.child, this.size, this.color, this.onPressed, this.padding});
+      {this.child,
+      this.size,
+      this.color,
+      this.onPressed,
+      this.padding,
+      Key? key})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(

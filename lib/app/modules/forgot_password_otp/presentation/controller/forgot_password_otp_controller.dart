@@ -11,8 +11,7 @@ import 'package:get/get.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
 ///
-/// Created by Sisira Sahoo
-/// On 03/08/22 4:17 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class ForgotPasswordOtpController extends GetxController {

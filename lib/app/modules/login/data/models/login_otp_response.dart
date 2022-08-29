@@ -1,6 +1,5 @@
 ///
-/// Created by Sunil Kumar
-/// On 13-08-2022 11:06 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
 
 class LoginOTPResponse {

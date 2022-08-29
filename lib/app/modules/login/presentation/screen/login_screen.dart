@@ -1,4 +1,3 @@
-import 'package:flutter_template_3/app/core/asset/resources.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/forgot_password_page.dart';
 import 'package:flutter_template_3/app/modules/register/presentation/register_page.dart';
 import 'package:flutter/material.dart';
@@ -10,9 +9,9 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 12-08-2022 02:14 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class LoginScreen extends GetView<LoginController> {
   const LoginScreen({Key? key}) : super(key: key);
 

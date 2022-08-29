@@ -4,9 +4,9 @@ import 'package:flutter_template_3/app/modules/splash/data/models/splash_refresh
 import 'package:flutter_template_3/app/modules/splash/domain/repositories/splash_repo.dart';
 
 ///
-/// Created by Sunil Kumar
-/// On 12-08-2022 02:13 PM
+/// Created by Sunil Kumar from Boiler plate
 ///
+
 class RemoteSplashRepositoryImpl implements SplashRepository {
   final SplashDataSource _remoteSource;
 

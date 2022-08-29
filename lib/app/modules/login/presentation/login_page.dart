@@ -3,6 +3,10 @@ import 'package:flutter_template_3/app/modules/login/presentation/controller/log
 import 'package:flutter_template_3/app/modules/login/presentation/screen/login_screen.dart';
 import 'package:get/get.dart';
 
+///
+/// Created by Sunil Kumar from Boiler plate
+///
+
 class LoginPage extends StatefulWidget {
   static const String routeName = '/login';
 
