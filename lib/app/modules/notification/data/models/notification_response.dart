@@ -5,7 +5,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/utils/common_functions.dart';
+import 'package:flutter_template_3/app/core/utils/date_utils/date_utils.dart';
 import 'package:flutter_template_3/app/modules/login/data/models/user.dart';
 import 'package:intl/intl.dart';
 
@@ -87,7 +87,7 @@ class NotificationDatum {
     if (DateUtils.isSameDay(DateTime.now(), createdAt)) {
       return DateFormat("hh:mm a").format(createdAt!);
     } else {
-      return formatTimeAgo(createdAt!);
+      return AppDateUtils.formatTimeAgo(createdAt!);
     }
   }
 

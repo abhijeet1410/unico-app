@@ -1,12 +1,12 @@
 import 'dart:developer';
 
+import 'package:flutter_template_3/app/modules/login/domain/usecases/login_with_phone_password_usecase.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/utils/snackbar_helper.dart';
+import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
 import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
 import 'package:flutter_template_3/app/modules/login/data/models/login_request_model.dart';
-import 'package:flutter_template_3/app/modules/login/domain/usecases/login_with_email_password_usecase.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
 import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:get/get.dart';
@@ -16,7 +16,7 @@ import 'package:get/get.dart';
 ///
 class LoginController extends GetxController {
   late RxBool isObscure;
-  String _emailId = '', _password = '';
+  String _phone = '', _password = '';
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final GlobalKey<AppPrimaryButtonState> buttonKey =
       GlobalKey<AppPrimaryButtonState>();
@@ -37,7 +37,7 @@ class LoginController extends GetxController {
   }
 
   void onEmailSaved(String? newValue) {
-    _emailId = newValue!.trim();
+    _phone = newValue!.trim();
   }
 
   void onPasswordSaved(String? newValue) {
@@ -57,49 +57,23 @@ class LoginController extends GetxController {
       state.save();
       buttonKey.currentState?.showLoader();
       try {
-        final res = await Get.find<LoginWithEmailPasswordUseCase>().call(
-            LoginRequestModel(
-                action: "authentication",
-                locale: "en",
-                email: _emailId,
-                password: _password,
-                timeZoneOffset: "+5.30"));
-        Get.find<PreferenceManager>().storeAccessToken(res.accessToken!);
+        final param = LoginRequestModel(
+            strategy: "phone",
+            locale: "en",
+            phone: _phone,
+            password: _password,
+            timeZoneOffset: "+5.30");
+        final res = await Get.find<LoginWithPhonePasswordUseCase>().call(param);
+        final preferenceManager = Get.find<PreferenceManager>();
+        preferenceManager.storeAccessToken(res.accessToken!);
+
         Get.find<UserController>().updateUser(res.user);
         Get.offAllNamed(DashboardPage.routeName);
       } catch (e, s) {
-        SnackBarHelper.show(e.toString());
+        AppSnackBarUtil.show(e.toString());
       } finally {
         buttonKey.currentState?.hideLoader();
       }
     }
-  }
-
-  void socialSignIn(int type) async {
-    //   Get.key!.currentState!.push(LoaderOverlay());
-    //   try {
-    //     SocialSignInResponse? user;
-    //     switch (type) {
-    //       case 1:
-    //         user = await AuthHelper.userLoginWithGoogle();
-    //         break;
-
-    //       case 2:
-    //         user = await AuthHelper.userLoginWithFacebook();
-    //         break;
-
-    //       case 3:
-    //         user = await AuthHelper.userLoginWithApple();
-    //         break;
-    //     }
-    //     if (user != null) {
-    //       Get.offAndToNamed(RegisterPage.routeName,
-    //           arguments: {"email": user.email, "name": user.name});
-    //     }
-    //   } catch (err, s) {
-    //     Get.key!.currentState!.pop();
-    //     log('$err $s');
-    //     // SnackBarHelper.show('Error', '$err');
-    //   }
   }
 }

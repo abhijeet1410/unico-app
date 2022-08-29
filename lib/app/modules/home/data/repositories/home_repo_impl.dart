@@ -12,10 +12,10 @@ import 'package:get/get.dart';
 /// Created by Sunil Kumar
 /// On 12-08-2022 02:13 PM
 ///
-class HomeRepositoryImpl implements HomeRepository {
+class RemoteHomeRepositoryImpl implements HomeRepository {
   final HomeDataSource _remoteSource;
 
-  HomeRepositoryImpl(this._remoteSource);
+  RemoteHomeRepositoryImpl(this._remoteSource);
 
   @override
   Future<List<City>> getCountries() async {

@@ -15,35 +15,6 @@ class MockLoginRepositoryImpl implements LoginRepository {
   MockLoginRepositoryImpl(this._remoteSource);
 
   @override
-  Future<UserResponse> loginWithApple(LoginRequestModel loginData) async {
-    final response =
-        await _remoteSource.loginWithApple(loginData, mockPath: 'login');
-    return UserResponse.fromJson(response.body);
-  }
-
-  @override
-  Future<UserResponse> loginWithEmailPassword(
-      LoginRequestModel loginData) async {
-    final response = await _remoteSource.loginWithEmailPassword(loginData,
-        mockPath: 'login');
-    return UserResponse.fromJson(response.body);
-  }
-
-  @override
-  Future<UserResponse> loginWithFacebook(LoginRequestModel loginData) async {
-    final response =
-        await _remoteSource.loginWithFacebook(loginData, mockPath: 'login');
-    return UserResponse.fromJson(response.body);
-  }
-
-  @override
-  Future<UserResponse> loginWithGoogle(LoginRequestModel loginData) async {
-    final response =
-        await _remoteSource.loginWithGoogle(loginData, mockPath: 'login');
-    return UserResponse.fromJson(response.body);
-  }
-
-  @override
   Future<UserResponse> loginWithPhonePassword(
       LoginRequestModel loginData) async {
     final response = await _remoteSource.loginWithPhonePassword(loginData,
@@ -51,17 +22,4 @@ class MockLoginRepositoryImpl implements LoginRepository {
     return UserResponse.fromJson(response.body);
   }
 
-  @override
-  Future<LoginOTPResponse> sendEmailOTP(LoginRequestModel loginData) async {
-    final response =
-        await _remoteSource.sendEmailOTP(loginData, mockPath: 'login');
-    return LoginOTPResponse.fromJson(response.body);
-  }
-
-  @override
-  Future<LoginOTPResponse> sendPhoneOTP(LoginRequestModel loginData) async {
-    final response =
-        await _remoteSource.sendPhoneOTP(loginData, mockPath: 'login');
-    return LoginOTPResponse.fromJson(response.body);
-  }
 }

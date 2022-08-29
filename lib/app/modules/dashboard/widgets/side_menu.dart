@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/modules/feedback/feedback_page.dart';
 import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
-import 'package:flutter_template_3/app/modules/review/review_page.dart';
 import 'package:flutter_template_3/app/modules/users/all_users/users_page.dart';
 import 'package:flutter_template_3/app/modules/users/blocked_users/blocked_users_page.dart';
 import 'package:flutter_template_3/app/modules/users/unverfied_users/unverified_users_page.dart';
@@ -130,7 +129,6 @@ final List<DrawerEntry> drawerData = <DrawerEntry>[
     ],
   ),
   DrawerEntry('Feedback', 4, FeedbackPage()),
-  DrawerEntry('Reviews', 5, ReviewPage()),
   // DrawerEntry('Transactions', 4, SizedBox(), [
   //   DrawerEntry('All Transactions', 1, AllTransactionsPage()),
   //   DrawerEntry('Pending transactions', 2, PendingTransactionPage()),

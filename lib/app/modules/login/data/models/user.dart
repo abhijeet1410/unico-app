@@ -27,6 +27,43 @@ class UserResponse {
       };
 }
 
+StoreListResponse storeListResponseFromJson(String str) =>
+    StoreListResponse.fromJson(json.decode(str));
+
+String storeListResponseToJson(StoreListResponse data) =>
+    json.encode(data.toJson());
+
+class StoreListResponse {
+  StoreListResponse({
+    required this.total,
+    required this.limit,
+    required this.skip,
+    required this.data,
+  });
+
+  int total;
+  int limit;
+  int skip;
+  List<User> data;
+
+  factory StoreListResponse.fromJson(Map<String, dynamic> json) =>
+      StoreListResponse(
+        total: json["total"] ?? 0,
+        limit: json["limit"] ?? 0,
+        skip: json["skip"] ?? 0,
+        data: json["data"] == null
+            ? []
+            : List<User>.from(json["data"].map((x) => User.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "total": total,
+        "limit": limit,
+        "skip": skip,
+        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+      };
+}
+
 class User {
   User(
       {required this.id,
@@ -45,7 +82,8 @@ class User {
   String name;
 
   /// 1 : User
-  /// 2 : Admin
+  /// 2 : Shopkeeper
+  /// 3 : Admin
   int role;
 
   /// 1: Active

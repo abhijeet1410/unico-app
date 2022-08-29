@@ -3,9 +3,7 @@ import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
 import 'package:flutter_template_3/app/modules/feedback/feedback_page.dart';
 import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
-import 'package:flutter_template_3/app/modules/onboarding/presentation/onboarding_page.dart';
-import 'package:flutter_template_3/app/modules/review/review_page.dart';
-import 'package:flutter_template_3/app/modules/splash/splash_page.dart';
+import 'package:flutter_template_3/app/modules/splash/presentation/splash_page.dart';
 import 'package:flutter_template_3/app/modules/users/all_users/users_page.dart';
 import 'package:flutter_template_3/app/modules/users/blocked_users/blocked_users_page.dart';
 import 'package:flutter_template_3/app/modules/users/unverfied_users/unverified_users_page.dart';
@@ -18,16 +16,12 @@ class AppPageRoutes {
   static final routes = [
     GetPage(
       name: SplashPage.routeName,
-      page: () => SplashPage(),
+      page: () => const SplashPage(),
     ),
     GetPage(
       name: LoginPage.routeName,
       middlewares: [NoAuthCheckMiddleware()],
       page: () => const LoginPage(),
-    ),
-    GetPage(
-      name: OnBoardingPage.routeName,
-      page: () => const OnBoardingPage(),
     ),
     GetPage(
         name: DashboardPage.routeName,
@@ -66,11 +60,6 @@ class AppPageRoutes {
               title: 'Feedback',
               transition: Transition.noTransition,
               page: () => FeedbackPage()),
-          GetPage(
-              name: ReviewPage.routeName,
-              title: 'Review',
-              transition: Transition.noTransition,
-              page: () => ReviewPage()),
         ])
   ];
 }

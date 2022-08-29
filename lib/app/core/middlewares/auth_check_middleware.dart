@@ -3,7 +3,6 @@ import 'package:flutter_template_3/app/data/local/preference/preference_manager.
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
-import 'package:flutter_template_3/app/modules/onboarding/presentation/onboarding_page.dart';
 import 'package:get/get.dart';
 
 ///
@@ -23,7 +22,7 @@ class AuthCheckMiddleware extends GetMiddleware {
         return const RouteSettings(name: LoginPage.routeName);
       } else {
         if (user.name.isEmpty) {
-          return const RouteSettings(name: OnBoardingPage.routeName);
+          // return const RouteSettings(name: OnBoardingPage.routeName);
         } else {
           userController.updateUser(user);
           // const RouteSettings(name: DashboardPage.routeName);
@@ -55,7 +54,7 @@ class NoAuthCheckMiddleware extends GetMiddleware {
         return null;
       } else {
         if (user.name.isEmpty) {
-          return const RouteSettings(name: OnBoardingPage.routeName);
+          // return const RouteSettings(name: OnBoardingPage.routeName);
         } else {
           userController.updateUser(user);
           return const RouteSettings(name: DashboardPage.routeName);

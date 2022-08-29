@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_template_3/app/core/asset/resources.dart';
-import 'package:flutter_template_3/app/core/utils/snackbar_helper.dart';
+import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
 import 'package:flutter_template_3/app/core/widget/app_buttons/app_circle_button.dart';
 import 'package:flutter_template_3/app/core/widget/app_buttons/app_outline_button.dart';
 import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
@@ -33,7 +33,7 @@ WidgetbookComponent buttonsBook() {
                 const SizedBox(width: 22),
                 AppPrimaryButton(
                   onPressed: () {
-                    SnackBarHelper.show("Helu");
+                    AppSnackBarUtil.show("Helu");
                   },
                   color: Colors.red,
                   key: _primaryButtonKey,
@@ -57,7 +57,7 @@ WidgetbookComponent buttonsBook() {
             padding: const EdgeInsets.all(16),
             child: AppCircleButton(
               onPressed: () {
-                SnackBarHelper.show("Helu");
+                AppSnackBarUtil.show("Helu");
               },
               color: Colors.red,
               size: const Size.square(80),
@@ -82,7 +82,7 @@ WidgetbookComponent buttonsBook() {
                 const SizedBox(width: 22),
                 AppOutlineButton(
                   onPressed: () {
-                    SnackBarHelper.show("Helu");
+                    AppSnackBarUtil.show("Helu");
                   },
                   borderSide: const BorderSide(
                     width: 2,

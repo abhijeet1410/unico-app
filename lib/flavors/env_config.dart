@@ -1,4 +1,3 @@
-import 'package:flutter_template_3/app/core/values/app_values.dart';
 import 'package:logger/logger.dart';
 
 ///
@@ -22,11 +21,11 @@ class EnvConfig {
       this.googleClientId}) {
     logger = Logger(
       printer: PrettyPrinter(
-          methodCount: AppValues.loggerMethodCount,
+          methodCount: 1,
           // number of method calls to be displayed
-          errorMethodCount: AppValues.loggerErrorMethodCount,
+          errorMethodCount: 8,
           // number of method calls if stacktrace is provided
-          lineLength: AppValues.loggerLineLength,
+          lineLength: 120,
           // width of the output
           colors: true,
           // Colorful log messages

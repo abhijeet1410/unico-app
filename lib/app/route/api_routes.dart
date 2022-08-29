@@ -7,4 +7,10 @@ mixin AppApiRoutes {
   static const loginApple = "/v1/login-apple";
   static const loginPhoneOTP = "/v1/login-phone-otp";
   static const loginEmailOTP = "/v1/login-email-otp";
+  static const authenticateJwt = "/v1/authenticate-jwt";
+  static const user = "/v1/user";
+
+  static const authentication = "/authentication";
+  static const phoneAuthentication = "/v1/phone-authentication";
+  static const credentialVerification = "/v1/credential-verification";
 }

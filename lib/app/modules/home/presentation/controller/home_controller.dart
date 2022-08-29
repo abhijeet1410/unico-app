@@ -6,7 +6,7 @@ import 'package:flutter/src/widgets/preferred_size.dart';
 import 'package:flutter_template_3/app/core/base/base_controller.dart';
 import 'package:flutter_template_3/app/core/base/base_view.dart';
 import 'package:flutter_template_3/app/core/base/base_widget_mixin.dart';
-import 'package:flutter_template_3/app/core/domain/entities/no_request.dart';
+ import 'package:flutter_template_3/app/core/domain/entities/request.dart';
 import 'package:flutter_template_3/app/modules/home/data/models/city.dart';
 import 'package:flutter_template_3/app/modules/home/domain/repositories/home_repository.dart';
 import 'package:flutter_template_3/app/modules/home/domain/usecases/home_countries_usecase.dart';

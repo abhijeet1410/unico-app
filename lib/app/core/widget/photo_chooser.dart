@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/utils/snackbar_helper.dart';
+import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -138,7 +138,7 @@ class PhotoChooser extends StatelessWidget {
         });
       }
     }).catchError((error) {
-      SnackBarHelper.show('Please allow permission to upload image.');
+      AppSnackBarUtil.show('Please allow permission to upload image.');
     });
   }
 }

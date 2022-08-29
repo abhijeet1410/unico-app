@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
 
 class PreferenceManagerImpl implements PreferenceManager {
-  final _appStorage = GetStorage();
+  late GetStorage _appStorage;
 
   @override
   String? get accessToken => _appStorage.read(PreferenceManager.accessTokenKey);
@@ -22,5 +22,12 @@ class PreferenceManagerImpl implements PreferenceManager {
   @override
   Future<void> storeAccessToken(String token) {
     return _appStorage.write(PreferenceManager.accessTokenKey, token);
+  }
+
+  @override
+  Future<void> initStorage() async {
+    final b = await GetStorage.init("appStorage");
+    print("initStorage $b");
+    _appStorage = GetStorage("appStorage");
   }
 }
