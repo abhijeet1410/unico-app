@@ -1,3 +1,4 @@
+import 'package:flutter_template_3/app/core/base/base_view.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/forgot_password_page.dart';
 import 'package:flutter_template_3/app/modules/register/presentation/register_page.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +13,11 @@ import 'package:get/get.dart';
 /// Created by Sunil Kumar from Boiler plate
 ///
 
-class LoginScreen extends GetView<LoginController> {
+class LoginScreen extends BaseView<LoginController> {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+  Widget body(BuildContext context) {
     return Scaffold(
         body: Obx(() => GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),

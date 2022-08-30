@@ -14,10 +14,23 @@ WidgetbookComponent userCircleAvatarBook() {
       WidgetbookUseCase(
         name: 'App user circle avatar',
         builder: (context) {
-          return const Center(
+          return Center(
               child: UserCircleAvatar(
-            "https://lh3.googleusercontent.com/a-/AFdZucqUa5o7aX0KwgyPsPxkxDM8ldtyQQKLQrXouFI3=s288-p-rw-no",
-            name: "Sisira",
+            context.knobs.text(
+                label: "Image url",
+                description: "Image to load in user circle avatar",
+                initialValue:
+                    "https://lh3.googleusercontent.com/a-/AFdZucqUa5o7aX0KwgyPsPxkxDM8ldtyQQKLQrXouFI3=s288-p-rw-no"),
+            name: context.knobs.text(
+                label: "Placeholder name",
+                description: "Place holder name only first char",
+                initialValue: "Sisira"),
+            radius: context.knobs
+                .number(
+                    label: "Radius",
+                    description: "Radius of circle avatar",
+                    initialValue: 20)
+                .toDouble(),
           ));
         },
       ),

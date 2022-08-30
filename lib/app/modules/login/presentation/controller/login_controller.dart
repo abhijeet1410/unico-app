@@ -1,3 +1,4 @@
+import 'package:flutter_template_3/app/core/base/base_controller.dart';
 import 'package:flutter_template_3/app/modules/login/domain/usecases/login_with_phone_password_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
@@ -12,7 +13,7 @@ import 'package:get/get.dart';
 /// Created by Sunil Kumar from Boiler plate
 ///
 
-class LoginController extends GetxController {
+class LoginController extends BaseController {
   late RxBool isObscure;
   String _phone = '', _password = '';
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -73,5 +74,37 @@ class LoginController extends GetxController {
         buttonKey.currentState?.hideLoader();
       }
     }
+  }
+
+  @override
+  Future loadData() {
+    // TODO: implement loadData
+    throw UnimplementedError();
+  }
+
+  @override
+  Future loadMoreData() {
+    // TODO: implement loadMoreData
+    throw UnimplementedError();
+  }
+
+  @override
+  void onDetached() {
+    // TODO: implement onDetached
+  }
+
+  @override
+  void onInactive() {
+    // TODO: implement onInactive
+  }
+
+  @override
+  void onPaused() {
+    // TODO: implement onPaused
+  }
+
+  @override
+  void onResumed() {
+    // TODO: implement onResumed
   }
 }

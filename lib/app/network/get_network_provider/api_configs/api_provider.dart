@@ -26,6 +26,7 @@ class BaseProvider extends GetConnect implements GetxService {
   void onInit() {
     super.onInit();
     httpClient.addRequestModifier(requestInterceptor);
+    httpClient.timeout = const Duration(seconds: 10);
     // httpClient.addResponseModifier(responseInterceptor);
   }
 
