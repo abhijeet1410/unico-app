@@ -16,7 +16,7 @@ class AppNetworkImage extends StatelessWidget {
   final Color? color;
   final Map<String, String>? httpHeaders;
   final Alignment? alignment;
-
+  final Widget? placeholder;
   const AppNetworkImage(this.imageUrl,
       {this.id,
       this.fit,
@@ -28,12 +28,14 @@ class AppNetworkImage extends StatelessWidget {
       this.colorBlendMode,
       this.filterQuality,
       this.httpHeaders,
+      this.placeholder,
       Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (imageUrl?.isEmpty ?? true) return const _ImagePlaceholder();
+    final placeHolderWidget = placeholder ?? const _ImagePlaceholder();
+    if (imageUrl?.isEmpty ?? true) return placeHolderWidget;
     final child = CachedNetworkImage(
       imageUrl: imageUrl ?? '',
       fit: fit,
