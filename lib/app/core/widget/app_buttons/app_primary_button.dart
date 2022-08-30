@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/core/theme/app_theme.dart';
 
 import 'package:flutter_template_3/app/core/widget/app_loader.dart';
+import 'package:get/get.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -19,7 +20,7 @@ class AppPrimaryButton extends StatefulWidget {
       this.textStyle})
       : super(key: key);
 
-  final ShapeBorder? shape;
+  final OutlinedBorder? shape;
   final Widget child;
   final VoidCallback? onPressed;
   final double? height, width;
@@ -76,9 +77,13 @@ class AppPrimaryButtonState extends State<AppPrimaryButton> {
             //   )
             // ),
             style: ElevatedButton.styleFrom(
-              primary: theme.primaryColor,
+              primary: widget.color ?? theme.primaryColor,
+              shape: widget.shape ??
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+              fixedSize: Size(widget.width ?? 80, widget.height ?? 20),
               padding: widget.padding ??
-                  const EdgeInsets.symmetric(vertical: 20, horizontal: 48),
+                  const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               textStyle: widget.textStyle ??
                   TextStyle(
                       fontSize: 18,
