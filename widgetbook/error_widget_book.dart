@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/widget/app_error_widget.dart';
+import 'package:flutter_template_3/app/core/widgets/app_widgets/app_widgets.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 ///

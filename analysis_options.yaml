@@ -7,4 +7,6 @@ linter:
     always_declare_return_types: true
     avoid_print: true
     sort_pub_dependencies: true
+    always_specify_types: true
+
 

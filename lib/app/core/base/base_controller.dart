@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
-import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
+import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
 import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:get/get.dart';

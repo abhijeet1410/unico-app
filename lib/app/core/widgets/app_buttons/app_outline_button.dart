@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/core/theme/app_theme.dart';
-import 'package:flutter_template_3/app/core/widget/app_loader.dart';
+import 'package:flutter_template_3/app/core/widgets/app_widgets/app_loader.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -48,10 +48,10 @@ class AppOutlineButtonState extends State<AppOutlineButton> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final ThemeData theme = Theme.of(context);
 
     return _isLoading
-        ? AppProgress(color: widget.color ?? theme.primaryColor)
+        ? Center(child: AppProgress(color: widget.color ?? theme.primaryColor))
         : OutlinedButton(
             onPressed: widget.onPressed,
             style: OutlinedButton.styleFrom(

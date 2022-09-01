@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 void main() async {
-  final loginResult = await login("sk@gmail.com", "1234");
+  dynamic loginResult = await login("sk@gmail.com", "1234");
   loginResult.fold((l) {
     print("Login success $l");
   }, (r) {

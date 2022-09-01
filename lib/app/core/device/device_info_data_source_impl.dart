@@ -5,7 +5,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_template_3/app/core/device/device_info_data_source.dart';
-import 'package:flutter_template_3/app/core/data/models/device_info_req_model.dart';
+import 'package:flutter_template_3/app/core/models/device_info_req_model.dart';
 import 'package:package_info/package_info.dart';
 
 ///

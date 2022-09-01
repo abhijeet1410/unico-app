@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter_template_3/app/core/utils/validators/app_validators.dart';
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
-import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
-import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
+import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
+import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
 import 'package:flutter_template_3/app/modules/register/data/models/register_phone_otp_request_model.dart';

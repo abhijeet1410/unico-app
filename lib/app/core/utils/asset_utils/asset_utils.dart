@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -11,8 +10,8 @@ import 'package:flutter/services.dart';
 
 class AppAssetUtils {
   static Future<ui.Image> getImageFromUrlPath(String url, [Size? size]) async {
-    final imageFile = NetworkImage(url);
-    final Completer<ui.Image> completer = Completer();
+    final NetworkImage imageFile = NetworkImage(url);
+    final Completer<ui.Image> completer = Completer<ui.Image>();
     imageFile
         .resolve(ImageConfiguration(size: size ?? const Size(150, 150)))
         .addListener(ImageStreamListener((ImageInfo info, bool _) {

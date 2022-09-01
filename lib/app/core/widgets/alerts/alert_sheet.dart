@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
+import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:get/get.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
 ///
 
-Future<bool?> showAppAlertSheet() {
-  return Get.bottomSheet(AlertSheet());
-}
-
 class AlertSheet extends StatelessWidget {
   final String title;
   final String description;
   final String positiveText, negativeText;
 
-  AlertSheet(
+  const AlertSheet(
       {this.title = 'Alert',
       this.positiveText = 'Ok',
       this.description = '',
-      this.negativeText = 'Cancel'});
+      this.negativeText = 'Cancel',
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +27,14 @@ class AlertSheet extends StatelessWidget {
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           Center(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(12, 12, 12, 6),
               child: Material(
-                child: SizedBox(height: 4, width: 100),
                 color: Colors.grey.shade300,
-                shape: StadiumBorder(),
+                shape: const StadiumBorder(),
+                child: const SizedBox(height: 4, width: 100),
               ),
             ),
           ),
@@ -45,7 +43,7 @@ class AlertSheet extends StatelessWidget {
             child: Text(
               title,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
           ),
           if (description.isNotEmpty)
@@ -54,20 +52,20 @@ class AlertSheet extends StatelessWidget {
               child: Text(
                 description,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, color: Colors.grey),
+                style: const TextStyle(fontSize: 14, color: Colors.grey),
               ),
             ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           AppPrimaryButton(
             child: Text(positiveText),
             onPressed: () => Get.back(result: true),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           TextButton(
             onPressed: () => Get.back(result: false),
             child: Text(negativeText),
           ),
-          SizedBox(height: 22),
+          const SizedBox(height: 22),
         ],
       ),
     );

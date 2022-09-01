@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/widget/responsive.dart';
+import 'package:flutter_template_3/app/core/widgets/responsive.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 ///

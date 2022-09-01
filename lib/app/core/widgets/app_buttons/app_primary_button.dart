@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/core/theme/app_theme.dart';
 
-import 'package:flutter_template_3/app/core/widget/app_loader.dart';
+import 'package:flutter_template_3/app/core/widgets/app_widgets/app_loader.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -16,7 +16,8 @@ class AppPrimaryButton extends StatefulWidget {
       this.color,
       this.shape,
       this.padding,
-      this.textStyle})
+      this.textStyle,
+      this.textColor})
       : super(key: key);
 
   final ShapeBorder? shape;
@@ -24,6 +25,7 @@ class AppPrimaryButton extends StatefulWidget {
   final VoidCallback? onPressed;
   final double? height, width;
   final Color? color;
+  final Color? textColor;
   final EdgeInsets? padding;
   final TextStyle? textStyle;
 
@@ -48,42 +50,20 @@ class AppPrimaryButtonState extends State<AppPrimaryButton> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final ThemeData theme = Theme.of(context);
 
     return _isLoading
-        ? AppProgress(color: widget.color ?? theme.primaryColor)
+        ? Center(child: AppProgress(color: widget.color ?? theme.primaryColor))
         : ElevatedButton(
-            // style: ButtonStyle(
-            //   padding: MaterialStateProperty.all(
-            //     widget.padding ??
-            //         const EdgeInsets.symmetric(vertical: 14, horizontal: 48),
-            //   ),
-            //   textStyle: MaterialStateProperty.resolveWith(
-            //       (Set<MaterialState> states) {
-            //     if (states.contains(MaterialState.disabled))
-            //       return TextStyle(color: Colors.grey.shade500);
-
-            //     return TextStyle(color: AppColors.brightPrimary);
-            //   }),
-            //   foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-            //     (Set<MaterialState> states) {
-            //       if (states.contains(MaterialState.pressed))
-            //         return AppColors.brightPrimary.shade800;
-            //       else if (states.contains(MaterialState.disabled))
-            //         return Colors.grey.shade500;
-            //         return AppColors.brightPrimary;
-            //     },
-            //   )
-            // ),
             style: ElevatedButton.styleFrom(
-              primary: theme.primaryColor,
+              primary: widget.color ?? theme.primaryColor,
+              onPrimary: widget.textColor,
               padding: widget.padding ??
                   const EdgeInsets.symmetric(vertical: 20, horizontal: 48),
               textStyle: widget.textStyle ??
-                  TextStyle(
+                  const TextStyle(
                       fontSize: 18,
                       fontFamily: AppThemes.fontFamily,
-                      color: Colors.white,
                       fontWeight: FontWeight.w500),
             ),
             onPressed: widget.onPressed,

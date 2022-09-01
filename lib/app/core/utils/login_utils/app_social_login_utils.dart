@@ -1,5 +1,6 @@
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_template_3/flavors/build_config.dart';
+import 'package:flutter_template_3/flavors/env_config.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
@@ -7,11 +8,13 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 /// Created by Sunil Kumar from Boiler plate
 ///
 
-class AppSocialLoginHelper {
-  static Future<String?> getGoogleAccessToken() async {
-    final appConfig = BuildConfig.instance.config;
-    GoogleSignIn googleSignIn =
-        GoogleSignIn(scopes: ['email'], clientId: appConfig.googleClientId);
+class AppSocialLoginUtils {
+  static Future<String?> getGoogleAccessToken(
+      {String? googleClientId, List<String>? scopes}) async {
+    final EnvConfig appConfig = BuildConfig.instance.config;
+    GoogleSignIn googleSignIn = GoogleSignIn(
+        scopes: scopes ?? <String>['email'],
+        clientId: googleClientId ?? appConfig.googleClientId);
     try {
       GoogleSignInAccount? result = await googleSignIn.signIn();
       if (result == null) {
@@ -27,8 +30,8 @@ class AppSocialLoginHelper {
   }
 
   static Future<String?> getFacebookAccessToken() async {
-    final facebookLogin = FacebookAuth.instance;
-    final facebookLoginResult = await facebookLogin.login();
+    final FacebookAuth facebookLogin = FacebookAuth.instance;
+    final LoginResult facebookLoginResult = await facebookLogin.login();
     switch (facebookLoginResult.status) {
       case LoginStatus.failed:
         throw facebookLoginResult.message ?? "";
@@ -45,8 +48,9 @@ class AppSocialLoginHelper {
 
   static Future<String?> getAppleAccessToken() async {
     try {
-      final credential = await SignInWithApple.getAppleIDCredential(
-        scopes: [
+      final AuthorizationCredentialAppleID credential =
+          await SignInWithApple.getAppleIDCredential(
+        scopes: <AppleIDAuthorizationScopes>[
           AppleIDAuthorizationScopes.email,
           AppleIDAuthorizationScopes.fullName,
         ],
