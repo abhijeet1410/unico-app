@@ -6,6 +6,7 @@ import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart'
 import 'package:flutter_template_3/app/modules/users/all_users/users_page.dart';
 import 'package:flutter_template_3/app/modules/users/blocked_users/blocked_users_page.dart';
 import 'package:flutter_template_3/app/modules/users/unverfied_users/unverified_users_page.dart';
+import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:get/get.dart';
 
 ///
@@ -52,7 +53,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     })
                 : null,
             appBar: AppBar(
-              title: Text('Dashboard'),
+              title: Text(S.of(context).dashboard),
             ),
             body: SafeArea(
               child: Row(

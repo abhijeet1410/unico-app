@@ -12,55 +12,8 @@ git remote add origin <YOUR GIT ORIGIN>
 git push -u origin --all
 git push -u origin --tags
 ```
-### Step 3: Update project name
-Rename project name in following files/folders
-- Folder name
-- Name in pubspec.yaml
-- Change android package name [Stack overflow Reference](https://stackoverflow.com/a/29092698/12142044)
-- Change the bundle identifier from your `Info.plist` file inside your ios/Runner directory.
-   ```plist
-   <key>CFBundleIdentifier</key>
-   <string>com.your.packagename</string>
-   ```
-### Step 4: Configure pubspec.yaml
-- Update environment sdk if new version is available
-- Update and review dependancies
-- Update font files in ./assets/fonts/ and add them to `pubspec.yaml`
-- Add assets or logo to ./assets/icons/
-- Add your assets to app_assets.dart
-- Update font family in theme_config.dart
-- Review flutter_launcher_icons configurations
-- Run below command
-```
-flutter packages get
-flutter pub run flutter_launcher_icons:main
-flutter pub run intl_utils:generate
-```
-### Step 5: Configure App themes
-- Update app_colors.dart
-- Update app_themes.dart
-- Update main.dart theme mode (if required)
 
-### Step 6: Configure App Widgets
-- Update app_decorations.dart for textfield decorations
-
-### STEP 7: Adding assets
-- ```cmd
-  flutter pub global activate spider
-  ```
-- Add asset inside assets/icons/ with proper name.
-- ```cmd
-  spider build
-  ```
-- Import the resource
-  ```dart
-  import 'package:flutter_template_3/app/core/asset/resources.dart';
-  ```
-- Use the asset as AppAssets.<your_asset_name>
-HOLA 😎😎
-
-
-##Project Structure
+## Project Structure
 ```  
 project  
 |  pubspec.yaml              // project and packages configurations  
@@ -140,3 +93,81 @@ project
     |_____main_dev.dart            // endpoint to start app with development config  
     |_____main_prod.dart           // endpoint to start app with production config  
 ```
+
+## Use of Intl
+By Using AndroidStudio Plugin:
+- Enable Flutter Intl Android studio plugin 
+- Enter your message and Type ALT + Enter on the message
+- Select Extract to ARG file from popup menu
+- Verify String key and value along with languages
+- (Optional) In terminal type 
+  ```cmd
+  flutter pub run intl_utils:generate
+  ```
+  if it does’t generate automatically
+- Then in code import the generated file
+  ```cmd
+  import 'package:flutter_template_3/generated/l10n.dart';
+  ```
+- Use the value from the key by S.of(context) or S.current
+
+Manually without using plugin
+- Add intl_utils: package in dev_dependencies inside pubspec.yaml
+- Goto lib/l10n/intl_en.arb and add your string with key and value
+- In terminal type
+  ```cmd
+  flutter pub run intl_utils:generate
+  ```
+- Then in code import the generated file
+```cmd
+import 'package:flutter_template_3/generated/l10n.dart';
+```
+- Use the value from the key by S.of(context) or S.current
+
+### Step 3: Update project name
+Rename project name in following files/folders
+- Folder name
+- Name in pubspec.yaml
+- Change android package name [Stack overflow Reference](https://stackoverflow.com/a/29092698/12142044)
+- Change the bundle identifier from your `Info.plist` file inside your ios/Runner directory.
+   ```plist
+   <key>CFBundleIdentifier</key>
+   <string>com.your.packagename</string>
+   ```
+### Step 4: Configure pubspec.yaml
+- Update environment sdk if new version is available
+- Update and review dependancies
+- Update font files in ./assets/fonts/ and add them to `pubspec.yaml`
+- Add assets or logo to ./assets/icons/
+- Add your assets to app_assets.dart
+- Update font family in theme_config.dart
+- Review flutter_launcher_icons configurations
+- Run below command
+```
+flutter packages get
+flutter pub run flutter_launcher_icons:main
+flutter pub run intl_utils:generate
+```
+### Step 5: Configure App themes
+- Update app_colors.dart
+- Update app_themes.dart
+- Update main.dart theme mode (if required)
+
+### Step 6: Configure App Widgets
+- Update app_decorations.dart for textfield decorations
+
+### STEP 7: Adding assets
+- ```cmd
+  flutter pub global activate spider
+  ```
+- Add asset inside assets/icons/ with proper name.
+- ```cmd
+  spider build
+  ```
+- Import the resource
+  ```dart
+  import 'package:flutter_template_3/app/core/asset/resources.dart';
+  ```
+- Use the asset as AppAssets.<your_asset_name>
+HOLA 😎😎
+

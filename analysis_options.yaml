@@ -8,5 +8,5 @@ linter:
     avoid_print: true
     sort_pub_dependencies: true
     always_specify_types: true
-
+    flutter_style_todos: true
 
