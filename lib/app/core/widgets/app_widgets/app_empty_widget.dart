@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 ///
 /// Created by Sunil Kumar
 /// On 01-09-2022 02:32 PM
@@ -12,12 +13,12 @@ class AppEmptyWidget extends StatelessWidget {
 
   const AppEmptyWidget(
       {this.title,
-        this.subtitle,
-        this.buttonText,
-        this.assetPath,
-        this.onReload,
-        this.textColor,
-        Key? key})
+      this.subtitle,
+      this.buttonText,
+      this.assetPath,
+      this.onReload,
+      this.textColor,
+      Key? key})
       : super(key: key);
 
   @override

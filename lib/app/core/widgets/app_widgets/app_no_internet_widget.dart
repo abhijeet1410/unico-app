@@ -12,12 +12,12 @@ class AppNoInternetWidget extends StatelessWidget {
 
   const AppNoInternetWidget(
       {this.title,
-        this.subtitle,
-        this.textColor,
-        this.buttonText,
-        this.assetPath,
-        this.onRetry,
-        Key? key})
+      this.subtitle,
+      this.textColor,
+      this.buttonText,
+      this.assetPath,
+      this.onRetry,
+      Key? key})
       : super(key: key);
 
   @override

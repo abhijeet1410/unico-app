@@ -15,8 +15,8 @@ abstract class BaseController<T> extends SuperController<T> {
   int skip = 0;
   int limit = 20;
   bool shouldLoadMore = true;
-  final Map<String, dynamic> arguments = Get.arguments;
-  final Map<String, String?> parameters = Get.parameters;
+  final Map<String, dynamic>? arguments = Get.arguments;
+  final Map<String, String?>? parameters = Get.parameters;
 
   S get appLocalization => S.of(Get.context!);
 
