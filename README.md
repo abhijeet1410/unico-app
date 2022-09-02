@@ -95,7 +95,7 @@ project
 ```
 
 ## Use of Intl
-By Using AndroidStudio Plugin:
+### By Using AndroidStudio Plugin:
 - Enable Flutter Intl Android studio plugin 
 - Enter your message and Type ALT + Enter on the message
 - Select Extract to ARG file from popup menu
@@ -111,7 +111,7 @@ By Using AndroidStudio Plugin:
   ```
 - Use the value from the key by S.of(context) or S.current
 
-Manually without using plugin
+### Manually without using plugin
 - Add intl_utils: package in dev_dependencies inside pubspec.yaml
 - Goto lib/l10n/intl_en.arb and add your string with key and value
 - In terminal type
@@ -170,4 +170,5 @@ flutter pub run intl_utils:generate
   ```
 - Use the asset as AppAssets.<your_asset_name>
 HOLA 😎😎
+
 
