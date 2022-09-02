@@ -65,8 +65,8 @@ class LoginRequestModel {
         "email": email,
         "password": password,
         "phone": phone,
-        "locale": locale ?? "en",
+        "locale": locale,
         "purpose": purpose,
-        "timeZone": timeZoneOffset ?? "+5.30",
+        "timeZone": timeZoneOffset,
       };
 }

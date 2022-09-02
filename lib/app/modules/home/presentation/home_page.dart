@@ -11,7 +11,7 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    const divider = Divider();
+    const Divider divider = Divider();
 
     return Scaffold(
         floatingActionButton: FloatingActionButton(

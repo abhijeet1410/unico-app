@@ -42,7 +42,7 @@ void mainDelegate() async {
 
   runZonedGuarded(() async {
     runApp(const MyApp());
-  }, (object, stackTrace) {
+  }, (Object object, StackTrace stackTrace) {
     FirebaseCrashlytics.instance.recordError(object, stackTrace);
   });
 }
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Template',
-      localizationsDelegates: const [
+      localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
