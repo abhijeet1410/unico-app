@@ -19,7 +19,7 @@ class DioProvider {
   static final _prettyDioLogger = PrettyDioLogger(
       requestHeader: true,
       requestBody: true,
-      responseBody: BuildConfig.instance.environment == Environment.DEVELOPMENT,
+      responseBody: BuildConfig.instance.environment == Environment.development,
       responseHeader: false,
       error: true,
       compact: true,
