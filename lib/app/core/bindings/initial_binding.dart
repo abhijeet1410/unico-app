@@ -3,6 +3,9 @@ import 'package:flutter_template_3/app/core/bindings/mock_binding.dart';
 import 'package:flutter_template_3/app/core/bindings/remote_binding.dart';
 import 'package:flutter_template_3/app/core/device/device_info_data_source.dart';
 import 'package:flutter_template_3/app/core/device/device_info_data_source_impl.dart';
+import 'package:flutter_template_3/app/core/upload/data/data_source/upload_data_source.dart';
+import 'package:flutter_template_3/app/core/upload/data/data_source/upload_data_source_impl.dart';
+import 'package:flutter_template_3/app/core/upload/domain/usecases/upload_usecase.dart';
 import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification.dart';
 import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification_impl.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/data/data_source/forgot_password_source.dart';
@@ -50,6 +53,9 @@ class InitialBinding implements Bindings {
     Get.lazyPut<DeviceInfoDataSource>(() => DeviceInfoDataSourceImpl());
 
     /// Data sources
+    Get.lazyPut<UploadDataSource>(
+        () => UploadDataSourceImpl.setContentType("multipart/form-data"),
+        fenix: true);
     Get.lazyPut<SplashDataSource>(() => SplashDataSourceImpl());
     Get.lazyPut<LoginDataSource>(() => LoginDataSourceImpl());
     Get.lazyPut<RegisterDataSource>(() => RegisterDataSourceImpl());
@@ -79,6 +85,8 @@ class InitialBinding implements Bindings {
         fenix: true);
     Get.lazyPut<UpdatePasswordUseCase>(
         () => UpdatePasswordUseCase(getter.getUpdatePassword()),
+        fenix: true);
+    Get.lazyPut<UploadUseCase>(() => UploadUseCase(getter.getUploadRepo()),
         fenix: true);
 
     /// Controllers

@@ -1,4 +1,7 @@
 import 'package:flutter_template_3/app/core/bindings/app_repository_binding.dart';
+import 'package:flutter_template_3/app/core/upload/data/data_source/upload_data_source.dart';
+import 'package:flutter_template_3/app/core/upload/data/repositories/mock_upload_repo_impl.dart';
+import 'package:flutter_template_3/app/core/upload/domain/repositories/upload_repo.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/data/data_source/forgot_password_source.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/data/repositories/mock_forgot_password_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/domain/repositories/forgot_pass_repo.dart';
@@ -57,4 +60,8 @@ class MockRepositoryBindingsGetter implements AppRepositoryBinding {
   UpdatePasswordRepository getUpdatePassword() {
     return MockUpdatePasswordRepositoryImpl(Get.find<UpdatePasswordSource>());
   }
+
+  @override
+  UploadRepository getUploadRepo() =>
+      MockUploadRepositoryImpl(Get.find<UploadDataSource>());
 }

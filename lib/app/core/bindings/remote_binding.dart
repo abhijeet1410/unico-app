@@ -1,4 +1,7 @@
 import 'package:flutter_template_3/app/core/bindings/app_repository_binding.dart';
+import 'package:flutter_template_3/app/core/upload/data/data_source/upload_data_source.dart';
+import 'package:flutter_template_3/app/core/upload/data/repositories/upload_repo_impl.dart';
+import 'package:flutter_template_3/app/core/upload/domain/repositories/upload_repo.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/data/repositories/forgot_password_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/forgot_password_otp/data/repositories/forgot_pass_impl.dart';
 import 'package:flutter_template_3/app/modules/forgot_password_otp/domain/repositories/forgot_pass_otp_repo.dart';
@@ -52,4 +55,8 @@ class RemoteRepositoryBindingsGetter implements AppRepositoryBinding {
   @override
   UpdatePasswordRepository getUpdatePassword() =>
       RemoteUpdatePasswordRepositoryImpl(Get.find<UpdatePasswordSource>());
+
+  @override
+  UploadRepository getUploadRepo() =>
+      UploadRepositoryImpl(Get.find<UploadDataSource>());
 }
