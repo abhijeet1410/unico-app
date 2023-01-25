@@ -12,11 +12,16 @@ abstract class AppNotificationManager {
 
   Future<void> configureInAppNotification(
       {bool reqAlert = true, bool reqBadge = true, bool reqSound = true});
+
   void requestNotification(
       {bool alert = true, bool badge = true, bool sound = true});
+
   Future<void> cancelAllNotifications();
-  Future<void> showNotification(NotificationDatum data);
+
+  Future<void> showNotification(
+      String title, String body, NotificationDatum data);
+
   Future<void> showProgressNotification(NotificationDatum data);
+
   Future<void> showNotificationWithAttachment(NotificationDatum data);
-  void onNotificationTapped(NotificationDatum data);
 }
