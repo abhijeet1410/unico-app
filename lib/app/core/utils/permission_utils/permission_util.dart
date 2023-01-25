@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/widget/alert_dialog.dart';
+import 'package:flutter_template_3/app/core/widgets/alerts/alert_dialog.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -72,7 +72,7 @@ class AppPermissions {
             description: subTitle,
             positiveText: "Go to Settings",
             negativeText: "Cancel")
-        .then((value) {
+        .then((bool? value) {
       if (value == true) {
         openAppSettings();
       }

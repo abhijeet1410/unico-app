@@ -17,4 +17,5 @@ mixin AppApiRoutes {
   static const authentication = "/authentication";
   static const phoneAuthentication = "/v1/phone-authentication";
   static const credentialVerification = "/v1/credential-verification";
+  static const upload = "/v1/upload";
 }

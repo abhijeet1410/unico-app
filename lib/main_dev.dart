@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
-import 'package:flutter_template_3/app/data/local/preference/preference_manager_impl.dart';
 import 'package:flutter_template_3/app/my_app.dart';
 import 'package:flutter_template_3/flavors/build_config.dart';
 import 'package:flutter_template_3/flavors/env_config.dart';
@@ -17,7 +14,7 @@ void main() {
       allowAutoSignedCert: true);
 
   BuildConfig.instantiate(
-    envType: Environment.DEVELOPMENT,
+    envType: Environment.development,
     envConfig: devConfig,
   );
   mainDelegate();

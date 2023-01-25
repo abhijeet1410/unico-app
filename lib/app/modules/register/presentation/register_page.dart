@@ -1,6 +1,6 @@
 import 'package:flutter_template_3/app/core/utils/decorations/app_decorations.dart';
 import 'package:flutter_template_3/app/core/utils/validators/app_validators.dart';
-import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
+import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/modules/register/presentation/controller/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

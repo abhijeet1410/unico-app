@@ -1,7 +1,6 @@
+import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
-import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

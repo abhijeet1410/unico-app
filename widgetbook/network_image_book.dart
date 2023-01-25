@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/widget/app_network_image.dart';
+import 'package:flutter_template_3/app/core/widgets/app_network_image.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 ///

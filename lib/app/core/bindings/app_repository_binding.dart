@@ -1,3 +1,4 @@
+import 'package:flutter_template_3/app/core/upload/domain/repositories/upload_repo.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/domain/repositories/forgot_pass_repo.dart';
 import 'package:flutter_template_3/app/modules/forgot_password_otp/domain/repositories/forgot_pass_otp_repo.dart';
 import 'package:flutter_template_3/app/modules/home/domain/repositories/home_repository.dart';
@@ -17,6 +18,6 @@ abstract class AppRepositoryBinding {
   ForgotPasswordRepository getForgotRepo();
   ForgotPassOtpRepository getForgotOtpRepo();
   UpdatePasswordRepository getUpdatePassword();
-
+  UploadRepository getUploadRepo();
   HomeRepository getHomeRepo();
 }

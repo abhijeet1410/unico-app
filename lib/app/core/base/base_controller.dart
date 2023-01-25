@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
-import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
+import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
 import 'package:flutter_template_3/generated/l10n.dart';
 import 'package:get/get.dart';
@@ -15,8 +15,8 @@ abstract class BaseController<T> extends SuperController<T> {
   int skip = 0;
   int limit = 20;
   bool shouldLoadMore = true;
-  final Map<String, dynamic> arguments = Get.arguments;
-  final Map<String, String?> parameters = Get.parameters;
+  final Map<String, dynamic>? arguments = Get.arguments;
+  final Map<String, String?>? parameters = Get.parameters;
 
   S get appLocalization => S.of(Get.context!);
 

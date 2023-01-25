@@ -1,4 +1,4 @@
-import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
+import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/modules/forgot_password_otp/presentation/controller/forgot_password_otp_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

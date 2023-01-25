@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_template_3/app/core/asset/resources.dart';
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
-import 'package:flutter_template_3/app/core/widget/app_buttons/app_circle_button.dart';
-import 'package:flutter_template_3/app/core/widget/app_buttons/app_outline_button.dart';
-import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
+import 'package:flutter_template_3/app/core/widgets/app_buttons/app_circle_button.dart';
+import 'package:flutter_template_3/app/core/widgets/app_buttons/app_outline_button.dart';
+import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 ///

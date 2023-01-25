@@ -4,7 +4,7 @@ import 'package:flutter_template_3/app/modules/register/presentation/register_pa
 import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/core/utils/decorations/app_decorations.dart';
 import 'package:flutter_template_3/app/core/utils/validators/app_validators.dart';
-import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
+import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/login_controller.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -19,6 +19,12 @@ class LoginScreen extends BaseView<LoginController> {
   @override
   Widget body(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: isDarkMode ? Colors.amber : Colors.red,
+          onPressed: () {
+            Get.changeThemeMode(isDarkMode ? ThemeMode.light : ThemeMode.dark);
+          },
+        ),
         body: Obx(() => GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
               child: Form(
@@ -201,28 +207,6 @@ class LoginScreen extends BaseView<LoginController> {
                                 ),
                               ),
                             ),
-                            Center(
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    bottom: 30.0, top: 30.0),
-                                child: SizedBox(
-                                  height: 110.0,
-                                  width: MediaQuery.of(context).size.width,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                      color: Color(0xffF6F6F7),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 15.0, horizontal: 18.0),
-                                      child: Center(
-                                        child: FlutterLogo(),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
                           ],
                         ),
                       ],

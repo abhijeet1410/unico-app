@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
-import 'package:flutter_template_3/app/core/widget/app_buttons/app_primary_button.dart';
+import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
 import 'package:flutter_template_3/app/modules/update_password/data/models/update_password_request_model.dart';
 import 'package:flutter_template_3/app/modules/update_password/domain/usecases/update_password_usecase.dart';

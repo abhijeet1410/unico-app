@@ -16,7 +16,7 @@ class AppNetworkImage extends StatelessWidget {
   final Color? color;
   final Map<String, String>? httpHeaders;
   final Alignment? alignment;
-
+  final Widget? placeholder;
   const AppNetworkImage(this.imageUrl,
       {this.id,
       this.fit,
@@ -28,13 +28,15 @@ class AppNetworkImage extends StatelessWidget {
       this.colorBlendMode,
       this.filterQuality,
       this.httpHeaders,
+      this.placeholder,
       Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (imageUrl?.isEmpty ?? true) return const _ImagePlaceholder();
-    final child = CachedNetworkImage(
+    final Widget placeHolderWidget = placeholder ?? const _ImagePlaceholder();
+    if (imageUrl?.isEmpty ?? true) return placeHolderWidget;
+    final CachedNetworkImage child = CachedNetworkImage(
       imageUrl: imageUrl ?? '',
       fit: fit,
       width: width,
@@ -45,8 +47,9 @@ class AppNetworkImage extends StatelessWidget {
       colorBlendMode: colorBlendMode,
       filterQuality: filterQuality ?? FilterQuality.medium,
       httpHeaders: httpHeaders,
-      errorWidget: (c, s, d) => const _ImagePlaceholder(),
-      placeholder: (context, url) => const _ImagePlaceholder(),
+      errorWidget: (BuildContext c, String s, dynamic error) =>
+          placeHolderWidget,
+      placeholder: (BuildContext context, String url) => placeHolderWidget,
     );
     if (id == null) {
       return child;

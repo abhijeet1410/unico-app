@@ -14,7 +14,7 @@ void main() {
       allowAutoSignedCert: false);
 
   BuildConfig.instantiate(
-    envType: Environment.PRODUCTION,
+    envType: Environment.production,
     envConfig: devConfig,
   );
 

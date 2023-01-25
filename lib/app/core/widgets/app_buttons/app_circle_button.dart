@@ -9,12 +9,14 @@ class AppCircleButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Widget? child;
   final Size? size;
+  final double elevation;
   const AppCircleButton(
       {this.child,
       this.size,
       this.color,
       this.onPressed,
       this.padding,
+      this.elevation = 2.0,
       Key? key})
       : super(key: key);
   @override
@@ -26,6 +28,7 @@ class AppCircleButton extends StatelessWidget {
       padding: padding ?? EdgeInsets.zero,
       shape: const CircleBorder(),
       fillColor: color ?? Colors.white,
+      elevation: elevation,
       child: child,
     );
   }

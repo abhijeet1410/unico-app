@@ -1,4 +1,4 @@
-import 'package:flutter_template_3/app/data/local/preference/preference_manager.dart';
+import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
 import 'package:flutter_template_3/app/modules/register/data/models/register_phone_otp_request_model.dart';
 import 'package:flutter_template_3/app/modules/register/data/models/register_phone_password_request_model.dart';
 import 'package:flutter_template_3/app/route/api_routes.dart';

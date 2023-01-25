@@ -1,4 +1,4 @@
 ///
 /// Created by Sunil Kumar from Boiler plate.
 ///
-enum Environment { DEVELOPMENT, PRODUCTION }
+enum Environment { development, production }
