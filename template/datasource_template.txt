@@ -1,0 +1,6 @@
+import 'package:__PackageName/app/network/get_network_provider/api_configs/api_provider.dart';
+import 'package:get/get.dart';
+
+abstract class __NameDataSource extends BaseProvider {
+  //TODO: Add Your Function Signatures here
+}

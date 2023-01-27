@@ -1,0 +1,13 @@
+import 'package:__PackageName/app/modules/__ModulePath/presentation/screen/__ModulePath_screen.dart';
+import 'package:flutter/material.dart';
+
+
+class __ModuleNamePage extends StatelessWidget {
+  static const String routeName = '/__PagePath';
+  const __ModuleNamePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const __ModuleNameScreen();
+  }
+}

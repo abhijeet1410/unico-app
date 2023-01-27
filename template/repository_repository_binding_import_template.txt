@@ -1,0 +1,1 @@
+import 'package:__PackageName/app/modules/__ModulePath/domain/repositories/__ModulePath_repo.dart';

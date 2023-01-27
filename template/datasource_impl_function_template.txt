@@ -1,0 +1,5 @@
+  @override
+  Future<Response> __CamelCaseUseCaseName(__PascalCaseUseCaseNameRequest requestData) async {
+    //TODO: Implement CamelCaseUseCaseName
+    throw UnimplementedError();
+  }

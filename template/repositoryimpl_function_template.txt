@@ -1,0 +1,6 @@
+  @override
+  Future<__PascalCaseUseCaseNameResponse> __CamelCaseUseCaseName(__PascalCaseUseCaseNameRequest requestData) async {
+    final Response<dynamic> response = await _remoteSource.__CamelCaseUseCaseName(requestData);
+    final __PascalCaseUseCaseNameResponse res = __PascalCaseUseCaseNameResponse.fromJson(response.body);
+    return res;
+  }

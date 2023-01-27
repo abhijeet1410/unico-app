@@ -1,0 +1,9 @@
+import 'package:__PackageName/app/modules/__ModulePath/data/data_source/__ModulePath_data_source.dart';
+import 'package:__PackageName/app/modules/__ModulePath/domain/repositories/__ModulePath_repo.dart';
+import 'package:get/get_connect/http/src/response/response.dart';
+
+class __NameRepositoryImpl implements __NameRepository {
+  final __NameDataSource _remoteSource;
+  __NameRepositoryImpl(this._remoteSource);
+  //TODO: Add Your Functions here
+}

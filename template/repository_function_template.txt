@@ -1,0 +1,1 @@
+    Future<__NameResponse> __CamelCaseName(__NameRequest requestData);

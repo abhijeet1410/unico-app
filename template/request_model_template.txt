@@ -1,0 +1,15 @@
+import 'dart:convert';
+
+__NameRequest __CamelCaseNameRequestFromJson(String str) =>
+    __NameRequest.fromJson(json.decode(str));
+
+String __CamelCaseNameRequestToJson(__NameRequest data) =>
+    json.encode(data.toJson());
+
+class __NameRequest {
+  __NameRequest();
+
+  factory __NameRequest.fromJson(Map<String, dynamic> json) => __NameRequest();
+
+  Map<String, dynamic> toJson() => {};
+}

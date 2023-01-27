@@ -1,0 +1,14 @@
+import 'package:__PackageName/app/core/domain/usercases/usecase.dart';
+import 'package:__PackageName/app/modules/__ModulePath/data/models/__UnderscoreUseCaseName_response.dart';
+import 'package:__PackageName/app/modules/__ModulePath/data/models/__UnderscoreUseCaseName_request.dart';
+import 'package:__PackageName/app/modules/__ModulePath/domain/repositories/__ModulePath_repo.dart';
+
+
+class __NameUseCase extends UseCase<__NameResponse , __NameRequest> {
+  late final __PascalCaseModuleNameRepository repository;
+
+  __NameUseCase(this.repository);
+
+  @override
+  Future<__NameResponse> call(__NameRequest params) => repository.__CamelCaseUseCaseName(params);
+}

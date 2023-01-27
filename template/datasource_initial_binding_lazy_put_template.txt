@@ -1,0 +1,1 @@
+    Get.lazyPut<__NameDataSource>(() => __NameDataSourceImpl());

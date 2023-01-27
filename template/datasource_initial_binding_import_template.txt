@@ -1,0 +1,2 @@
+import 'package:__PackageName/app/modules/__Name/data/data_source/__Name_data_source.dart';
+import 'package:__PackageName/app/modules/__Name/data/data_source/__Name_data_source_impl.dart';

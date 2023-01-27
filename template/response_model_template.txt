@@ -1,0 +1,22 @@
+import 'dart:convert';
+
+
+__NameResponse __CamelCaseNameResponseFromJson(String str) =>
+    __NameResponse.fromJson(json.decode(str));
+
+String __CamelCaseNameResponseToJson(__NameResponse data) => json.encode(data.toJson());
+
+class __NameResponse {
+  __NameResponse();
+
+
+
+  factory __NameResponse.fromJson(Map<String, dynamic> json) => __NameResponse(
+
+  );
+
+  Map<String, dynamic> toJson() => {
+
+  };
+}
+

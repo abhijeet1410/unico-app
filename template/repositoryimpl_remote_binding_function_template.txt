@@ -1,0 +1,4 @@
+
+  @override
+  __NameRepository get__Name() =>
+      __NameRepositoryImpl(Get.find<__NameDataSource>());

@@ -1,0 +1,387 @@
+#!/bin/bash
+
+packageName="flutter_template_3"
+
+camelcase_to_underscore() {
+  local camel_case_string=$1
+  echo "$camel_case_string" \
+  | sed 's/\([^A-Z]\)\([A-Z0-9]\)/\1_\2/g' \
+  | sed 's/\([A-Z0-9]\)\([A-Z0-9]\)\([^A-Z]\)/\1_\2\3/g' \
+  | tr '[:upper:]' '[:lower:]'
+}
+underscore_to_pascalCase() {
+  local under_score_string=$1
+  echo "${under_score_string}" | perl -pe 's/(^|_)./uc($&)/ge;s/_//g'
+}
+
+
+
+display_help() {
+  echo "Usage: retro [option] [argument]"
+  echo "Options:"
+  echo "  -h, --help    Display this help message"
+  echo "   g, generate module :  generate module"
+  echo "   g, generate useCase : generate usecase"
+}
+
+create_folders(){
+  local module=$1
+  underscoreModuleName=$(camelcase_to_underscore "$module")
+  mkdir "lib/app/modules/$underscoreModuleName"
+  mkdir "lib/app/modules/$underscoreModuleName/data"
+  mkdir "lib/app/modules/$underscoreModuleName/data/data_source"
+  mkdir "lib/app/modules/$underscoreModuleName/data/models"
+  mkdir "lib/app/modules/$underscoreModuleName/data/repositories"
+
+
+  mkdir "lib/app/modules/$underscoreModuleName/domain"
+  mkdir "lib/app/modules/$underscoreModuleName/domain/repositories"
+  mkdir "lib/app/modules/$underscoreModuleName/domain/usecases"
+
+
+  mkdir "lib/app/modules/$underscoreModuleName/presentation"
+  mkdir "lib/app/modules/$underscoreModuleName/presentation/controller"
+  mkdir "lib/app/modules/$underscoreModuleName/presentation/screen"
+  mkdir "lib/app/modules/$underscoreModuleName/presentation/widgets"
+}
+
+create_file(){
+  local templatePath=$1
+  local filePath=$2
+  cp "$templatePath"  "$filePath"
+  replaceWord "$filePath" "PackageName" "$packageName"
+}
+replaceWord(){
+  local filePath=$1
+  local oldWord=$2
+  local newWord=$3
+  awk "{gsub(/__${oldWord}/, \"${newWord}\")}; {print}" "${filePath}" > "temp.txt"
+  mv "temp.txt" "${filePath}"
+}
+get_file_path(){
+  local underscoreModuleName
+  local module=$2
+  local useCase=$3
+
+  underscoreModuleName=$(camelcase_to_underscore "$module")
+  underscoreUseCaseName=$(camelcase_to_underscore "$useCase")
+
+   case "$1" in
+      dataSource)
+        echo "lib/app/modules/$underscoreModuleName/data/data_source/${underscoreModuleName}_data_source.dart"
+        ;;
+      dataSourceImpl)
+        echo "lib/app/modules/$underscoreModuleName/data/data_source/${underscoreModuleName}_data_source_impl.dart"
+        ;;
+      repository)
+        echo "lib/app/modules/$underscoreModuleName/domain/repositories/${underscoreModuleName}_repo.dart"
+        ;;
+      repositoryImpl)
+        echo "lib/app/modules/$underscoreModuleName/data/repositories/${underscoreModuleName}_repo_impl.dart"
+        ;;
+      requestModel)
+        echo "lib/app/modules/$underscoreModuleName/data/models/${underscoreUseCaseName}_request.dart"
+        ;;
+      responseModel)
+        echo "lib/app/modules/$underscoreModuleName/data/models/${underscoreUseCaseName}_response.dart"
+        ;;
+      useCase)
+        echo "lib/app/modules/$underscoreModuleName/domain/usecases/${underscoreUseCaseName}_usecase.dart"
+        ;;
+      controller)
+        echo "lib/app/modules/$underscoreModuleName/presentation/controller/${underscoreModuleName}_controller.dart"
+        ;;
+      screen)
+        echo "lib/app/modules/$underscoreModuleName/presentation/screen/${underscoreModuleName}_screen.dart"
+        ;;
+      page)
+        echo "lib/app/modules/$underscoreModuleName/presentation/${underscoreModuleName}_page.dart"
+        ;;
+      *)
+        echo "Error: Unknown option $1"
+        ;;
+    esac
+
+}
+get_line_number(){
+  local filePath=$1
+  local word=$2
+  grep -n "$word"  "$filePath" | tail -1 | cut -d: -f1
+}
+insert_at_line(){
+  local filePath=$1
+  local lineNumber=$2
+  local templateFile=$3
+  awk "NR==${lineNumber} {system(\"cat ${templateFile}\")}; {print}" "$filePath" > temp && mv temp "$filePath"
+  replaceWord "$filePath" "PackageName" "$packageName"
+}
+create_repository(){
+  local module=$1
+  local underscoreModuleName
+  local pascalCaseModuleName
+
+  underscoreModuleName=$(camelcase_to_underscore "$module")
+  pascalCaseModuleName=$(underscore_to_pascalCase "$underscoreModuleName")
+
+  #Repository
+  create_file "template/repo_template.txt"  "$(get_file_path "repository" "$module")"
+  replaceWord "$(get_file_path "repository" "$module")" "Name" "$pascalCaseModuleName"
+
+  #RepositoryImpl
+  create_file "template/repo_impl_template.txt" "$(get_file_path "repositoryImpl" "$module")"
+  replaceWord "$(get_file_path "repositoryImpl" "$module")" "Name" "$pascalCaseModuleName"
+  replaceWord "$(get_file_path "repositoryImpl" "$module")" "ModulePath" "$underscoreModuleName"
+
+  #Register in Repository Binding
+  importLineNumber=$(get_line_number "lib/app/core/bindings/app_repository_binding.dart" "import")
+  insert_at_line "lib/app/core/bindings/app_repository_binding.dart" "$((importLineNumber + 1))" "template/repository_repository_binding_import_template.txt"
+  replaceWord "lib/app/core/bindings/app_repository_binding.dart" "ModulePath" "$underscoreModuleName"
+  lastLineNumber=$(get_line_number "lib/app/core/bindings/app_repository_binding.dart" ";")
+  insert_at_line "lib/app/core/bindings/app_repository_binding.dart" "$((lastLineNumber + 1))" "template/repository_repository_binding_function_template.txt"
+  replaceWord "lib/app/core/bindings/app_repository_binding.dart" "Name" "$pascalCaseModuleName"
+
+  #Register in Remote Binding
+  importLineNumber=$(get_line_number "lib/app/core/bindings/remote_binding.dart" "import")
+  insert_at_line "lib/app/core/bindings/remote_binding.dart" "$importLineNumber" "template/repositoryimpl_remote_binding_import_template.txt"
+  replaceWord "lib/app/core/bindings/remote_binding.dart" "ModulePath" "$underscoreModuleName"
+  lastLineNumber=$(get_line_number "lib/app/core/bindings/remote_binding.dart" ";")
+  insert_at_line "lib/app/core/bindings/remote_binding.dart" "$((lastLineNumber + 1))" "template/repositoryimpl_remote_binding_function_template.txt"
+  replaceWord "lib/app/core/bindings/remote_binding.dart" "Name" "$pascalCaseModuleName"
+
+}
+create_data_source(){
+  local module=$1
+  local underscoreModuleName
+  local pascalCaseModuleName
+  underscoreModuleName=$(camelcase_to_underscore "$module")
+  pascalCaseModuleName=$(underscore_to_pascalCase "$underscoreModuleName")
+
+  #DataSource
+  create_file "template/datasource_template.txt"  "$(get_file_path "dataSource" "$module")"
+  replaceWord "$(get_file_path "dataSource" "$module")" "Name" "$pascalCaseModuleName"
+
+  #DataSourceImpl
+  create_file "template/datasource_impl_template.txt"  "$(get_file_path "dataSourceImpl" "$module")"
+  replaceWord "$(get_file_path "dataSourceImpl" "$module")" "Name" "$pascalCaseModuleName"
+  replaceWord "$(get_file_path "dataSourceImpl" "$module")" "ModulePath" "$underscoreModuleName"
+
+  #Register in Initial Binding
+  importLineNumber=$(get_line_number "lib/app/core/bindings/initial_binding.dart" "import")
+  insert_at_line "lib/app/core/bindings/initial_binding.dart" "$((importLineNumber + 1))" "template/datasource_initial_binding_import_template.txt"
+  replaceWord "lib/app/core/bindings/initial_binding.dart" "Name" "$underscoreModuleName"
+  lastLineNumber=$(get_line_number "lib/app/core/bindings/initial_binding.dart" "/// Data sources")
+  insert_at_line "lib/app/core/bindings/initial_binding.dart" "$((lastLineNumber + 1))" "template/datasource_initial_binding_lazy_put_template.txt"
+  replaceWord "lib/app/core/bindings/initial_binding.dart" "Name" "$pascalCaseModuleName"
+
+
+  create_repository "$module"
+
+
+}
+
+create_function_data_source(){
+  local module=$1
+  local useCase=$2
+
+  underscoreUseCaseName=$(camelcase_to_underscore "$useCase")
+  pascalCaseUseCaseName=$(underscore_to_pascalCase "$underscoreUseCaseName")
+  underscoreModuleName=$(camelcase_to_underscore "$module")
+  pascalCaseModuleName=$(underscore_to_pascalCase "$underscoreModuleName")
+
+  #Insert import & Function in DataSource
+  importLineNumber=$(get_line_number "$(get_file_path "dataSource" "$module")" "import")
+  insert_at_line "$(get_file_path "dataSource" "$module")" "$importLineNumber" "template/datasource_import_template.txt"
+  replaceWord "$(get_file_path "dataSource" "$module")" "UseCaseName" "$underscoreUseCaseName"
+  replaceWord "$(get_file_path "dataSource" "$module")" "ModulePath" "$underscoreModuleName"
+  lastLineNumber=$(get_line_number "$(get_file_path "dataSource" "$module")" "}")
+  insert_at_line "$(get_file_path "dataSource" "$module")" "$lastLineNumber" "template/datasource_function_template.txt"
+  replaceWord "$(get_file_path "dataSource" "$module")" "CamelCaseUseCaseName" "$useCase"
+  replaceWord "$(get_file_path "dataSource" "$module")" "PascalCaseUseCaseName" "$pascalCaseUseCaseName"
+
+
+  #Insert Function in DataSource Impl
+  importLineNumber=$(get_line_number "$(get_file_path "dataSourceImpl" "$module")" "import")
+  insert_at_line "$(get_file_path "dataSourceImpl" "$module")" "$importLineNumber" "template/datasource_impl_import_template.txt"
+  replaceWord "$(get_file_path "dataSourceImpl" "$module")" "UseCaseName" "$underscoreUseCaseName"
+  replaceWord "$(get_file_path "dataSourceImpl" "$module")" "ModulePath" "$underscoreModuleName"
+  lastLineNumber=$(get_line_number "$(get_file_path "dataSourceImpl" "$module")" "}")
+  insert_at_line "$(get_file_path "dataSourceImpl" "$module")" "$lastLineNumber" "template/datasource_impl_function_template.txt"
+  replaceWord "$(get_file_path "dataSourceImpl" "$module")" "CamelCaseUseCaseName" "$useCase"
+  replaceWord "$(get_file_path "dataSourceImpl" "$module")" "PascalCaseUseCaseName" "$pascalCaseUseCaseName"
+
+}
+create_function_repository(){
+  local module=$1
+  local useCase=$2
+
+  underscoreUseCaseName=$(camelcase_to_underscore "$useCase")
+  pascalCaseUseCaseName=$(underscore_to_pascalCase "$underscoreUseCaseName")
+  underscoreModuleName=$(camelcase_to_underscore "$module")
+  pascalCaseModuleName=$(underscore_to_pascalCase "$underscoreModuleName")
+
+  #Insert import & Function in Repository
+
+  insert_at_line "$(get_file_path "repository" "$module")" "1" "template/repository_import_template.txt"
+  replaceWord "$(get_file_path "repository" "$module")" "UseCaseName" "$underscoreUseCaseName"
+  replaceWord "$(get_file_path "repository" "$module")" "ModulePath" "$underscoreModuleName"
+  lastLineNumber=$(get_line_number "$(get_file_path "repository" "$module")" "}")
+  insert_at_line "$(get_file_path "repository" "$module")" "$lastLineNumber" "template/repository_function_template.txt"
+  replaceWord "$(get_file_path "repository" "$module")" "UseCasePath" "$underscoreUseCaseName"
+  replaceWord "$(get_file_path "repository" "$module")" "CamelCaseName" "$useCase"
+  replaceWord "$(get_file_path "repository" "$module")" "Name" "$pascalCaseUseCaseName"
+
+
+  #Insert Function in Repository Impl
+  insert_at_line "$(get_file_path "repositoryImpl" "$module")" "1" "template/repositoryimpl_import_template.txt"
+  replaceWord "$(get_file_path "repositoryImpl" "$module")" "UseCasePath" "$underscoreUseCaseName"
+  replaceWord "$(get_file_path "repositoryImpl" "$module")" "ModulePath" "$underscoreModuleName"
+  lastLineNumber=$(get_line_number "$(get_file_path "repositoryImpl" "$module")" "}")
+  insert_at_line "$(get_file_path "repositoryImpl" "$module")" "$lastLineNumber" "template/repositoryimpl_function_template.txt"
+  replaceWord "$(get_file_path "repositoryImpl" "$module")" "CamelCaseUseCaseName" "$useCase"
+  replaceWord "$(get_file_path "repositoryImpl" "$module")" "PascalCaseUseCaseName" "$pascalCaseUseCaseName"
+
+
+}
+create_controller(){
+  local module=$1
+  underscoreModuleName=$(camelcase_to_underscore "$module")
+  pascalCaseModuleName=$(underscore_to_pascalCase "$underscoreModuleName")
+
+  create_file "template/controller_template.txt"  "$(get_file_path "controller" "$module")"
+  replaceWord "$(get_file_path "controller" "$module")" "Name" "$pascalCaseModuleName"
+  importLineNumber=$(get_line_number "lib/app/core/bindings/initial_binding.dart" "import")
+  insert_at_line "lib/app/core/bindings/initial_binding.dart" "$((importLineNumber + 1))" "template/controller_initial_binding_import.txt"
+  replaceWord "lib/app/core/bindings/initial_binding.dart" "ModulePath" "$underscoreModuleName"
+  lastLineNumber=$(get_line_number "lib/app/core/bindings/initial_binding.dart" "/// Controllers")
+  insert_at_line "lib/app/core/bindings/initial_binding.dart" "$((lastLineNumber + 1))" "template/controller_initial_binding_lazy_put.txt"
+  replaceWord "lib/app/core/bindings/initial_binding.dart" "Name" "$pascalCaseModuleName"
+
+}
+
+create_screen(){
+  local module=$1
+
+  underscoreModuleName=$(camelcase_to_underscore "$module")
+  pascalCaseModuleName=$(underscore_to_pascalCase "$underscoreModuleName")
+
+  create_file "template/screen_template.txt" "$(get_file_path "screen" "$module")"
+  replaceWord "$(get_file_path "screen" "$module")" "Name" "$pascalCaseModuleName"
+  replaceWord "$(get_file_path "screen" "$module")" "ModulePath" "$underscoreModuleName"
+}
+
+create_page(){
+  local module=$1
+  underscoreModuleName=$(camelcase_to_underscore "$module")
+  pascalCaseModuleName=$(underscore_to_pascalCase "$underscoreModuleName")
+
+  create_file "template/page_template.txt"  "$(get_file_path "page" "$module")"
+  replaceWord "$(get_file_path "page" "$module")" "ModuleName" "$pascalCaseModuleName"
+  replaceWord "$(get_file_path "page" "$module")" "PathName" "$pascalCaseModuleName"
+  replaceWord "$(get_file_path "page" "$module")" "ModulePath" "$underscoreModuleName"
+
+
+  importLineNumber=$(get_line_number "lib/app/route/app_page_routes.dart" "import")
+  insert_at_line "lib/app/route/app_page_routes.dart" "$importLineNumber" "template/page_route_import_template.txt"
+  replaceWord "lib/app/route/app_page_routes.dart" "ModulePath" "$underscoreModuleName"
+  lastLineNumber=$(get_line_number "lib/app/route/app_page_routes.dart" ",")
+  insert_at_line "lib/app/route/app_page_routes.dart" "$((lastLineNumber + 1))" "template/page_route_function_template.txt"
+  replaceWord "lib/app/route/app_page_routes.dart" "ModuleName" "$pascalCaseModuleName"
+
+}
+
+create_model(){
+  local module=$1
+  local useCase=$2
+
+  underscoreUseCaseName=$(camelcase_to_underscore "$useCase")
+  pascalCaseUseCaseName=$(underscore_to_pascalCase "$underscoreUseCaseName")
+
+
+  #Add Request Model
+  create_file "template/request_model_template.txt"  "$(get_file_path "requestModel" "$module" "$useCase")"
+  replaceWord "$(get_file_path "requestModel" "$module" "$useCase")" "Name" "$pascalCaseUseCaseName"
+  replaceWord "$(get_file_path "requestModel" "$module" "$useCase")" "CamelCaseName" "$useCase"
+
+
+  #Add Response Model
+  create_file "template/response_model_template.txt"  "$(get_file_path "responseModel" "$module" "$useCase")"
+  replaceWord "$(get_file_path "responseModel" "$module" "$useCase")" "Name" "$pascalCaseUseCaseName"
+  replaceWord "$(get_file_path "responseModel" "$module" "$useCase")" "CamelCaseName" "$useCase"
+
+}
+create_use_case(){
+  local module=$1
+  local useCase=$2
+
+  underscoreUseCaseName=$(camelcase_to_underscore "$useCase")
+  pascalCaseUseCaseName=$(underscore_to_pascalCase "$underscoreUseCaseName")
+  underscoreModuleName=$(camelcase_to_underscore "$module")
+  pascalCaseModuleName=$(underscore_to_pascalCase "$underscoreModuleName")
+
+
+  #Add UseCase
+  create_file "template/usecase_template.txt"  "$(get_file_path "useCase" "$module" "$useCase")"
+  replaceWord "$(get_file_path "useCase" "$module" "$useCase")" "PascalCaseModuleName" "$pascalCaseModuleName"
+  replaceWord "$(get_file_path "useCase" "$module" "$useCase")" "CamelCaseUseCaseName" "$useCase"
+  replaceWord "$(get_file_path "useCase" "$module" "$useCase")" "ModulePath" "$underscoreModuleName"
+  replaceWord "$(get_file_path "useCase" "$module" "$useCase")" "UnderscoreUseCaseName" "$underscoreUseCaseName"
+  replaceWord "$(get_file_path "useCase" "$module" "$useCase")" "Name" "$pascalCaseUseCaseName"
+
+
+}
+
+choose_module(){
+  cd "lib/app/modules" || exit
+  select d in */; do test -n "$d" && break; echo ">>> Invalid Selection"; done
+  echo "${d%?}"
+}
+
+generate_clean_arch() {
+  case "$1" in
+      module)
+        read -r -p "Enter the module name: " module
+        create_folders "$module"
+        create_data_source "$module"
+        create_controller "$module"
+        create_screen "$module"
+        create_page "$module"
+        exit 0
+        ;;
+      useCase)
+        module=$(choose_module)
+        read -r -p "Enter the useCase name: " useCase
+        create_model "$module" "$useCase"
+        create_use_case "$module" "$useCase"
+        create_function_data_source "$module" "$useCase"
+        create_function_repository "$module" "$useCase"
+        ;;
+      *)
+        echo "Error: Unknown option $1"
+        ;;
+  esac
+
+}
+
+main() {
+
+  case "$1" in
+      -h|--help)
+        display_help
+        exit 0
+        ;;
+      g|generate)
+        generate_clean_arch "$2"
+        shift 2
+        ;;
+      *)
+        echo "Error: Unknown option $1"
+        display_help
+        ;;
+    esac
+
+}
+
+
+
+main "$@"
+

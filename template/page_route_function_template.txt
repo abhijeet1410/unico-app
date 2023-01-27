@@ -1,0 +1,8 @@
+        GetPage<dynamic>(
+                    name: __ModuleNamePage.routeName,
+                    title: '__ModuleNamePage',
+                    page: () => const __ModuleNamePage(),
+                    participatesInRootNavigator: true,
+                    preventDuplicates: true,
+                    transition: Transition.noTransition,
+                  ),
