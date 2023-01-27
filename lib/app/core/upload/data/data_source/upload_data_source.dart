@@ -9,5 +9,5 @@ import 'package:flutter_template_3/app/network/dio_network_provider/dio_provider
 abstract class UploadDataSource extends DioProvider {
   UploadDataSource.setContentType(super.version) : super.setContentType();
 
-  Future<Response> uploadFiles(UploadRequestModel request, {String? mockPath});
+  Future<Response<dynamic>> uploadFiles(UploadRequestModel request, {String? mockPath});
 }

@@ -13,11 +13,11 @@ class UploadDataSourceImpl extends UploadDataSource {
   UploadDataSourceImpl.setContentType(super.version) : super.setContentType();
 
   @override
-  Future<Response> uploadFiles(UploadRequestModel request,
+  Future<Response<dynamic>> uploadFiles(UploadRequestModel request,
       {String? mockPath}) async {
     return DioProvider.dioWithHeaderToken.post(AppApiRoutes.upload,
-        data: FormData.fromMap({
-           for (int i = 0; i < request.files.length; i++)
+        data: FormData.fromMap(<String, dynamic>{
+          for (int i = 0; i < request.files.length; i++)
             "files": await MultipartFile.fromFile(request.files[i].path,
                 filename: request.files[i].path.split("/").last),
           "purpose": request.purpose,
@@ -26,7 +26,7 @@ class UploadDataSourceImpl extends UploadDataSource {
         options: Options(
           contentType: "multipart/form-data",
         ),
-        onSendProgress: (a, b) => request.uploadProgress?.call(a, b));
+        onSendProgress: (int a, int b) => request.uploadProgress?.call(a, b));
   }
 }
 

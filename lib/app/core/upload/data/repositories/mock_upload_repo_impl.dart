@@ -1,3 +1,4 @@
+import 'package:dio/src/response.dart';
 import 'package:flutter_template_3/app/core/upload/data/data_source/upload_data_source.dart';
 import 'package:flutter_template_3/app/core/upload/data/models/upload_request_model.dart';
 import 'package:flutter_template_3/app/core/upload/data/models/upload_response_model.dart';
@@ -14,8 +15,9 @@ class MockUploadRepositoryImpl implements UploadRepository {
 
   @override
   Future<List<UploadResponse>> uploadFiles(UploadRequestModel request) async {
-    final res = await _remoteSource.uploadFiles(request, mockPath: "upload");
+    final Response<dynamic> res =
+        await _remoteSource.uploadFiles(request, mockPath: "upload");
     return List<UploadResponse>.from(
-        res.data.map((x) => UploadResponse.fromJson(x)));
+        res.data.map((dynamic x) => UploadResponse.fromJson(x)));
   }
 }

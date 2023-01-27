@@ -9,14 +9,14 @@ import 'package:flutter_template_3/app/core/utils/date_utils/date_utils.dart';
 import 'package:flutter_template_3/app/modules/login/data/models/user.dart';
 import 'package:intl/intl.dart';
 
-NotificationResponse notificationResponseFromJson(String str) =>
-    NotificationResponse.fromJson(json.decode(str));
+NotificationNetworkResponse notificationResponseFromJson(String str) =>
+    NotificationNetworkResponse.fromJson(json.decode(str));
 
-String notificationResponseToJson(NotificationResponse data) =>
+String notificationResponseToJson(NotificationNetworkResponse data) =>
     json.encode(data.toJson());
 
-class NotificationResponse {
-  NotificationResponse({
+class NotificationNetworkResponse {
+  NotificationNetworkResponse({
     required this.total,
     required this.limit,
     required this.skip,
@@ -28,8 +28,8 @@ class NotificationResponse {
   int skip;
   List<NotificationDatum> data;
 
-  factory NotificationResponse.fromJson(Map<String, dynamic> json) =>
-      NotificationResponse(
+  factory NotificationNetworkResponse.fromJson(Map<String, dynamic> json) =>
+      NotificationNetworkResponse(
         total: json["total"] ?? 0,
         limit: json["limit"] ?? 0,
         skip: json["skip"] ?? 0,

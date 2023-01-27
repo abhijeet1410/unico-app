@@ -35,9 +35,34 @@ WidgetbookComponent buttonsBook() {
                   onPressed: () {
                     AppSnackBarUtil.show("Helu");
                   },
-                  color: Colors.red,
+                  color: Color(int.parse(context.knobs.text(
+                      label: "Button color",
+                      description: "Color of the button",
+                      initialValue: "0xff909090"))),
                   key: _primaryButtonKey,
-                  child: const Text("Login"),
+                  height: context.knobs
+                      .number(
+                          label: "Button height",
+                          initialValue: 20,
+                          description: "Height of button")
+                      .toDouble(),
+                  width: context.knobs
+                      .number(
+                          label: "Button width",
+                          initialValue: 80,
+                          description: "Width of button")
+                      .toDouble(),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(context.knobs
+                          .number(
+                              label: "Button radius",
+                              description: "Radius of button",
+                              initialValue: 15)
+                          .toDouble())),
+                  child: Text(context.knobs.text(
+                      label: "Button name",
+                      description: "Name of the button",
+                      initialValue: "Login")),
                 ),
                 const SizedBox(width: 22),
                 IconButton(
@@ -59,8 +84,16 @@ WidgetbookComponent buttonsBook() {
               onPressed: () {
                 AppSnackBarUtil.show("Helu");
               },
-              color: Colors.red,
-              size: const Size.square(80),
+              color: Color(int.parse(context.knobs.text(
+                  label: "Circle color",
+                  description: "Circle of the button",
+                  initialValue: "0xff909090"))),
+              size: Size.square(context.knobs
+                  .number(
+                      label: "Button Size",
+                      description: "Size of the button",
+                      initialValue: 80)
+                  .toDouble()),
               child: SvgPicture.asset(AppAssets.userPlaceholder),
             ),
           );
@@ -84,11 +117,22 @@ WidgetbookComponent buttonsBook() {
                   onPressed: () {
                     AppSnackBarUtil.show("Helu");
                   },
-                  borderSide: const BorderSide(
+                  // FF9800FF
+                  borderSide: BorderSide(
                     width: 2,
-                    color: Colors.orange,
+                    color: Color(
+                      int.parse(context.knobs.text(
+                          label: "color",
+                          description: "Circle of the button",
+                          initialValue: "0xffFF9800")),
+                    ),
                   ),
-                  color: Colors.orange,
+                  color: Color(
+                    int.parse(context.knobs.text(
+                        label: "color",
+                        description: "Circle of the button",
+                        initialValue: "0xffFF9800")),
+                  ),
                   key: _outlinedButtonKey,
                   child: const Text("Profile"),
                 ),
