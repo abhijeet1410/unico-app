@@ -6,6 +6,7 @@ import 'package:flutter_template_3/app/network/get_network_provider/api_configs/
 import 'package:flutter_template_3/flavors/build_config.dart';
 import 'package:flutter_template_3/flavors/env_config.dart';
 import 'package:get/get.dart';
+import 'package:logger/src/logger.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -16,8 +17,8 @@ class BaseProvider extends GetConnect implements GetxService {
 
   bool? authRequired;
 
-  static const _jsonDir = 'assets/mocks/';
-  static const _jsonExtension = '.json';
+  static const String _jsonDir = 'assets/mocks/';
+  static const String _jsonExtension = '.json';
 
   @override
   bool get allowAutoSignedCert => _envConfig.allowAutoSignedCert;
@@ -42,8 +43,9 @@ class BaseProvider extends GetConnect implements GetxService {
       bool authRequired = true,
       String? baseUrl}) async {
     httpClient.baseUrl = baseUrl ?? _envConfig.baseUrl;
-    final logger = BuildConfig.instance.config.logger;
-    logger.i("NETWORK_CALL: $url $method $body $headers");
+    final Logger logger = BuildConfig.instance.config.logger;
+    logger.i(
+        "NETWORK_CALL: ${httpClient.baseUrl}$url $method $body $query $headers");
 
     if (_envConfig.useMockData && mockPath == null) {
       throw ArgumentError("Please provide mock path in Mock Environment");
@@ -52,8 +54,8 @@ class BaseProvider extends GetConnect implements GetxService {
 
     if (_envConfig.useMockData || mockPath != null) {
       try {
-        final mockData = await loadMockData<T>(mockPath!);
-        return Future.value(Response(
+        T mockData = await loadMockData<T>(mockPath!);
+        return Future<Response<T>>.value(Response<T>(
             headers: headers,
             statusCode: 200,
             statusText: "SUCCESS",
@@ -67,7 +69,7 @@ class BaseProvider extends GetConnect implements GetxService {
       }
     } else {
       try {
-        final res = await super.request<T>(url, method,
+        final Response<T> res = await super.request<T>(url, method,
             headers: headers,
             contentType: contentType,
             query: query,
@@ -205,8 +207,8 @@ class BaseProvider extends GetConnect implements GetxService {
   }
 
   Future<T> loadMockData<T>(String name) async {
-    final resourcePath = _jsonDir + name + _jsonExtension;
-    final data = await rootBundle.load(resourcePath);
+    final String resourcePath = _jsonDir + name + _jsonExtension;
+    final ByteData data = await rootBundle.load(resourcePath);
     final mapData = json.decode(
       utf8.decode(
         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),

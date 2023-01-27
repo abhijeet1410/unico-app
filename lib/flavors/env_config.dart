@@ -1,3 +1,4 @@
+import 'package:flutter_template_3/flavors/environment.dart';
 import 'package:logger/logger.dart';
 
 ///
@@ -11,14 +12,20 @@ class EnvConfig {
   final bool allowAutoSignedCert;
   late final Logger logger;
   late final String? googleClientId;
+  late LogFilter? appLogFilter;
 
-  EnvConfig(
-      {required this.appName,
-      required this.baseUrl,
-      required this.useMockData,
-      this.allowAutoSignedCert = false,
-      this.googleClientId}) {
+  EnvConfig({
+    required this.appName,
+    required this.baseUrl,
+    required this.useMockData,
+    this.allowAutoSignedCert = false,
+    this.googleClientId,
+    LogFilter? logFilter,
+  }) {
+    appLogFilter = logFilter ?? AppProdLogFilter();
+
     logger = Logger(
+      filter: appLogFilter,
       printer: PrettyPrinter(
           methodCount: 1,
           // number of method calls to be displayed

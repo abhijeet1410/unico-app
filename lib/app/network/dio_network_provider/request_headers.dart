@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
+import 'package:get/get.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -7,15 +9,21 @@ import 'package:dio/dio.dart';
 class RequestHeaderInterceptor extends InterceptorsWrapper {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    getCustomHeaders().then((customHeaders) {
+    getCustomHeaders().then((Map<String, String> customHeaders) {
       options.headers.addAll(customHeaders);
       super.onRequest(options, handler);
     });
   }
 
   Future<Map<String, String>> getCustomHeaders() async {
-    var customHeaders = {'content-type': 'application/json'};
-
+    final Map<String, String> customHeaders = {
+      'content-type': 'application/json'
+    };
+    final PreferenceManager preferenceManager = Get.find<PreferenceManager>();
+    final String? accessToken = preferenceManager.accessToken;
+    if (accessToken != null && accessToken.trim().isNotEmpty) {
+      customHeaders['Authorization'] = "Bearer $accessToken";
+    }
     return customHeaders;
   }
 }

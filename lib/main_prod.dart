@@ -11,6 +11,7 @@ void main() {
       appName: "Flutter Template Prod",
       baseUrl: "https://api.test.kemnu.com",
       useMockData: false,
+      logFilter: AppProdLogFilter(),
       allowAutoSignedCert: false);
 
   BuildConfig.instantiate(

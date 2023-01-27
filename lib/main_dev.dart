@@ -8,10 +8,12 @@ import 'package:flutter_template_3/flavors/environment.dart';
 ///
 void main() {
   EnvConfig devConfig = EnvConfig(
-      appName: "Flutter Template Dev",
-      baseUrl: "https://api.ausicare.smarttersstudio.com",
-      useMockData: true,
-      allowAutoSignedCert: true);
+    appName: "Flutter Template Dev",
+    baseUrl: "https://api.ausicare.smarttersstudio.com",
+    useMockData: true,
+    allowAutoSignedCert: true,
+    logFilter: AppDevLogFilter(),
+  );
 
   BuildConfig.instantiate(
     envType: Environment.development,
