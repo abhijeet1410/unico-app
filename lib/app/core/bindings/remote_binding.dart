@@ -11,6 +11,9 @@ import 'package:flutter_template_3/app/modules/home/domain/repositories/home_rep
 import 'package:flutter_template_3/app/modules/login/data/data_source/login_data_source.dart';
 import 'package:flutter_template_3/app/modules/login/data/repositories/remote_login_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/login/domain/repositories/login_repo.dart';
+import 'package:flutter_template_3/app/modules/notification/data/data_source/notification_data_source.dart';
+import 'package:flutter_template_3/app/modules/notification/data/repositories/notification_repo_impl.dart';
+import 'package:flutter_template_3/app/modules/notification/domain/repositories/notification_repo.dart';
 import 'package:flutter_template_3/app/modules/register/data/repositories/remote_register_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/splash/data/repositories/remote_splash_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/update_password/data/repositories/remote_login_repo_impl.dart';
@@ -46,7 +49,7 @@ class RemoteRepositoryBindingsGetter implements AppRepositoryBinding {
       RemoteSplashRepositoryImpl(Get.find<SplashDataSource>());
 
   @override
-  ForgotPasswordRepository getForgotRepo() =>
+  ForgotPasswordRepository getForgotPasswordRepo() =>
       RemoteForgotPasswordRepositoryImpl(Get.find<ForgotPasswordDataSource>());
   @override
   ForgotPassOtpRepository getForgotOtpRepo() =>
@@ -59,4 +62,8 @@ class RemoteRepositoryBindingsGetter implements AppRepositoryBinding {
   @override
   UploadRepository getUploadRepo() =>
       UploadRepositoryImpl(Get.find<UploadDataSource>());
+
+  @override
+  NotificationRepository getNotificationRepo() =>
+      NotificationRepositoryImpl(Get.find<NotificationDataSource>());
 }

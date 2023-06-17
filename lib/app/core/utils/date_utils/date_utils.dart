@@ -9,8 +9,8 @@ import 'package:timeago/timeago.dart' as timeago;
 class AppDateUtils {
   static const String DATE_FORMAT_DD_MM_YY = "dd/MM/yy";
   static const String SINGLE_SPACE = ' ';
-  static const AT = "at";
-  static const DASH = "-";
+  static const String AT = "at";
+  static const String DASH = "-";
 
   static DateTime initialStartingDate = DateTime(1900, 01);
   static DateTime initialEndingDate = DateTime.now();
@@ -85,7 +85,7 @@ class AppDateUtils {
   static String getApiFormatToDisplayDD_MM_YYYY(DateTime date) =>
       DateFormat('dd.MM.yyyy').format(date);
 
-  static String getDisplyDate(String date) =>
+  static String getDisplayDate(String date) =>
       DateFormat("dd.MM.yyyy").format(DateTime.parse(date));
 
   static DateTime setDateToPicker(String date) =>
@@ -131,45 +131,13 @@ class AppDateUtils {
   static String getMonthAndYear(DateTime date) =>
       DateFormat('MMMM yyyy').format(date);
 
-  static String getTimeToApiTime(DateTime dateTime) {
-    var duration = dateTime.timeZoneOffset;
-    if (duration.isNegative)
-      return (DateFormat("yyyy-MM-ddTHH:mm:ss.mmm").format(dateTime) +
-          "-${duration.inHours.toString().padLeft(2, '0')}${(duration.inMinutes - (duration.inHours * 60)).toString().padLeft(2, '0')}");
-    else
-      return (DateFormat("yyyy-MM-ddTHH:mm:ss.mmm").format(dateTime) +
-          "+${duration.inHours.toString().padLeft(2, '0')}${(duration.inMinutes - (duration.inHours * 60)).toString().padLeft(2, '0')}");
-  }
-
-  static String getCustomDateAndTime(DateTime startDate, DateTime endDate,
-      DateTime fromDateTimeValue, DateTime toDateTimeValue) {
-    String customFromDate = getCustomDate(startDate);
-    String customToDate = getCustomDate(endDate);
-    String customFromTime = getHrAndMin(fromDateTimeValue.toString());
-    String customToTime = getHrAndMin(toDateTimeValue.toString());
-
-    return (customFromDate +
-        SINGLE_SPACE +
-        AT +
-        SINGLE_SPACE +
-        customFromTime +
-        SINGLE_SPACE +
-        DASH +
-        SINGLE_SPACE +
-        customToDate +
-        SINGLE_SPACE +
-        AT +
-        SINGLE_SPACE +
-        customToTime);
-  }
-
   static bool dateIsExpired(int year, int month) {
     return hasYearExpired(year) || hasMonthExpired(year, month);
   }
 
   static int convertYearTo4Digits(int year) {
     if (year < 100 && year >= 0) {
-      var now = DateTime.now();
+      DateTime now = DateTime.now();
       String currentYear = now.year.toString();
       String prefix = currentYear.substring(0, currentYear.length - 2);
       year = int.parse('$prefix${year.toString().padLeft(2, '0')}');
@@ -178,21 +146,16 @@ class AppDateUtils {
   }
 
   static bool hasMonthExpired(int year, int month) {
-    var now = DateTime.now();
+    DateTime now = DateTime.now();
     return hasYearExpired(year) ||
         convertYearTo4Digits(year) == now.year && (month < now.month);
   }
 
   static bool hasYearExpired(int year) {
     int fourDigitsYear = convertYearTo4Digits(year);
-    var now = DateTime.now();
+    DateTime now = DateTime.now();
 
     return fourDigitsYear < now.year;
-  }
-
-  static String formatTimeAgo(DateTime? dateTime) {
-    if (dateTime == null) return "";
-    return timeago.format(dateTime);
   }
 
   /// Get duration in mm:ss
@@ -202,4 +165,48 @@ class AppDateUtils {
     String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
     return "$twoDigitMinutes:$twoDigitSeconds";
   }
+
+  static String formatTimeAgo(DateTime? dateTime,
+      [timeago.LookupMessages? lookupMessages]) {
+    if (dateTime == null) return "";
+    if (lookupMessages != null) {
+      timeago.setLocaleMessages("en_short", lookupMessages);
+    }
+    return timeago.format(dateTime, locale: "en_short");
+  }
+}
+
+class AppCustomMessages implements timeago.LookupMessages {
+  @override
+  String prefixAgo() => '';
+  @override
+  String prefixFromNow() => '';
+  @override
+  String suffixAgo() => '';
+  @override
+  String suffixFromNow() => '';
+  @override
+  String lessThanOneMinute(int seconds) => 'now';
+  @override
+  String aboutAMinute(int minutes) => '${minutes}m';
+  @override
+  String minutes(int minutes) => '${minutes}m';
+  @override
+  String aboutAnHour(int minutes) => '${minutes}m';
+  @override
+  String hours(int hours) => '${hours}h';
+  @override
+  String aDay(int hours) => '${hours}h';
+  @override
+  String days(int days) => '${days}d';
+  @override
+  String aboutAMonth(int days) => '${days}d';
+  @override
+  String months(int months) => '${months}mo';
+  @override
+  String aboutAYear(int year) => '${year}y';
+  @override
+  String years(int years) => '${years}y';
+  @override
+  String wordSeparator() => ' ';
 }

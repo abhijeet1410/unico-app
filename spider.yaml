@@ -24,6 +24,11 @@ groups:
     types: [ .png, .jpg, .jpeg, .webp, .webm, .bmp, .svg ]
     package: res
 
+  - class_name: AppAnimations
+    path: assets/anim
+    types: [ .riv, .json ]
+    package: res
+
 #  - path: assets/vectors
 #    class_name: Svgs
 #    package: res

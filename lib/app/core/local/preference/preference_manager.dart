@@ -3,7 +3,7 @@
 ///
 
 abstract class PreferenceManager {
-  static const accessTokenKey = "user-access-token";
+  static const String accessTokenKey = "user-access-token";
 
   Future<void> initStorage();
 

@@ -1,6 +1,6 @@
-import 'package:flutter_template_3/app/modules/login/data/models/login_request_model.dart';
 import 'package:flutter_template_3/app/modules/login/data/data_source/login_data_source.dart';
-import 'package:flutter_template_3/app/route/api_routes.dart';
+import 'package:flutter_template_3/app/modules/login/data/models/login_request_model.dart';
+ import 'package:flutter_template_3/app/route/api_routes.dart';
 import 'package:get/get.dart';
 
 ///
@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 
 class LoginDataSourceImpl extends LoginDataSource {
   @override
-  Future<Response> loginWithApple(LoginRequestModel loginData,
+  Future<Response<dynamic>> loginWithApple(LoginRequestModel loginData,
       {String? mockPath}) {
     return post(
       AppApiRoutes.loginApple,
@@ -20,7 +20,7 @@ class LoginDataSourceImpl extends LoginDataSource {
   }
 
   @override
-  Future<Response> loginWithEmailPassword(LoginRequestModel loginData,
+  Future<Response<dynamic>> loginWithEmailPassword(LoginRequestModel loginData,
       {String? mockPath}) {
     return post(
       AppApiRoutes.loginEmailPassword,
@@ -31,7 +31,7 @@ class LoginDataSourceImpl extends LoginDataSource {
   }
 
   @override
-  Future<Response> loginWithFacebook(LoginRequestModel loginData,
+  Future<Response<dynamic>> loginWithFacebook(LoginRequestModel loginData,
       {String? mockPath}) {
     return post(
       AppApiRoutes.loginFacebook,
@@ -42,7 +42,7 @@ class LoginDataSourceImpl extends LoginDataSource {
   }
 
   @override
-  Future<Response> loginWithGoogle(LoginRequestModel loginData,
+  Future<Response<dynamic>> loginWithGoogle(LoginRequestModel loginData,
       {String? mockPath}) {
     return post(
       AppApiRoutes.loginGoogle,
@@ -53,7 +53,7 @@ class LoginDataSourceImpl extends LoginDataSource {
   }
 
   @override
-  Future<Response> loginWithPhonePassword(LoginRequestModel loginData,
+  Future<Response<dynamic>> loginWithPhonePassword(LoginRequestModel loginData,
       {String? mockPath}) {
     return post(
       AppApiRoutes.loginEmailPassword,
@@ -64,7 +64,7 @@ class LoginDataSourceImpl extends LoginDataSource {
   }
 
   @override
-  Future<Response> sendEmailOTP(LoginRequestModel loginData,
+  Future<Response<dynamic>> sendEmailOTP(LoginRequestModel loginData,
       {String? mockPath}) {
     return post(
       AppApiRoutes.loginEmailOTP,
@@ -75,7 +75,7 @@ class LoginDataSourceImpl extends LoginDataSource {
   }
 
   @override
-  Future<Response> sendPhoneOTP(LoginRequestModel loginData,
+  Future<Response<dynamic>> sendPhoneOTP(LoginRequestModel loginData,
       {String? mockPath}) {
     return post(
       AppApiRoutes.loginPhoneOTP,

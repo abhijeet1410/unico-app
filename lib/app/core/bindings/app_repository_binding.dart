@@ -3,6 +3,7 @@ import 'package:flutter_template_3/app/modules/forgot_password/domain/repositori
 import 'package:flutter_template_3/app/modules/forgot_password_otp/domain/repositories/forgot_pass_otp_repo.dart';
 import 'package:flutter_template_3/app/modules/home/domain/repositories/home_repository.dart';
 import 'package:flutter_template_3/app/modules/login/domain/repositories/login_repo.dart';
+import 'package:flutter_template_3/app/modules/notification/domain/repositories/notification_repo.dart';
 import 'package:flutter_template_3/app/modules/register/domain/repositories/register_repo.dart';
 import 'package:flutter_template_3/app/modules/splash/domain/repositories/splash_repo.dart';
 import 'package:flutter_template_3/app/modules/update_password/domain/repositories/update_password_repo.dart';
@@ -15,9 +16,10 @@ abstract class AppRepositoryBinding {
   SplashRepository getSplashRepo();
   LoginRepository getLoginRepo();
   RegisterRepository getRegisterRepo();
-  ForgotPasswordRepository getForgotRepo();
+  ForgotPasswordRepository getForgotPasswordRepo();
   ForgotPassOtpRepository getForgotOtpRepo();
   UpdatePasswordRepository getUpdatePassword();
   UploadRepository getUploadRepo();
   HomeRepository getHomeRepo();
+  NotificationRepository getNotificationRepo();
 }

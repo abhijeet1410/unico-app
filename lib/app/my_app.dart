@@ -6,7 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_template_3/app/core/bindings/initial_binding.dart';
 import 'package:flutter_template_3/app/core/local/preference/preference_manager_impl.dart';
+import 'package:flutter_template_3/app/core/theme/app_colors.dart';
 import 'package:flutter_template_3/app/core/theme/app_theme.dart';
+import 'package:flutter_template_3/app/core/utils/updater_utils/app_updater_helper.dart';
 import 'package:flutter_template_3/app/modules/splash/presentation/splash_page.dart';
 import 'package:flutter_template_3/app/route/app_page_routes.dart';
 import 'package:flutter_template_3/firebase_options.dart';
@@ -28,6 +30,7 @@ void mainDelegate() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   // if (!kIsWeb) {
   //   await FirebaseCrashlytics.instance
   //       .setCrashlyticsCollectionEnabled(!kDebugMode);
@@ -36,9 +39,10 @@ void mainDelegate() async {
 
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-    ),
+        statusBarColor: AppColors.brightPrimary,
+        statusBarIconBrightness: Brightness.light),
   );
+  AppUpdateHelper.checkForUpdate();
 
   runZonedGuarded(() async {
     runApp(const MyApp());

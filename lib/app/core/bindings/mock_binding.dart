@@ -14,6 +14,9 @@ import 'package:flutter_template_3/app/modules/home/domain/repositories/home_rep
 import 'package:flutter_template_3/app/modules/login/data/data_source/login_data_source.dart';
 import 'package:flutter_template_3/app/modules/login/data/repositories/mock_login_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/login/domain/repositories/login_repo.dart';
+import 'package:flutter_template_3/app/modules/notification/data/data_source/notification_data_source.dart';
+import 'package:flutter_template_3/app/modules/notification/data/repositories/notification_repo_impl.dart';
+import 'package:flutter_template_3/app/modules/notification/domain/repositories/notification_repo.dart';
 import 'package:flutter_template_3/app/modules/register/data/data_source/register_data_source.dart';
 import 'package:flutter_template_3/app/modules/register/data/repositories/mock_register_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/register/domain/repositories/register_repo.dart';
@@ -50,7 +53,7 @@ class MockRepositoryBindingsGetter implements AppRepositoryBinding {
       MockSplashRepositoryImpl(Get.find<SplashDataSource>());
 
   @override
-  ForgotPasswordRepository getForgotRepo() =>
+  ForgotPasswordRepository getForgotPasswordRepo() =>
       MockForgotPasswordRepositoryImpl(Get.find<ForgotPasswordDataSource>());
   @override
   ForgotPassOtpRepository getForgotOtpRepo() =>
@@ -64,4 +67,8 @@ class MockRepositoryBindingsGetter implements AppRepositoryBinding {
   @override
   UploadRepository getUploadRepo() =>
       MockUploadRepositoryImpl(Get.find<UploadDataSource>());
+
+  @override
+  NotificationRepository getNotificationRepo() =>
+      NotificationRepositoryImpl(Get.find<NotificationDataSource>());
 }

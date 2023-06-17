@@ -24,6 +24,8 @@ import 'package:flutter_template_3/app/modules/login/data/data_source/login_data
 import 'package:flutter_template_3/app/modules/login/domain/usecases/login_with_phone_password_usecase.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/login_controller.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
+import 'package:flutter_template_3/app/modules/notification/data/data_source/notification_data_source.dart';
+import 'package:flutter_template_3/app/modules/notification/data/data_source/notification_data_source_impl.dart';
 import 'package:flutter_template_3/app/modules/register/data/data_source/register_data_source.dart';
 import 'package:flutter_template_3/app/modules/register/data/data_source/register_data_source_impl.dart';
 import 'package:flutter_template_3/app/modules/register/domain/usecases/register_send_phone_otp.dart';
@@ -58,6 +60,7 @@ class InitialBinding implements Bindings {
         fenix: true);
     Get.lazyPut<SplashDataSource>(() => SplashDataSourceImpl());
     Get.lazyPut<LoginDataSource>(() => LoginDataSourceImpl());
+    Get.lazyPut<NotificationDataSource>(() => NotificationDataSourceImpl());
     Get.lazyPut<RegisterDataSource>(() => RegisterDataSourceImpl());
     Get.lazyPut<ForgotPasswordDataSource>(() => ForgotPasswordSourceImpl());
     Get.lazyPut<ForgotPasswordOtpDataSource>(
@@ -78,7 +81,7 @@ class InitialBinding implements Bindings {
     Get.lazyPut(
         () => RegisterWithPhonePasswordUseCase(getter.getRegisterRepo()));
     Get.lazyPut<ForgotPasswordUseCase>(
-        () => ForgotPasswordUseCase(getter.getForgotRepo()),
+        () => ForgotPasswordUseCase(getter.getForgotPasswordRepo()),
         fenix: true);
     Get.lazyPut<ForgotPasswordOtpUseCase>(
         () => ForgotPasswordOtpUseCase(getter.getForgotOtpRepo()),

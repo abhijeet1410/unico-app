@@ -5,12 +5,12 @@ import 'dart:ui';
 ///
 
 class AppColorUtils {
-  static int getColorFromHex(String hexColor) {
+  static Color getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
     if (hexColor.length == 6) {
       hexColor = "FF$hexColor";
     }
-    return int.parse(hexColor, radix: 16);
+    return Color(int.parse(hexColor, radix: 16));
   }
 
   static Color hexToColor(String hex) {
