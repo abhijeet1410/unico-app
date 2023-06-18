@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification_impl.dart';
 import 'package:flutter_template_3/app/core/widgets/app_widgets/app_widgets.dart';
 import 'package:flutter_template_3/app/modules/home/presentation/controller/home_controller.dart';
 import 'package:get/get.dart';

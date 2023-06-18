@@ -1,5 +1,6 @@
 import 'package:flutter_template_3/app/core/base/base_controller.dart';
 import 'package:flutter_template_3/app/core/device/device_info_data_source.dart';
+import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
 import 'package:flutter_template_3/app/modules/splash/data/models/splash_refresh_token_request_model.dart';
@@ -16,6 +17,9 @@ class SplashController extends BaseController {
 
   void checkUserLoggedIn() async {
     final token = preference.accessToken;
+    await AppNotificationManager.configureInAppNotification();
+    await AppNotificationManager.requestNotification();
+
     if (token == null) {
       Get.offAndToNamed(LoginPage.routeName);
     } else {

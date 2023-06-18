@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'package:awesome_notifications_fcm/awesome_notifications_fcm.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_template_3/app/core/device/device_info_data_source.dart';
 import 'package:flutter_template_3/app/core/models/device_info_req_model.dart';
@@ -25,8 +24,9 @@ class DeviceInfoDataSourceImpl implements DeviceInfoDataSource {
     } on Exception {
       platformVersion = 'Failed to get platform version.';
     }
+    fcmID = await AwesomeNotificationsFcm().requestFirebaseAppToken();
+
     if (Platform.isAndroid) {
-      fcmID = await FirebaseMessaging.instance.getToken();
       final androidDeviceInfo = await deviceInfoPlugin.androidInfo;
       deviceInfoReqModel = DeviceInfoReqModel(
           deviceId: androidDeviceInfo.id,
@@ -40,16 +40,6 @@ class DeviceInfoDataSourceImpl implements DeviceInfoDataSource {
           deviceToken: fcmID,
           platform: "android");
     } else if (Platform.isIOS) {
-      final NotificationSettings settings =
-          await FirebaseMessaging.instance.requestPermission(
-        sound: true,
-        alert: true,
-        badge: true,
-      );
-      // AppNotificationManager.requestNotification();
-      if (settings.alert == AppleNotificationSetting.enabled) {
-        fcmID = await FirebaseMessaging.instance.getToken();
-      }
       final iosDeviceInfo = await deviceInfoPlugin.iosInfo;
       deviceInfoReqModel = DeviceInfoReqModel(
           deviceId: iosDeviceInfo.identifierForVendor,
