@@ -16,7 +16,7 @@ class MockSplashRepositoryImpl implements SplashRepository {
   Future<UserResponse> refreshAccessToken(
       RefreshTokenRequestModel requestData) async {
     final response =
-        await _remoteSource.refreshAccessToken(requestData, mockPath: 'user');
-    return response.body;
+        await _remoteSource.refreshAccessToken(requestData, mockPath: 'login');
+    return UserResponse.fromJson(response.body);
   }
 }

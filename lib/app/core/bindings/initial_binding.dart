@@ -33,7 +33,6 @@ import 'package:flutter_template_3/app/modules/register/presentation/controller/
 import 'package:flutter_template_3/app/modules/splash/data/data_source/splash_data_source.dart';
 import 'package:flutter_template_3/app/modules/splash/data/data_source/splash_data_source_impl.dart';
 import 'package:flutter_template_3/app/modules/splash/domain/usecases/splash_refresh_token_usecase.dart';
-import 'package:flutter_template_3/app/modules/splash/presentation/controller/splash_controller.dart';
 import 'package:flutter_template_3/app/modules/update_password/data/data_source/update_password_source.dart';
 import 'package:flutter_template_3/app/modules/update_password/data/data_source/update_password_source_impl.dart';
 import 'package:flutter_template_3/app/modules/update_password/domain/usecases/update_password_usecase.dart';
@@ -90,7 +89,6 @@ class InitialBinding implements Bindings {
 
     /// Controllers
     Get.put<UserController>(UserController());
-    Get.lazyPut<SplashController>(() => SplashController());
     Get.lazyPut<LoginController>(() => LoginController(), fenix: true);
     Get.lazyPut<RegisterController>(() => RegisterController(), fenix: true);
     Get.lazyPut<ForgotPasswordController>(() => ForgotPasswordController(),

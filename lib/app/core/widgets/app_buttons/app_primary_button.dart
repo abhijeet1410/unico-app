@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/core/theme/app_theme.dart';
 
 import 'package:flutter_template_3/app/core/widgets/app_widgets/app_loader.dart';
+import 'package:get/get.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -56,10 +57,10 @@ class AppPrimaryButtonState extends State<AppPrimaryButton> {
         ? Center(child: AppProgress(color: widget.color ?? theme.primaryColor))
         : ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: widget.color ?? theme.primaryColor,
-              onPrimary: widget.textColor,
-              padding: widget.padding ??
-                  const EdgeInsets.symmetric(vertical: 20, horizontal: 48),
+              backgroundColor: widget.color ?? theme.primaryColor,
+              foregroundColor: widget.textColor,
+              fixedSize: Size(widget.width ?? Get.width, widget.height ?? 54),
+              padding: widget.padding ?? EdgeInsets.zero,
               textStyle: widget.textStyle ??
                   const TextStyle(
                       fontSize: 18,

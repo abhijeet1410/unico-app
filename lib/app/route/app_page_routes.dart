@@ -3,6 +3,7 @@ import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
 import 'package:flutter_template_3/app/modules/feedback/feedback_page.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/forgot_password_page.dart';
 import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
+import 'package:flutter_template_3/app/modules/intro/presentation/intro_page.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
 import 'package:flutter_template_3/app/modules/register/presentation/register_page.dart';
 import 'package:flutter_template_3/app/modules/splash/presentation/splash_page.dart';
@@ -22,6 +23,9 @@ class AppPageRoutes {
     GetPage<dynamic>(
       name: SplashPage.routeName,
       page: () => const SplashPage(),
+    ), GetPage<dynamic>(
+      name: IntroPage.routeName,
+      page: () => const IntroPage(),
     ),
     GetPage<dynamic>(
       name: LoginPage.routeName,

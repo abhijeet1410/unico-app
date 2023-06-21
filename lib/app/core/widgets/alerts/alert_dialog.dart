@@ -8,11 +8,13 @@ Future<bool?> showAppAlertDialog(
     {String title = '',
     String? description,
     String positiveText = 'Ok',
-    String negativeText = 'Cancel'}) async {
+    String negativeText = 'Cancel',
+    bool barrierDismissible = true}) async {
   if (Platform.isIOS) {
     if (Get.key.currentContext != null) {
       return showCupertinoModalPopup<bool>(
         context: Get.key.currentContext!,
+        barrierDismissible: barrierDismissible,
         builder: (BuildContext context) => CupertinoActionSheet(
           title: Text(title),
           message: description == null ? null : Text(description),
@@ -34,39 +36,43 @@ Future<bool?> showAppAlertDialog(
         ),
       );
     } else {
-      return Get.dialog(CupertinoAlertDialog(
+      return Get.dialog(
+          CupertinoAlertDialog(
+            title: Text(title),
+            content: description != null ? Text(description) : null,
+            actions: <Widget>[
+              CupertinoDialogAction(
+                child: Text(negativeText),
+                onPressed: () {
+                  Get.back(result: false);
+                },
+              ),
+              CupertinoDialogAction(
+                child: Text(positiveText),
+                onPressed: () => Get.back(result: true),
+              ),
+            ],
+          ),
+          barrierDismissible: barrierDismissible);
+    }
+  }
+
+  return Get.dialog<bool>(
+      AlertDialog(
         title: Text(title),
         content: description != null ? Text(description) : null,
         actions: <Widget>[
-          CupertinoDialogAction(
+          TextButton(
             child: Text(negativeText),
             onPressed: () {
               Get.back(result: false);
             },
           ),
-          CupertinoDialogAction(
+          TextButton(
             child: Text(positiveText),
             onPressed: () => Get.back(result: true),
           ),
         ],
-      ));
-    }
-  }
-
-  return Get.dialog<bool>(AlertDialog(
-    title: Text(title),
-    content: description != null ? Text(description) : null,
-    actions: <Widget>[
-      TextButton(
-        child: Text(negativeText),
-        onPressed: () {
-          Get.back(result: false);
-        },
       ),
-      TextButton(
-        child: Text(positiveText),
-        onPressed: () => Get.back(result: true),
-      ),
-    ],
-  ));
+      barrierDismissible: barrierDismissible);
 }

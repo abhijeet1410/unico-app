@@ -20,7 +20,7 @@ class AppPermissions {
         if (status == PermissionStatus.permanentlyDenied ||
             status == PermissionStatus.denied ||
             status.isRestricted) {
-          openPermissionSettingsDialog(context: context, subTitle: subTitle);
+          openPermissionSettingsDialog(subTitle: subTitle);
 
           return false;
         } else {
@@ -30,7 +30,7 @@ class AppPermissions {
         Permission.storage.request().then((status) async {
           if (status == PermissionStatus.denied ||
               status == PermissionStatus.restricted) {
-            openPermissionSettingsDialog(context: context, subTitle: subTitle);
+            openPermissionSettingsDialog(subTitle: subTitle);
 
             return false;
           } else {
@@ -57,7 +57,7 @@ class AppPermissions {
           (Platform.isIOS &&
               (status == PermissionStatus.restricted ||
                   status == PermissionStatus.permanentlyDenied))) {
-        openPermissionSettingsDialog(context: context, subTitle: subTitle);
+        openPermissionSettingsDialog(subTitle: subTitle);
         return false;
       } else {
         return false;
@@ -65,8 +65,7 @@ class AppPermissions {
     }
   }
 
-  static void openPermissionSettingsDialog(
-      {BuildContext? context, String? subTitle}) {
+  static void openPermissionSettingsDialog({String? subTitle}) {
     showAppAlertDialog(
             title: "Permission Required",
             description: subTitle,

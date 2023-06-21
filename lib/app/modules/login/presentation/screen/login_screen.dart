@@ -1,4 +1,5 @@
 import 'package:flutter_template_3/app/core/base/base_view.dart';
+import 'package:flutter_template_3/app/core/utils/downloader_utils/app_downloader.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/forgot_password_page.dart';
 import 'package:flutter_template_3/app/modules/register/presentation/register_page.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,9 @@ class LoginScreen extends BaseView<LoginController> {
         floatingActionButton: FloatingActionButton(
           backgroundColor: isDarkMode ? Colors.amber : Colors.red,
           onPressed: () {
-            Get.changeThemeMode(isDarkMode ? ThemeMode.light : ThemeMode.dark);
+            AppDownloader.startDownload(
+                "https://player.vimeo.com/external/513849098.hd.mp4?s=1055a69a25f3a1f1c2064b7136963b27023c5c49&profile_id=174&oauth2_token_id=57447761");
+            // Get.changeThemeMode(isDarkMode ? ThemeMode.light : ThemeMode.dark);
           },
         ),
         body: Obx(() => GestureDetector(
