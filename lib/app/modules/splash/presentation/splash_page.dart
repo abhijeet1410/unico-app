@@ -18,7 +18,6 @@ import 'package:flutter_template_3/app/modules/login/presentation/controller/use
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
 import 'package:flutter_template_3/app/modules/splash/data/models/splash_refresh_token_request_model.dart';
 import 'package:flutter_template_3/app/modules/splash/domain/usecases/splash_refresh_token_usecase.dart';
-import 'package:flutter_template_3/app/modules/splash/presentation/screen/splash_screen.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 

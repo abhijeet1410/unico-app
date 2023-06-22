@@ -52,9 +52,6 @@ class _DashboardPageState extends State<DashboardPage> {
                       Get.back();
                     })
                 : null,
-            appBar: AppBar(
-              title: Text(S.of(context).dashboard),
-            ),
             body: SafeArea(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,

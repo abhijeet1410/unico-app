@@ -27,13 +27,3 @@ class AppIntroOptions {
       this.currentIndex =
           0}); //: assert(logo != null && logoAnimationPath != null);
 }
-// class AppIntroController extends ValueNotifier<int> {
-//   AppIntroController({int? state})
-//       : super(state ?? 0);
-//   void nextPage(){
-//     value+=1;
-//   }
-//   void previousPage(){
-//     value-=1;
-//   }
-// }

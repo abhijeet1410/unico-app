@@ -19,7 +19,6 @@ import 'package:logger/src/logger.dart';
 /// On 12-07-2022 05:02 PM
 ///
 class HomeController extends BaseController<List<City>> {
-  final countriesUseCase = Get.find<HomeCountriesUseCase>();
   @override
   void onInit() {
     super.onInit();
@@ -27,19 +26,7 @@ class HomeController extends BaseController<List<City>> {
   }
 
   @override
-  Future loadData() async {
-    try {
-      change(null, status: RxStatus.loading());
-      final data = await countriesUseCase.call(NoRequest());
-      if (data.isEmpty) {
-        change(data, status: RxStatus.empty());
-      } else {
-        change(data, status: RxStatus.success());
-      }
-    } catch (e) {
-      change(null, status: RxStatus.error(e.toString()));
-    }
-  }
+  Future loadData() async {}
 
   @override
   void onDetached() {}

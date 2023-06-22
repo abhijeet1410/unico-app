@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template_3/app/core/pages/grid/presentation/grid_page.dart';
 import 'package:flutter_template_3/app/core/widgets/app_widgets/app_widgets.dart';
 import 'package:flutter_template_3/app/modules/home/presentation/controller/home_controller.dart';
 import 'package:get/get.dart';
@@ -10,31 +11,23 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    const Divider divider = Divider();
-
-    return Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Get.changeThemeMode(
-                Get.isDarkMode ? ThemeMode.light : ThemeMode.dark);
-          },
-          child: const Icon(Icons.notification_important),
-        ),
-        body: controller.obx(
-            (state) => RefreshIndicator(
-                  onRefresh: controller.loadData,
-                  child: ListView.separated(
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(state?[index].name ?? "Demo"),
-                        );
-                      },
-                      separatorBuilder: (ctx, index) => divider,
-                      itemCount: state?.length ?? 0),
-                ),
-            onError: (e) => AppErrorWidget(
-                  title: e,
-                  onRetry: controller.loadData,
-                )));
+    return GridPage<String>(
+      currentState: GridPageState.loaded,
+      data: List.generate(20, (index) => "List $index"),
+      sliverAppBarBuilder: (BuildContext context, double per) => Container(
+        color: Colors.red.shade100,
+        child: Text("HEHE Grid"),
+      ),
+      gridTileRatio: 1.2,
+      gridSpacing: 12,
+      gridPadding: const EdgeInsets.all(16),
+      itemBuilder: (BuildContext context, int index) => Card(
+        child: Text("data"),
+        color: Colors.blue.shade100,
+      ),
+      onLoadMore: () {
+        print("LOAD MORE");
+      },
+    );
   }
 }

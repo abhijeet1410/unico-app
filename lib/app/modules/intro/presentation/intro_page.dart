@@ -1,27 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
-import 'package:flutter_template_3/app/core/asset/resources.dart';
 import 'package:flutter_template_3/app/core/base/base_page.dart';
-import 'package:flutter_template_3/app/core/device/device_info_data_source.dart';
-import 'package:flutter_template_3/app/core/models/device_info_req_model.dart';
 import 'package:flutter_template_3/app/core/pages/intro/models/intro_options.dart';
 import 'package:flutter_template_3/app/core/pages/intro/presentation/intro_page.dart';
-import 'package:flutter_template_3/app/core/pages/splash/models/splash_options.dart';
-import 'package:flutter_template_3/app/core/pages/splash/presentation/splash_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification.dart';
-import 'package:flutter_template_3/app/core/widgets/alerts/alert_dialog.dart';
 import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
-import 'package:flutter_template_3/app/modules/login/data/models/user.dart';
-import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
-import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
-import 'package:flutter_template_3/app/modules/splash/data/models/splash_refresh_token_request_model.dart';
-import 'package:flutter_template_3/app/modules/splash/domain/usecases/splash_refresh_token_usecase.dart';
-import 'package:flutter_template_3/app/modules/splash/presentation/screen/splash_screen.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -46,7 +29,9 @@ class _IntroPageState extends BasePageState<IntroPage> {
         ),
         titleAction: TextButton(
           child: const Text("Skip"),
-          onPressed: () {},
+          onPressed: () {
+            Get.offAllNamed(DashboardPage.routeName);
+          },
         ),
         incompleteButtonLabel: "Next",
         completedButtonLabel: "Proceed",
