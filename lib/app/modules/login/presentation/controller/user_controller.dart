@@ -1,3 +1,4 @@
+import 'package:flutter_template_3/app/core/base/base_controller.dart';
 import 'package:flutter_template_3/app/modules/login/data/models/user.dart';
 import 'package:get/get.dart';
 
@@ -5,7 +6,7 @@ import 'package:get/get.dart';
 /// Created by Sunil Kumar from Boiler plate
 ///
 
-class UserController extends SuperController<User> {
+class UserController extends BaseController<User> {
   void updateUser(User? user) {
     change(null, status: RxStatus.loading());
     change(user, status: RxStatus.success());
@@ -42,16 +43,4 @@ class UserController extends SuperController<User> {
   //     SnackBarHelper.show(e.toString());
   //   }
   // }
-
-  @override
-  void onDetached() {}
-
-  @override
-  void onInactive() {}
-
-  @override
-  void onPaused() {}
-
-  @override
-  void onResumed() {}
 }

@@ -5,6 +5,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_template_3/app/core/device/device_info_data_source.dart';
 import 'package:flutter_template_3/app/core/models/device_info_req_model.dart';
+import 'package:flutter_template_3/app/core/utils/number_utils/number_utils.dart';
 import 'package:package_info/package_info.dart';
 
 ///
@@ -18,13 +19,37 @@ class DeviceInfoDataSourceImpl implements DeviceInfoDataSource {
     DeviceInfoReqModel? deviceInfoReqModel;
     DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     String platformVersion = "";
+    if (kIsWeb) {
+      // final NotificationSettings settings =
+      //     await FirebaseMessaging.instance.requestPermission(
+      //   sound: true,
+      //   alert: true,
+      //   badge: true,
+      // );
+      // // AppNotificationManager.requestNotification();
+      // if (settings.alert == AppleNotificationSetting.enabled) {
+      //   fcmID = await FirebaseMessaging.instance.getToken();
+      // }
+      final webBrowserInfo = await deviceInfoPlugin.webBrowserInfo;
+      return DeviceInfoReqModel(
+        deviceId:
+            "${webBrowserInfo.appVersion}_${AppNumberUtils.getRandomNumber()}",
+        deviceType: "3",
+        appVersion: platformVersion,
+        deviceBrand: webBrowserInfo.userAgent,
+        deviceManufacturer: webBrowserInfo.browserName.name,
+        deviceOsVersion: webBrowserInfo.appVersion,
+        deviceTimeZone: DateTime.now().timeZoneName,
+        deviceToken: fcmID,
+        platform: "web",
+      );
+    }
     try {
       PackageInfo packageInfo = await PackageInfo.fromPlatform();
       platformVersion = packageInfo.version;
     } on Exception {
       platformVersion = 'Failed to get platform version.';
     }
-    fcmID = await AwesomeNotificationsFcm().requestFirebaseAppToken();
 
     if (Platform.isAndroid) {
       final androidDeviceInfo = await deviceInfoPlugin.androidInfo;
@@ -52,29 +77,6 @@ class DeviceInfoDataSourceImpl implements DeviceInfoDataSource {
           deviceTimeZone: DateTime.now().timeZoneName,
           deviceToken: fcmID,
           platform: "ios");
-    } else if (kIsWeb) {
-      // final NotificationSettings settings =
-      //     await FirebaseMessaging.instance.requestPermission(
-      //   sound: true,
-      //   alert: true,
-      //   badge: true,
-      // );
-      // // AppNotificationManager.requestNotification();
-      // if (settings.alert == AppleNotificationSetting.enabled) {
-      //   fcmID = await FirebaseMessaging.instance.getToken();
-      // }
-      final webBrowserInfo = await deviceInfoPlugin.webBrowserInfo;
-      deviceInfoReqModel = DeviceInfoReqModel(
-          deviceId: webBrowserInfo.vendor,
-          deviceType: "3",
-          appVersion: platformVersion,
-          deviceBrand: webBrowserInfo.userAgent,
-          deviceLocale: Platform.localeName,
-          deviceManufacturer: webBrowserInfo.browserName.name,
-          deviceOsVersion: webBrowserInfo.appVersion,
-          deviceTimeZone: DateTime.now().timeZoneName,
-          deviceToken: fcmID,
-          platform: "web");
     }
     return deviceInfoReqModel;
   }

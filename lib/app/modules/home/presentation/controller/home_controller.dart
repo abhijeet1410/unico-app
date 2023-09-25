@@ -24,22 +24,4 @@ class HomeController extends BaseController<List<City>> {
     super.onInit();
     loadData();
   }
-
-  @override
-  Future loadData() async {}
-
-  @override
-  void onDetached() {}
-
-  @override
-  void onInactive() {}
-
-  @override
-  void onPaused() {}
-
-  @override
-  void onResumed() {}
-
-  @override
-  Future loadMoreData() async {}
 }

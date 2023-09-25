@@ -8,6 +8,7 @@ mixin AppColors {
   static const brightBackground = Color(0xfff8f8f8);
   static const darkBackground = Color(0xff3e3e3e);
   static const dividerGray = Color(0xFFF6F6F6);
+  static const Color border = Color(0xFFE3E5EB);
 
   static const MaterialColor brightPrimary =
       MaterialColor(_brightPrimaryValue, <int, Color>{

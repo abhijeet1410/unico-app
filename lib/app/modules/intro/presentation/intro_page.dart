@@ -3,7 +3,8 @@ import 'package:flutter_template_3/app/core/base/base_page.dart';
 import 'package:flutter_template_3/app/core/pages/intro/models/intro_options.dart';
 import 'package:flutter_template_3/app/core/pages/intro/presentation/intro_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
+import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
+import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
 import 'package:get/get.dart';
 
 ///
@@ -30,7 +31,7 @@ class _IntroPageState extends BasePageState<IntroPage> {
         titleAction: TextButton(
           child: const Text("Skip"),
           onPressed: () {
-            Get.offAllNamed(DashboardPage.routeName);
+            NavigationHelper.offAllNamed(DashboardPage.routeName);
           },
         ),
         incompleteButtonLabel: "Next",
@@ -61,6 +62,8 @@ class _IntroPageState extends BasePageState<IntroPage> {
           if (i == 3) {
             Get.offAllNamed(DashboardPage.routeName);
           }
+
+          ///on scroll finished
         });
   }
 }

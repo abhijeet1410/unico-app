@@ -4,10 +4,10 @@ import 'package:flutter_template_3/app/core/widgets/app_widgets/app_widgets.dart
 import 'package:flutter_template_3/app/modules/home/presentation/controller/home_controller.dart';
 import 'package:get/get.dart';
 
-class HomePage extends GetView<HomeController> {
+class DashboardPage extends GetView<HomeController> {
   static const String routeName = '/home';
 
-  const HomePage({Key? key}) : super(key: key);
+  const DashboardPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +15,13 @@ class HomePage extends GetView<HomeController> {
       currentState: GridPageState.loaded,
       data: List.generate(20, (index) => "List $index"),
       sliverAppBarBuilder: (BuildContext context, double per) => Container(
-        color: Colors.red.shade100,
+        color: Colors.pink.shade100,
         child: Text("HEHE Grid"),
       ),
       gridTileRatio: 1.2,
       gridSpacing: 12,
       gridPadding: const EdgeInsets.all(16),
-      itemBuilder: (BuildContext context, int index) => Card(
+      itemBuilder: (BuildContext context, dynamic data, int index) => Card(
         child: Text("data"),
         color: Colors.blue.shade100,
       ),

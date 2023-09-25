@@ -1,5 +1,4 @@
 import 'package:flutter_template_3/app/core/middlewares/auth_check_middleware.dart';
-import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
 import 'package:flutter_template_3/app/modules/feedback/feedback_page.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/forgot_password_page.dart';
 import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
@@ -19,92 +18,83 @@ import 'package:flutter_template_3/app/modules/forgot_password_otp/forgot_passwo
 /// Created by Sunil Kumar from Boiler plate
 ///
 class AppPageRoutes {
+  static final List<String> noAuthPages = <String>[
+    LoginPage.routeName,
+    ForgotPasswordPage.routeName,
+    ForgotPasswordOtpPage.routeName,
+    UpdatePasswordPage.routeName,
+    RegisterPage.routeName,
+  ];
   static final List<GetPage<dynamic>> routes = <GetPage<dynamic>>[
     GetPage<dynamic>(
-      name: SplashPage.routeName,
-      page: () => const SplashPage(),
-    ), GetPage<dynamic>(
-      name: IntroPage.routeName,
-      page: () => const IntroPage(),
-    ),
-    GetPage<dynamic>(
-      name: LoginPage.routeName,
-      middlewares: <GetMiddleware>[NoAuthCheckMiddleware()],
-      page: () => const LoginPage(),
-    ),
-    GetPage<dynamic>(
-      name: LoginPage.routeName,
-      page: () => const LoginPage(),
-      // middlewares: [NoAuthCheckMiddleware()],
-      participatesInRootNavigator: true,
-      preventDuplicates: true,
-      transition: Transition.noTransition,
-    ),
-    GetPage<dynamic>(
-      name: ForgotPasswordPage.routeName,
-      page: () => const ForgotPasswordPage(),
-      participatesInRootNavigator: true,
-      preventDuplicates: true,
-      transition: Transition.noTransition,
-    ),
-    GetPage<dynamic>(
-      name: ForgotPasswordOtpPage.routeName,
-      page: () => const ForgotPasswordOtpPage(),
-      participatesInRootNavigator: true,
-      preventDuplicates: true,
-      transition: Transition.noTransition,
-    ),
-    GetPage<dynamic>(
-      name: UpdatePasswordPage.routeName,
-      page: () => const UpdatePasswordPage(),
-      participatesInRootNavigator: true,
-      preventDuplicates: true,
-      transition: Transition.noTransition,
-    ),
-    GetPage<dynamic>(
-      name: RegisterPage.routeName,
-      page: () => const RegisterPage(),
-      participatesInRootNavigator: true,
-      preventDuplicates: true,
-      transition: Transition.noTransition,
-    ),
-    GetPage<dynamic>(
-        name: DashboardPage.routeName,
+        name: SplashPage.routeName,
+        page: () => const SplashPage(),
         participatesInRootNavigator: true,
-        preventDuplicates: true,
-        transition: Transition.noTransition,
-        middlewares: <GetMiddleware>[
+        middlewares: [
           AuthCheckMiddleware(),
         ],
-        page: () => DashboardPage(),
-        title: null,
-        children: <GetPage<dynamic>>[
+        children: [
           GetPage<dynamic>(
-            name: HomePage.routeName,
+            name: IntroPage.routeName,
+            participatesInRootNavigator: false,
+            page: () => const IntroPage(),
+          ),
+          GetPage<dynamic>(
+            name: LoginPage.routeName,
+            participatesInRootNavigator: false,
+            middlewares: <GetMiddleware>[NoAuthCheckMiddleware()],
+            page: () => const LoginPage(),
+          ),
+          GetPage<dynamic>(
+            name: ForgotPasswordPage.routeName,
+            page: () => const ForgotPasswordPage(),
+            participatesInRootNavigator: false,
+            preventDuplicates: true,
+          ),
+          GetPage<dynamic>(
+            name: ForgotPasswordOtpPage.routeName,
+            page: () => const ForgotPasswordOtpPage(),
+            participatesInRootNavigator: false,
+            preventDuplicates: true,
+          ),
+          GetPage<dynamic>(
+            name: UpdatePasswordPage.routeName,
+            page: () => const UpdatePasswordPage(),
+            participatesInRootNavigator: false,
+            preventDuplicates: true,
+          ),
+          GetPage<dynamic>(
+            name: RegisterPage.routeName,
+            page: () => const RegisterPage(),
+            participatesInRootNavigator: false,
+            preventDuplicates: true,
+          ),
+          GetPage<dynamic>(
+            name: DashboardPage.routeName,
             title: 'Dashboard',
-            page: () => const HomePage(),
-            transition: Transition.noTransition,
+            participatesInRootNavigator: false,
+            page: () => const DashboardPage(),
           ),
           GetPage<dynamic>(
               name: UsersPage.routeName,
               title: 'Users',
-              transition: Transition.noTransition,
+              participatesInRootNavigator: false,
               page: () => UsersPage()),
           GetPage<dynamic>(
               name: UnverifiedUsersPage.routeName,
               title: 'Unverified Users',
-              transition: Transition.noTransition,
+              participatesInRootNavigator: false,
               page: () => UnverifiedUsersPage()),
           GetPage<dynamic>(
               name: BlockedUsersPage.routeName,
-              transition: Transition.noTransition,
               title: 'BlockedUsersPage Users',
+              participatesInRootNavigator: false,
               page: () => BlockedUsersPage()),
           GetPage<dynamic>(
               name: FeedbackPage.routeName,
               title: 'Feedback',
-              transition: Transition.noTransition,
+              participatesInRootNavigator: false,
               page: () => FeedbackPage()),
-        ])
+        ]),
   ];
 }

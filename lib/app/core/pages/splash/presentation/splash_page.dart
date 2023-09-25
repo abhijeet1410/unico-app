@@ -4,6 +4,7 @@ import 'package:flutter_template_3/app/core/base/base_page.dart';
 import 'package:flutter_template_3/app/core/pages/splash/models/splash_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_template_3/app/core/widgets/app_widgets/app_error_widget.dart';
 import 'package:get/get.dart';
 import 'package:rive/rive.dart';
 
@@ -41,102 +42,70 @@ class AppSplashPage extends BasePage {
 }
 
 class _SplashPageState extends BasePageState<AppSplashPage> {
-  Artboard? riveArtboard;
-
-  @override
-  void initState() {
-    super.initState();
-    widget.controller.value = AppSplashStates.init;
-    initAnimation();
-  }
-
-  Future<void> initAnimation() async {
-    if (widget.logoAnimationPath == null) return;
-    final ByteData data = await rootBundle.load(widget.logoAnimationPath!);
-    final RiveFile file = RiveFile.import(data);
-    riveArtboard = file.mainArtboard;
-    widget.controller.value = AppSplashStates.ready;
-  }
-
-  void startAnimation() async {
-    if (widget.logoAnimationPath == null) return;
-
-    if (riveArtboard == null) await initAnimation();
-    final StateMachineController? controller =
-        StateMachineController.fromArtboard(riveArtboard!, 'Loading');
-
-    if (controller != null) {
-      riveArtboard!.addController(controller);
-    }
-  }
-
-  void onStateChange(VoidCallback onRedirect) async {
-    if (widget.logoAnimationPath == null) {
-      Future<void>.delayed(const Duration(seconds: 2), onRedirect);
-    } else {
-      if (riveArtboard == null) await initAnimation();
-
-      final StateMachineController? l =
-          StateMachineController.fromArtboard(riveArtboard!, 'Finish',
-              onStateChange: (String stateMachineName, String stateName) {
-        Future<void>.delayed(const Duration(seconds: 2), onRedirect);
-      });
-      if (l != null) {
-        riveArtboard?.addController(l);
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: ValueListenableBuilder<AppSplashStates>(
-          valueListenable: widget.controller,
-          builder:
-              (BuildContext context, AppSplashStates value, Widget? child) =>
-                  Stack(
-            children: [
-              Positioned.fill(
-                  child: Container(
+      resizeToAvoidBottomInset: false,
+      body: ValueListenableBuilder<AppSplashStates>(
+        valueListenable: widget.controller,
+        builder: (BuildContext context, AppSplashStates value, Widget? child) =>
+            Stack(
+          children: <Widget>[
+            Positioned.fill(
+              child: Container(
                 decoration: BoxDecoration(
                   gradient: widget.backgroundGradient,
                   color: widget.backgroundColor,
                 ),
-              )),
-              if (widget.backgroundAsset != null)
-                Positioned.fill(child: widget.backgroundAsset!),
-              Positioned.fill(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (widget.logo != null)
-                      widget.logo!
-                    else if (widget.logoAnimationPath != null)
-                      Expanded(
-                        child: riveArtboard == null
-                            ? const SizedBox()
-                            : Center(
-                                child: SizedBox(
-                                  width: Get.width / 1.3,
-                                  height: Get.width / 1.3,
-                                  child: Rive(
-                                    artboard: riveArtboard!,
-                                    alignment: Alignment.center,
-                                  ),
+              ),
+            ),
+            if (widget.backgroundAsset != null)
+              Positioned.fill(child: widget.backgroundAsset!),
+            Positioned.fill(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (widget.logo != null)
+                    widget.logo!
+                  else if (widget.controller.logoAnimationPath != null)
+                    Expanded(
+                      child: widget.controller.riveArtboard == null
+                          ? const SizedBox()
+                          : Center(
+                              child: SizedBox(
+                                width: Get.width / 1.3,
+                                height: Get.width / 1.3,
+                                child: Rive(
+                                  artboard: widget.controller.riveArtboard!,
+                                  alignment: Alignment.center,
                                 ),
                               ),
-                      ),
-                    if (widget.loaderWidget != null)
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 0, 16, 22),
-                        child: widget.loaderWidget!,
+                            ),
+                    ),
+                  if (widget.loaderWidget != null)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 22),
+                      child: widget.loaderWidget!,
+                    ),
+                  if (value == AppSplashStates.error) ...[
+                    if (widget.retryActionWidget != null)
+                      widget.retryActionWidget!
+                    else
+                      ListTile(
+                        title: Text(
+                            widget.controller.errorMessage ?? "Some error"),
+                        trailing: TextButton(
+                          onPressed: widget.onRetryAction,
+                          child: Text(widget.retryActionLabel ?? "Retry"),
+                        ),
                       ),
                   ],
-                ),
+                ],
               ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

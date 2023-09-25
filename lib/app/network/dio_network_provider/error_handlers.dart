@@ -21,21 +21,22 @@ Exception handleError(String error) {
   return AppException(message: error);
 }
 
-Exception handleDioError(DioError dioError) {
-  switch (dioError.type) {
-    case DioErrorType.cancel:
-      return AppException(message: "Request to API server was cancelled");
-    case DioErrorType.connectTimeout:
-      return AppException(message: "Connection timeout with API server");
-    case DioErrorType.other:
-      return NetworkException();
-    case DioErrorType.receiveTimeout:
-      return TimeoutException("Receive timeout in connection with API server");
-    case DioErrorType.sendTimeout:
-      return TimeoutException("Send timeout in connection with API server");
-    case DioErrorType.response:
-      return _parseDioErrorResponse(dioError);
-  }
+Exception handleDioError(DioException dioError) {
+  //
+  // switch (dioError.type) {
+  //   case DioException.cancel:
+  //     return AppException(message: "Request to API server was cancelled");
+  //   case DioException.connectTimeout:
+  //     return AppException(message: "Connection timeout with API server");
+  //   case DioException.other:
+  //     return NetworkException();
+  //   case DioException.receiveTimeout:
+  //     return TimeoutException("Receive timeout in connection with API server");
+  //   case DioException.sendTimeout:
+  //     return TimeoutException("Send timeout in connection with API server");
+  //   case DioException.response:
+  return _parseDioErrorResponse(dioError);
+  // }
 }
 
 Exception _parseDioErrorResponse(DioError dioError) {

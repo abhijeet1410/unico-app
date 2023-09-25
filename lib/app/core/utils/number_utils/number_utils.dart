@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:intl/intl.dart';
 
 ///
@@ -22,4 +24,6 @@ class AppNumberUtils {
 
   static String getNumberAfterDecimals(double doubleValue) =>
       (doubleValue.toString()).split('.')[1];
+  static int getRandomNumber([int maxRange = 10000]) =>
+      Random().nextInt(maxRange);
 }

@@ -79,7 +79,7 @@ class BaseProvider extends GetConnect implements GetxService {
 
         return handleErrorStatus(res);
       } catch (e, s) {
-        logger.e("NETWORK_ERROR", e, s);
+        logger.e("NETWORK_ERROR", error: e, stackTrace: s);
         if (e is TypeError) {
           throw JsonFormatException("Unable to parse data.");
         }

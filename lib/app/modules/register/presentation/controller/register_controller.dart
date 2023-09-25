@@ -1,10 +1,11 @@
 import 'dart:developer';
 
+import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
 import 'package:flutter_template_3/app/core/utils/validators/app_validators.dart';
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
 import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
-import 'package:flutter_template_3/app/modules/dashboard/dashboard_page.dart';
+import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
 import 'package:flutter_template_3/app/modules/register/data/models/register_phone_otp_request_model.dart';
 import 'package:flutter_template_3/app/modules/register/data/models/register_phone_password_request_model.dart';
@@ -112,11 +113,10 @@ class RegisterController extends GetxController {
         final res =
             await Get.find<RegisterWithPhonePasswordUseCase>().call(param);
         final preferenceManager = Get.find<PreferenceManager>();
-        print("ASASA ${res.toJson()}");
         preferenceManager.storeAccessToken(res.accessToken ?? "");
 
         Get.find<UserController>().updateUser(res.user);
-        Get.offAllNamed(DashboardPage.routeName);
+        NavigationHelper.offAllNamed(DashboardPage.routeName);
       } catch (e, s) {
         AppSnackBarUtil.show(e.toString());
       } finally {

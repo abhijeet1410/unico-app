@@ -24,11 +24,26 @@ abstract class BaseController<T> extends SuperController<T> {
 
   final PreferenceManager preference = Get.find<PreferenceManager>();
   UserController get userController => Get.find<UserController>();
-  Future loadData();
+  Future loadData() async {}
 
-  Future loadMoreData();
+  Future loadMoreData() async {}
 
   void showToast(String message) {
     AppSnackBarUtil.show(message);
   }
+
+  @override
+  void onDetached() {}
+
+  @override
+  void onInactive() {}
+
+  @override
+  void onPaused() {}
+
+  @override
+  void onResumed() {}
+
+  @override
+  void onHidden() {}
 }

@@ -1,3 +1,5 @@
 {
-    "editor.stickyScroll.enabled": true
+    "editor.stickyScroll.enabled": true,
+    "dart.flutterSdkPath": "C:\\Users\\skmud\\.puro\\envs\\stable\\flutter",
+    "dart.sdkPath": "C:\\Users\\skmud\\.puro\\envs\\stable\\flutter\\bin\\cache\\dart-sdk"
 }

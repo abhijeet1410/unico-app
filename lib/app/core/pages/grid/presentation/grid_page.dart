@@ -17,6 +17,9 @@ import 'package:rive/rive.dart';
 
 enum GridPageState { loading, loaded, error }
 
+typedef GridItemBuilder<T> = Widget Function(
+    BuildContext context, T data, int index);
+
 class GridPage<T> extends StatefulWidget {
   final ScrollController? scrollController;
   final List<T> data;
@@ -24,7 +27,7 @@ class GridPage<T> extends StatefulWidget {
   final Widget? loadingWidget;
   final Widget? emptyWidget;
   final GridPageState currentState;
-  final NullableIndexedWidgetBuilder itemBuilder;
+  final GridItemBuilder<T> itemBuilder;
   final Function? onLoadMore;
   final int crossAxisCount;
   final bool shouldLoadMore;
@@ -154,7 +157,8 @@ class _GridPageState extends State<GridPage> {
                         if (index >= widget.data.length) {
                           return const Center(child: AppProgress());
                         }
-                        return widget.itemBuilder(context, index);
+                        return widget.itemBuilder(
+                            context, widget.data[index], index);
                       });
                 }
                 return emptyWidget;

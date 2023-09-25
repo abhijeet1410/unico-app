@@ -16,21 +16,21 @@ WidgetbookComponent userCircleAvatarBook() {
         builder: (context) {
           return Center(
               child: UserCircleAvatar(
-            context.knobs.text(
+            context.knobs.string(
                 label: "Image url",
                 description: "Image to load in user circle avatar",
                 initialValue:
                     "https://lh3.googleusercontent.com/a-/AFdZucqUa5o7aX0KwgyPsPxkxDM8ldtyQQKLQrXouFI3=s288-p-rw-no"),
-            name: context.knobs.text(
+            name: context.knobs.string(
                 label: "Placeholder name",
                 description: "Place holder name only first char",
                 initialValue: "Sisira"),
-            radius: context.knobs
-                .number(
-                    label: "Radius",
-                    description: "Radius of circle avatar",
-                    initialValue: 20)
-                .toDouble(),
+            // radius: context.knobs
+            //     .string(
+            //         label: "Radius",
+            //         description: "Radius of circle avatar",
+            //         initialValue: 20.0)
+            //     .toDouble(),
           ));
         },
       ),
