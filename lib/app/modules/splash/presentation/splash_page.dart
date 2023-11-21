@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/modules/splash/presentation/screen/admin_splash_screen.dart';
 import 'package:get/get.dart';
@@ -10,7 +9,7 @@ import 'package:get/get.dart';
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
 
-  static String get routeName => "/splash";
+  static String get routeName => "/";
   //
   // late AppSplashController controller;
   // final DeviceInfoDataSource deviceInfoSource =

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
 import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/domain/usecases/forgot_password_usecases.dart';
@@ -56,13 +57,14 @@ class ForgotPasswordController extends GetxController {
     } else {
       state.save();
       buttonKey.currentState?.showLoader();
-      // Get.toNamed(ForgotPasswordOtpPage.routeName, arguments: _phone);
+      // NavigationHelper.toNamed(ForgotPasswordOtpPage.routeName, arguments: _phone);
       try {
         final param = LoginRequestModel(
             locale: "en", timeZoneOffset: "+5.30", phone: _phone, purpose: 4);
         await Get.find<ForgotPasswordUseCase>().call(param).then((value) {
           AppSnackBarUtil.show("Otp sent to your $_phone");
-          Get.toNamed(ForgotPasswordOtpPage.routeName, arguments: _phone);
+          NavigationHelper.toNamed(ForgotPasswordOtpPage.routeName,
+              arguments: _phone);
         });
       } catch (e, s) {
         log("forgot msg ", error: e, stackTrace: s);

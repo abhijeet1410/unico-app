@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
 import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
@@ -75,7 +76,7 @@ class UpdatePasswordController extends GetxController {
         final param =
             UpdatePasswordRequest(password: _newPassword, token: token, id: id);
         await Get.find<UpdatePasswordUseCase>().call(param);
-        Get.offAllNamed(
+        NavigationHelper.offAllNamed(
           LoginPage.routeName,
         );
       } catch (e, s) {

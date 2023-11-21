@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
 import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
 import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:flutter_template_3/app/modules/forgot_password_otp/data/models/forgot_pass_otp_request_model.dart';
@@ -126,7 +127,7 @@ class ForgotPasswordOtpController extends GetxController {
           purpose: 4,
         );
         final res = await Get.find<ForgotPasswordOtpUseCase>().call(param);
-        Get.toNamed(UpdatePasswordPage.routeName,
+        NavigationHelper.toNamed(UpdatePasswordPage.routeName,
             arguments: {"id": res.id, "token": res.token});
       } catch (e, s) {
         AppSnackBarUtil.show(e.toString());

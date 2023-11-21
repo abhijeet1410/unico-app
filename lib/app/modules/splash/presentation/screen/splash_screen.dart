@@ -112,13 +112,7 @@ abstract class SplashScreen extends StatelessWidget {
                       children: [
                         if (topAppBar != null) topAppBar,
                         Expanded(
-                          child: Container(
-                            margin: noAuthPages.contains(currentLocation)
-                                ? null
-                                : const EdgeInsets.fromLTRB(0, 0, 16, 16),
-                            color: Colors.white,
-                            child: body(context),
-                          ),
+                          child: body(context) ?? const SizedBox(),
                         ),
                       ],
                     ),

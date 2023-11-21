@@ -30,11 +30,6 @@ class SideMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 250,
-      decoration: const BoxDecoration(
-        border: Border(
-          right: BorderSide(color: AppColors.border, width: 0.50),
-        ),
-      ),
       child: Drawer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

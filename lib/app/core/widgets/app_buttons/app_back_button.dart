@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -11,6 +12,7 @@ class AppBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackButton(color: color, onPressed: onPressed);
+    return BackButton(
+        color: color, onPressed: onPressed ?? NavigationHelper.back);
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +9,7 @@ import 'package:flutter_template_3/app/core/bindings/initial_binding.dart';
 import 'package:flutter_template_3/app/core/local/preference/preference_manager_impl.dart';
 import 'package:flutter_template_3/app/core/theme/app_colors.dart';
 import 'package:flutter_template_3/app/core/theme/app_theme.dart';
-import 'package:flutter_template_3/app/core/utils/updater_utils/app_updater_helper.dart';
-import 'package:flutter_template_3/app/modules/splash/presentation/splash_page.dart';
+import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
 import 'package:flutter_template_3/app/route/app_page_routes.dart';
 import 'package:flutter_template_3/firebase_options.dart';
 import 'package:flutter_template_3/generated/l10n.dart';
@@ -42,13 +42,13 @@ void mainDelegate() async {
         statusBarColor: AppColors.brightPrimary,
         statusBarIconBrightness: Brightness.light),
   );
-  AppUpdateHelper.checkForUpdate();
-
-  runZonedGuarded(() async {
-    runApp(const MyApp());
-  }, (Object object, StackTrace stackTrace) {
-    FirebaseCrashlytics.instance.recordError(object, stackTrace);
-  });
+  // AppUpdateHelper.checkForUpdate();
+  runApp(const MyApp());
+  // runZonedGuarded(() async {
+  //   runApp(const MyApp());
+  // }, (Object object, StackTrace stackTrace) {
+  //   FirebaseCrashlytics.instance.recordError(object, stackTrace);
+  // });
 }
 
 class MyApp extends StatelessWidget {
@@ -56,9 +56,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return GetMaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Template',
+      title: 'Vendmat',
       localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
         S.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -69,9 +69,25 @@ class MyApp extends StatelessWidget {
       initialBinding: InitialBinding(),
       themeMode: ThemeMode.light,
       theme: AppThemes.lightTheme,
-      darkTheme: AppThemes.darkTheme,
       getPages: AppPageRoutes.routes,
-      initialRoute: SplashPage.routeName,
+      backButtonDispatcher: MyBackButtonDispatcher(),
+      scrollBehavior: WebDragScrollBehavior(),
     );
+  }
+}
+
+class WebDragScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
+}
+
+class MyBackButtonDispatcher extends RootBackButtonDispatcher {
+  @override
+  Future<bool> invokeCallback(Future<bool> defaultValue) async {
+    NavigationHelper.back();
+    return true;
   }
 }

@@ -17,12 +17,12 @@ class NotificationTile extends StatelessWidget {
         switch (data.entityType) {
           case 'order':
             // if(data.action=="service") {
-            //   Get.toNamed(OrderDetailsPage.getPath(data.entityId));
+            //   NavigationHelper.toNamed(OrderDetailsPage.getPath(data.entityId));
             // }else{
             // }
             break;
           // case 'store':
-          //   Get.toNamed(Storedeta.getPath(data.entityId));
+          //   NavigationHelper.toNamed(Storedeta.getPath(data.entityId));
           //   break;
           default:
         }
@@ -32,8 +32,6 @@ class NotificationTile extends StatelessWidget {
           padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
           decoration: const BoxDecoration(
             color: Colors.white,
-            border: Border(
-                bottom: BorderSide(width: 1, color: AppColors.dividerGray)),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,

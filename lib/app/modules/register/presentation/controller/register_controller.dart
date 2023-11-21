@@ -134,7 +134,7 @@ class RegisterController extends GetxController {
       //   if (err is RestError) {
       //     if (err.code == 425) {
       //       SnackBarHelper.show('New User', 'Please sign up to continue');
-      //       Get.toNamed(RegisterPage.routeName,
+      //       NavigationHelper.toNamed(RegisterPage.routeName,
       //           arguments: {"email": _emailId, "password": _password});
       //     } else {
       //       SnackBarHelper.show('Error', '$err');

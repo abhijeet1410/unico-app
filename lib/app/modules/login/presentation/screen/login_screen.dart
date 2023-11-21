@@ -1,5 +1,6 @@
 import 'package:flutter_template_3/app/core/base/base_view.dart';
 import 'package:flutter_template_3/app/core/utils/downloader_utils/app_downloader.dart';
+import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
 import 'package:flutter_template_3/app/modules/forgot_password/forgot_password_page.dart';
 import 'package:flutter_template_3/app/modules/register/presentation/register_page.dart';
 import 'package:flutter/material.dart';
@@ -164,7 +165,8 @@ class LoginScreen extends BaseView<LoginController> {
                               children: <Widget>[
                                 GestureDetector(
                                     onTap: () {
-                                      Get.toNamed(ForgotPasswordPage.routeName);
+                                      NavigationHelper.toNamed(
+                                          ForgotPasswordPage.routeName);
                                     },
                                     child: const Text(
                                       "Forgot Password?   ",
@@ -196,7 +198,8 @@ class LoginScreen extends BaseView<LoginController> {
                               child: Center(
                                 child: GestureDetector(
                                   onTap: () {
-                                    Get.toNamed(RegisterPage.routeName);
+                                    NavigationHelper.toNamed(
+                                        RegisterPage.routeName);
                                   },
                                   child: Text(
                                     'Register Now',
