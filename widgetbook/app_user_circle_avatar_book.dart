@@ -21,10 +21,7 @@ WidgetbookComponent userCircleAvatarBook() {
                 description: "Image to load in user circle avatar",
                 initialValue:
                     "https://lh3.googleusercontent.com/a-/AFdZucqUa5o7aX0KwgyPsPxkxDM8ldtyQQKLQrXouFI3=s288-p-rw-no"),
-            name: context.knobs.string(
-                label: "Placeholder name",
-                description: "Place holder name only first char",
-                initialValue: "Sisira"),
+
             // radius: context.knobs
             //     .string(
             //         label: "Radius",

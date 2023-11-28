@@ -26,6 +26,15 @@ import 'package:flutter_template_3/app/modules/register/domain/repositories/regi
 import 'package:flutter_template_3/app/modules/splash/data/data_source/splash_data_source.dart';
 import 'package:flutter_template_3/app/modules/splash/domain/repositories/splash_repo.dart';
 import 'package:flutter_template_3/app/modules/update_password/data/data_source/update_password_source.dart';
+import 'package:flutter_template_3/app/modules/orders/data/data_source/orders_data_source.dart';
+import 'package:flutter_template_3/app/modules/orders/data/repositories/orders_repo_impl.dart';
+import 'package:flutter_template_3/app/modules/orders/domain/repositories/orders_repo.dart';
+import 'package:flutter_template_3/app/modules/slots/data/data_source/slots_data_source.dart';
+import 'package:flutter_template_3/app/modules/slots/data/repositories/slots_repo_impl.dart';
+import 'package:flutter_template_3/app/modules/slots/domain/repositories/slots_repo.dart';
+import 'package:flutter_template_3/app/modules/items/data/data_source/items_data_source.dart';
+import 'package:flutter_template_3/app/modules/items/data/repositories/items_repo_impl.dart';
+import 'package:flutter_template_3/app/modules/items/domain/repositories/items_repo.dart';
 import 'package:flutter_template_3/app/modules/update_password/domain/repositories/update_password_repo.dart';
 
 ///
@@ -66,4 +75,16 @@ class RemoteRepositoryBindingsGetter implements AppRepositoryBinding {
   @override
   NotificationRepository getNotificationRepo() =>
       NotificationRepositoryImpl(Get.find<NotificationDataSource>());
+
+  @override
+  OrdersRepository getOrders() =>
+      OrdersRepositoryImpl(Get.find<OrdersDataSource>());
+
+  @override
+  SlotsRepository getSlots() =>
+      SlotsRepositoryImpl(Get.find<SlotsDataSource>());
+
+  @override
+  ItemsRepository getItems() =>
+      ItemsRepositoryImpl(Get.find<ItemsDataSource>());
 }

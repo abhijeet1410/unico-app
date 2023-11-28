@@ -11,15 +11,18 @@ import 'package:flutter_template_3/app/modules/forgot_password_otp/domain/reposi
 import 'package:flutter_template_3/app/modules/home/data/data_source/home_data_source.dart';
 import 'package:flutter_template_3/app/modules/home/data/repositories/mock_home_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/home/domain/repositories/home_repository.dart';
+import 'package:flutter_template_3/app/modules/items/domain/repositories/items_repo.dart';
 import 'package:flutter_template_3/app/modules/login/data/data_source/login_data_source.dart';
 import 'package:flutter_template_3/app/modules/login/data/repositories/mock_login_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/login/domain/repositories/login_repo.dart';
 import 'package:flutter_template_3/app/modules/notification/data/data_source/notification_data_source.dart';
 import 'package:flutter_template_3/app/modules/notification/data/repositories/notification_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/notification/domain/repositories/notification_repo.dart';
+import 'package:flutter_template_3/app/modules/orders/domain/repositories/orders_repo.dart';
 import 'package:flutter_template_3/app/modules/register/data/data_source/register_data_source.dart';
 import 'package:flutter_template_3/app/modules/register/data/repositories/mock_register_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/register/domain/repositories/register_repo.dart';
+import 'package:flutter_template_3/app/modules/slots/domain/repositories/slots_repo.dart';
 import 'package:flutter_template_3/app/modules/splash/data/data_source/splash_data_source.dart';
 import 'package:flutter_template_3/app/modules/splash/data/repositories/mock_splash_repo_impl.dart';
 import 'package:flutter_template_3/app/modules/splash/domain/repositories/splash_repo.dart';
@@ -71,4 +74,22 @@ class MockRepositoryBindingsGetter implements AppRepositoryBinding {
   @override
   NotificationRepository getNotificationRepo() =>
       NotificationRepositoryImpl(Get.find<NotificationDataSource>());
+
+  @override
+  ItemsRepository getItems() {
+    // TODO: implement getItems
+    throw UnimplementedError();
+  }
+
+  @override
+  OrdersRepository getOrders() {
+    // TODO: implement getOrders
+    throw UnimplementedError();
+  }
+
+  @override
+  SlotsRepository getSlots() {
+    // TODO: implement getSlots
+    throw UnimplementedError();
+  }
 }

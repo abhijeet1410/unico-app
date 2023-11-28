@@ -27,15 +27,15 @@ void mainDelegate() async {
       Get.put<PreferenceManager>(PreferenceManagerImpl());
   await preference.initStorage();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
 
   // if (!kIsWeb) {
   //   await FirebaseCrashlytics.instance
   //       .setCrashlyticsCollectionEnabled(!kDebugMode);
   // }
-  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(

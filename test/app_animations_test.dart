@@ -5,6 +5,6 @@ import 'package:flutter_template_3/app/core/asset/resources.dart';
 
 void main() {
   test('app_animations assets test', () {
-    expect(File(AppAnimations.splash).existsSync(), true);
+    expect(File(AppAnimations.splash).existsSync(), isTrue);
   });
 }

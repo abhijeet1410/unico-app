@@ -7,6 +7,9 @@ import 'package:flutter_template_3/app/modules/notification/domain/repositories/
 import 'package:flutter_template_3/app/modules/register/domain/repositories/register_repo.dart';
 import 'package:flutter_template_3/app/modules/splash/domain/repositories/splash_repo.dart';
 import 'package:flutter_template_3/app/modules/update_password/domain/repositories/update_password_repo.dart';
+import 'package:flutter_template_3/app/modules/orders/domain/repositories/orders_repo.dart';
+import 'package:flutter_template_3/app/modules/slots/domain/repositories/slots_repo.dart';
+import 'package:flutter_template_3/app/modules/items/domain/repositories/items_repo.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -22,4 +25,10 @@ abstract class AppRepositoryBinding {
   UploadRepository getUploadRepo();
   HomeRepository getHomeRepo();
   NotificationRepository getNotificationRepo();
+
+  OrdersRepository getOrders();
+
+  SlotsRepository getSlots();
+
+  ItemsRepository getItems();
 }

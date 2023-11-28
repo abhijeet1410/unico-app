@@ -55,8 +55,11 @@ class AppOutlineButtonState extends State<AppOutlineButton> {
         : OutlinedButton(
             onPressed: widget.onPressed,
             style: OutlinedButton.styleFrom(
-              primary: widget.color ?? theme.primaryColor,
-              shape: widget.shape,
+              foregroundColor: widget.color ?? theme.primaryColor,
+              shape: widget.shape ??
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
               side: widget.borderSide,
               padding: widget.padding ??
                   const EdgeInsets.symmetric(vertical: 14, horizontal: 48),

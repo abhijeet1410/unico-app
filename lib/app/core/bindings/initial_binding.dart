@@ -39,9 +39,20 @@ import 'package:flutter_template_3/app/modules/update_password/domain/usecases/u
 import 'package:flutter_template_3/app/modules/update_password/presentations/controller/update_password_controller.dart';
 import 'package:flutter_template_3/flavors/build_config.dart';
 import 'package:get/get.dart';
+import 'package:flutter_template_3/app/modules/orders/data/data_source/orders_data_source.dart';
+import 'package:flutter_template_3/app/modules/orders/data/data_source/orders_data_source_impl.dart';
+import 'package:flutter_template_3/app/modules/orders/presentation/controller/orders_controller.dart';
 
 ///
+import 'package:flutter_template_3/app/modules/slots/data/data_source/slots_data_source.dart';
+import 'package:flutter_template_3/app/modules/slots/data/data_source/slots_data_source_impl.dart';
+import 'package:flutter_template_3/app/modules/slots/presentation/controller/slots_controller.dart';
+
 /// Created by Sunil Kumar from Boiler plate
+import 'package:flutter_template_3/app/modules/items/data/data_source/items_data_source.dart';
+import 'package:flutter_template_3/app/modules/items/data/data_source/items_data_source_impl.dart';
+import 'package:flutter_template_3/app/modules/items/presentation/controller/items_controller.dart';
+
 ///
 
 class InitialBinding implements Bindings {
@@ -50,6 +61,9 @@ class InitialBinding implements Bindings {
     Get.lazyPut<DeviceInfoDataSource>(() => DeviceInfoDataSourceImpl());
 
     /// Data sources
+    Get.lazyPut<ItemsDataSource>(() => ItemsDataSourceImpl());
+    Get.lazyPut<SlotsDataSource>(() => SlotsDataSourceImpl());
+    Get.lazyPut<OrdersDataSource>(() => OrdersDataSourceImpl());
     Get.lazyPut<UploadDataSource>(
         () => UploadDataSourceImpl.setContentType("multipart/form-data"),
         fenix: true);
@@ -88,6 +102,13 @@ class InitialBinding implements Bindings {
         fenix: true);
 
     /// Controllers
+
+    Get.lazyPut<ItemsController>(() => ItemsController(), fenix: true);
+
+    Get.lazyPut<SlotsController>(() => SlotsController(), fenix: true);
+
+    Get.lazyPut<OrdersController>(() => OrdersController(), fenix: true);
+
     Get.put<UserController>(UserController());
     Get.lazyPut<LoginController>(() => LoginController(), fenix: true);
     Get.lazyPut<RegisterController>(() => RegisterController(), fenix: true);

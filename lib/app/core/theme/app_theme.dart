@@ -15,9 +15,9 @@ mixin AppThemes {
       cardBackgroundColor: AppColors.neutralBlack.shade100,
       fontFamily: fontFamily,
       appBarActionColor: Colors.black,
-      appBarColor: AppColors.brightPrimary,
+      appBarColor: Colors.transparent, //.brightPrimary,
       appBarElevation: 0,
-      appBarTextColor: Colors.white,
+      appBarTextColor: Colors.black,
       buttonBackground: AppColors.brightPrimary,
       buttonTextColor: Colors.white,
       divider: AppColors.neutralBlue.shade300,
@@ -45,6 +45,7 @@ mixin AppThemes {
         : Typography.whiteMountainView;
 
     return ThemeData(
+        useMaterial3: false,
         brightness: brightness,
         canvasColor: backgroundColor,
         cardColor: backgroundColor,
@@ -61,13 +62,18 @@ mixin AppThemes {
             cursorColor: primaryColor,
             selectionHandleColor: primaryColor,
             selectionColor: primaryColor.withOpacity(0.3)),
+        tabBarTheme: TabBarTheme(
+          indicatorColor: primaryColor,
+          labelColor: Color(0xff373737),
+          unselectedLabelColor: Color(0xff343434),
+        ),
         appBarTheme: AppBarTheme(
           elevation: appBarElevation,
           backgroundColor: appBarColor,
           titleTextStyle: TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               fontFamily: fontFamily,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               color: appBarTextColor),
           iconTheme: IconThemeData(color: appBarActionColor),
         ),

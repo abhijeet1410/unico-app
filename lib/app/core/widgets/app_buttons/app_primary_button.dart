@@ -59,11 +59,11 @@ class AppPrimaryButtonState extends State<AppPrimaryButton> {
             style: ElevatedButton.styleFrom(
               backgroundColor: widget.color ?? theme.primaryColor,
               foregroundColor: widget.textColor,
-              fixedSize: Size(widget.width ?? Get.width, widget.height ?? 54),
+              fixedSize: Size(widget.width ?? Get.width, widget.height ?? 52),
               padding: widget.padding ?? EdgeInsets.zero,
               textStyle: widget.textStyle ??
                   const TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       fontFamily: AppThemes.fontFamily,
                       fontWeight: FontWeight.w500),
             ),

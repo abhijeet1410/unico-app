@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:get/get.dart';
 
 ///
@@ -27,20 +29,37 @@ class AppEmptyWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        // SvgPicture.asset(assetPath ?? 'assets/icons/no_videos.svg'),
+        if (assetPath != null)
+          SvgPicture.asset(assetPath ?? 'assets/icons/no_videos.svg'),
         Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             child: Text(title ?? 'Empty',
-                style: TextStyle(color: textColor, fontSize: 16)),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: textColor,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                )),
           ),
         ),
+        if (subtitle != null)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 22),
+            child: Text(subtitle ?? 'Empty',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xff919191),
+                )),
+          ),
         if (onReload != null)
-          MaterialButton(
-            textColor: Colors.white,
-            color: Get.theme.primaryColor,
-            onPressed: onReload,
-            child: Text(buttonText ?? 'Reload'),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: AppPrimaryButton(
+              color: Get.theme.primaryColor,
+              onPressed: onReload,
+              child: Text(buttonText ?? 'Reload'),
+            ),
           )
       ],
     );

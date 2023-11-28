@@ -7,10 +7,14 @@ import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_he
 import 'package:flutter_template_3/app/core/widgets/alerts/alert_dialog.dart';
 import 'package:flutter_template_3/app/modules/feedback/feedback_page.dart';
 import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
+import 'package:flutter_template_3/app/modules/items/presentation/items_page.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
+import 'package:flutter_template_3/app/modules/orders/presentation/orders_page.dart';
+import 'package:flutter_template_3/app/modules/slots/presentation/slots_page.dart';
 import 'package:flutter_template_3/app/modules/users/all_users/users_page.dart';
 import 'package:flutter_template_3/app/modules/users/blocked_users/blocked_users_page.dart';
 import 'package:flutter_template_3/app/modules/users/unverfied_users/unverified_users_page.dart';
+import 'package:flutter_template_3/app/modules/users/user_profile/user_profile.dart';
 import 'package:get/get.dart';
 
 ///
@@ -155,18 +159,30 @@ class DrawerEntry {
 }
 
 final List<DrawerEntry> drawerData = <DrawerEntry>[
-  DrawerEntry('OverView', 0, DashboardPage.routeName, null),
+  DrawerEntry('Home', 0, DashboardPage.routeName, AppAssets.homeBottomNav),
   DrawerEntry(
-    'Settings',
+    'Orders',
     1,
-    UnverifiedUsersPage.routeName,
-    null,
+    OrdersPage.routeName,
+    AppAssets.ordersBottomNav,
   ),
   DrawerEntry(
-    'Notifications',
+    'Slots',
     2,
-    BlockedUsersPage.routeName,
-    null,
+    SlotsPage.routeName,
+    AppAssets.slotsBottomNav,
+  ),
+  DrawerEntry(
+    'Items',
+    3,
+    ItemsPage.routeName,
+    AppAssets.itemsBottomNav,
+  ),
+  DrawerEntry(
+    'Profile',
+    4,
+    UserProfilePage.routeName,
+    AppAssets.profileBottomNav,
   ),
 ];
 
