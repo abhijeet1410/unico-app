@@ -50,6 +50,9 @@ mixin AppThemes {
         canvasColor: backgroundColor,
         cardColor: backgroundColor,
         primarySwatch: primaryColor,
+        textButtonTheme: TextButtonThemeData(
+            style: ButtonStyle(
+                foregroundColor: MaterialStatePropertyAll(primaryColor))),
         primaryColor: primaryColor,
         dividerColor: divider,
         dividerTheme: DividerThemeData(color: divider, space: 1, thickness: 1),
@@ -84,8 +87,8 @@ mixin AppThemes {
         ),
         fontFamily: fontFamily,
         colorScheme: ColorScheme.light(
-          error: errorColor ?? Colors.red,
-          background: backgroundColor,
-        ));
+            error: errorColor ?? Colors.red,
+            background: backgroundColor,
+            primary: primaryColor));
   }
 }

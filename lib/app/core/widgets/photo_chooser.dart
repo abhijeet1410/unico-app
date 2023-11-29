@@ -84,13 +84,13 @@ class PhotoChooser extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           const Divider(height: 0, color: Colors.grey),
-          TextButton(
-            child: const SizedBox(
-              width: double.infinity,
-              height: 54,
-              child: Center(child: Text('Cancel')),
+          SizedBox(
+            width: double.infinity,
+            height: 54,
+            child: TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text('Cancel'),
             ),
-            onPressed: () => Navigator.pop(context),
           ),
         ],
       ),
