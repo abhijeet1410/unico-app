@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/theme/app_theme.dart';
+import 'package:unico_app/app/core/theme/app_theme.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import 'alert_dialog_book.dart';

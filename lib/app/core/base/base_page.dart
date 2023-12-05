@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
-import 'package:flutter_template_3/flavors/build_config.dart';
-import 'package:flutter_template_3/generated/l10n.dart';
+import 'package:unico_app/app/core/local/preference/preference_manager.dart';
+import 'package:unico_app/flavors/build_config.dart';
+import 'package:unico_app/generated/l10n.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 

@@ -1,6 +1,6 @@
-import 'package:flutter_template_3/app/modules/home/data/data_source/home_data_source.dart';
-import 'package:flutter_template_3/app/modules/home/data/models/city.dart';
-import 'package:flutter_template_3/app/modules/home/domain/repositories/home_repository.dart';
+import 'package:unico_app/app/modules/home/data/data_source/home_data_source.dart';
+import 'package:unico_app/app/modules/home/data/models/city.dart';
+import 'package:unico_app/app/modules/home/domain/repositories/home_repository.dart';
 
 ///
 /// Created by Sunil Kumar

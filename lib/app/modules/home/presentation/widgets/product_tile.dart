@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
-import 'package:flutter_template_3/app/modules/home/data/models/product.dart';
-import 'package:flutter_template_3/app/modules/product/presentation/product_page.dart';
+import 'package:unico_app/app/core/utils/navigation_utils/navigation_helper.dart';
+import 'package:unico_app/app/modules/home/data/models/product.dart';
+import 'package:unico_app/app/modules/product/presentation/product_page.dart';
 import 'package:get/get.dart';
 
 class ProductTile extends StatelessWidget {
@@ -13,7 +13,6 @@ class ProductTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        print("PRODUCT ${product.id}");
         NavigationHelper.toNamed(ProductPage.routeName, parameters: {
           'product': product.id.toString()
         });

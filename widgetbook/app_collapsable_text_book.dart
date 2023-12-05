@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/widgets/collapsable_text.dart';
+import 'package:unico_app/app/core/widgets/collapsable_text.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 ///

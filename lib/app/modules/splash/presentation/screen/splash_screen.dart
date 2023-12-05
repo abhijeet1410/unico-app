@@ -1,12 +1,12 @@
-import 'package:flutter_template_3/app/core/theme/app_colors.dart';
-import 'package:flutter_template_3/app/modules/splash/presentation/splash_page.dart';
+import 'package:unico_app/app/core/theme/app_colors.dart';
+import 'package:unico_app/app/modules/splash/presentation/splash_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/modules/splash/presentation/widgets/side_menu.dart';
+import 'package:unico_app/app/modules/splash/presentation/widgets/side_menu.dart';
 import 'package:get/get.dart';
 
-import 'package:flutter_template_3/app/core/widgets/responsive.dart';
-import 'package:flutter_template_3/app/modules/login/data/models/user.dart';
-import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
+import 'package:unico_app/app/core/widgets/responsive.dart';
+import 'package:unico_app/app/modules/login/data/models/user.dart';
+import 'package:unico_app/app/modules/login/presentation/controller/user_controller.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

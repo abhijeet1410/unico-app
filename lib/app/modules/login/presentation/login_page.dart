@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/base/base_page.dart';
-import 'package:flutter_template_3/app/modules/login/presentation/controller/login_controller.dart';
-import 'package:flutter_template_3/app/modules/login/presentation/screen/login_screen.dart';
+import 'package:unico_app/app/core/base/base_page.dart';
+import 'package:unico_app/app/modules/login/presentation/controller/login_controller.dart';
+import 'package:unico_app/app/modules/login/presentation/screen/login_screen.dart';
 import 'package:get/get.dart';
 
 ///

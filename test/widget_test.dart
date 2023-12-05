@@ -6,10 +6,10 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/my_app.dart';
-import 'package:flutter_template_3/flavors/build_config.dart';
-import 'package:flutter_template_3/flavors/env_config.dart';
-import 'package:flutter_template_3/flavors/environment.dart';
+import 'package:unico_app/app/my_app.dart';
+import 'package:unico_app/flavors/build_config.dart';
+import 'package:unico_app/flavors/env_config.dart';
+import 'package:unico_app/flavors/environment.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

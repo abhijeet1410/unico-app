@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_back_button.dart';
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
-import 'package:flutter_template_3/app/modules/cart/presentation/cart_page.dart';
-import 'package:flutter_template_3/app/modules/cart/presentation/controller/cart_controller.dart';
-import 'package:flutter_template_3/app/modules/product/presentation/controller/product_detail_controller.dart';
+import 'package:unico_app/app/core/utils/navigation_utils/navigation_helper.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_back_button.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_primary_button.dart';
+import 'package:unico_app/app/modules/cart/presentation/cart_page.dart';
+import 'package:unico_app/app/modules/cart/presentation/controller/cart_controller.dart';
+import 'package:unico_app/app/modules/product/presentation/controller/product_detail_controller.dart';
 import 'package:get/get.dart';
 
 class ProductPage extends StatefulWidget {
@@ -53,7 +53,9 @@ class _ProductPageState extends State<ProductPage> {
                   height: 150.0,
                   width: 40.0,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      NavigationHelper.toNamed(CartPage.routeName);
+                    },
                     child: Stack(
                       children: <Widget>[
                         const IconButton(
@@ -187,83 +189,29 @@ class _ProductPageState extends State<ProductPage> {
               const SizedBox(
                 height: 28,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Price: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: '\$${controller.state!.price}  ',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.black),
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: '\$${controller.state!.basePrice}',
-                                style: TextStyle(
-                                    decoration: TextDecoration.lineThrough,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.grey[400])),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                  const Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Quantity: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            decoration: const BoxDecoration(
-                                shape: BoxShape.circle, color: Colors.black),
-                            padding: const EdgeInsets.all(4),
-                            child: const Center(
-                                child: Icon(
-                              Icons.remove,
-                              color: Colors.white,
-                              size: 18,
-                            )),
-                          ),
-                          const Text(
-                            "14",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ).paddingSymmetric(horizontal: 16),
-                          Container(
-                            decoration: const BoxDecoration(
-                                shape: BoxShape.circle, color: Colors.black),
-                            padding: const EdgeInsets.all(4),
-                            child: const Center(
-                                child: Icon(
-                              Icons.add,
-                              color: Colors.white,
-                              size: 18,
-                            )),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  const Spacer(),
-                ],
+              const Text(
+                "Price: ",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 4,
+              ),
+              RichText(
+                text: TextSpan(
+                  text: '\$${controller.state!.price}  ',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.black),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: '\$${controller.state!.basePrice}',
+                        style: TextStyle(
+                            decoration: TextDecoration.lineThrough,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey[400])),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 28,

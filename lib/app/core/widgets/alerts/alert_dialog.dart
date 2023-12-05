@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_template_3/app/core/asset/resources.dart';
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_outline_button.dart';
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
+import 'package:unico_app/app/core/asset/resources.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_outline_button.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:get/get.dart';
 
 Future<bool?> showAppAlertDialog(

@@ -107,7 +107,7 @@ project
   if it does’t generate automatically
 - Then in code import the generated file
   ```cmd
-  import 'package:flutter_template_3/generated/l10n.dart';
+  import 'package:unico_app/generated/l10n.dart';
   ```
 - Use the value from the key by S.of(context) or S.current
 
@@ -120,7 +120,7 @@ project
   ```
 - Then in code import the generated file
 ```cmd
-import 'package:flutter_template_3/generated/l10n.dart';
+import 'package:unico_app/generated/l10n.dart';
 ```
 - Use the value from the key by S.of(context) or S.current
 
@@ -166,7 +166,7 @@ flutter pub run intl_utils:generate
   ```
 - Import the resource
   ```dart
-  import 'package:flutter_template_3/app/core/asset/resources.dart';
+  import 'package:unico_app/app/core/asset/resources.dart';
   ```
 - Use the asset as AppAssets.<your_asset_name>
 HOLA 😎😎

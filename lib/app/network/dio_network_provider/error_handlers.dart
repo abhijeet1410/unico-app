@@ -3,12 +3,12 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-import 'package:flutter_template_3/app/network/exceptions/api_exception.dart';
-import 'package:flutter_template_3/app/network/exceptions/app_exception.dart';
-import 'package:flutter_template_3/app/network/exceptions/network_exception.dart';
-import 'package:flutter_template_3/app/network/exceptions/not_found_exception.dart';
-import 'package:flutter_template_3/app/network/exceptions/service_unavailable_exception.dart';
-import 'package:flutter_template_3/flavors/build_config.dart';
+import 'package:unico_app/app/network/exceptions/api_exception.dart';
+import 'package:unico_app/app/network/exceptions/app_exception.dart';
+import 'package:unico_app/app/network/exceptions/network_exception.dart';
+import 'package:unico_app/app/network/exceptions/not_found_exception.dart';
+import 'package:unico_app/app/network/exceptions/service_unavailable_exception.dart';
+import 'package:unico_app/flavors/build_config.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

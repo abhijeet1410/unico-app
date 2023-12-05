@@ -1,4 +1,4 @@
-import 'package:flutter_template_3/flavors/environment.dart';
+import 'package:unico_app/flavors/environment.dart';
 import 'package:logger/logger.dart';
 
 ///

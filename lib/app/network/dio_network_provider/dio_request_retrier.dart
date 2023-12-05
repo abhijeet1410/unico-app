@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' as getx;
 
-import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
-import 'package:flutter_template_3/app/network/dio_network_provider/dio_provider.dart';
+import 'package:unico_app/app/core/local/preference/preference_manager.dart';
+import 'package:unico_app/app/network/dio_network_provider/dio_provider.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

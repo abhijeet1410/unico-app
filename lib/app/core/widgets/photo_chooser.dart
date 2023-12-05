@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
+import 'package:unico_app/app/core/utils/snakbar_utils/snackbar_helper.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';

@@ -1,5 +1,5 @@
-import 'package:flutter_template_3/flavors/env_config.dart';
-import 'package:flutter_template_3/flavors/environment.dart';
+import 'package:unico_app/flavors/env_config.dart';
+import 'package:unico_app/flavors/environment.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

@@ -1,6 +1,6 @@
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:flutter_template_3/flavors/build_config.dart';
-import 'package:flutter_template_3/flavors/env_config.dart';
+import 'package:unico_app/flavors/build_config.dart';
+import 'package:unico_app/flavors/env_config.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 

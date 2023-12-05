@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/widgets/alerts/alert_dialog.dart';
+import 'package:unico_app/app/core/widgets/alerts/alert_dialog.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 

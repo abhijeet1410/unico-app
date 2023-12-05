@@ -1,7 +1,7 @@
-import 'package:flutter_template_3/app/modules/login/data/models/user.dart';
-import 'package:flutter_template_3/app/core/domain/usercases/usecase.dart';
-import 'package:flutter_template_3/app/modules/splash/data/models/splash_refresh_token_request_model.dart';
-import 'package:flutter_template_3/app/modules/splash/domain/repositories/splash_repo.dart';
+import 'package:unico_app/app/modules/login/data/models/user.dart';
+import 'package:unico_app/app/core/domain/usercases/usecase.dart';
+import 'package:unico_app/app/modules/splash/data/models/splash_refresh_token_request_model.dart';
+import 'package:unico_app/app/modules/splash/domain/repositories/splash_repo.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

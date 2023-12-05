@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/widgets/app_widgets/app_loader.dart';
-import 'package:flutter_template_3/app/core/widgets/user_circle_avatar.dart';
-import 'package:flutter_template_3/app/modules/home/presentation/controller/product_controller.dart';
-import 'package:flutter_template_3/app/modules/home/presentation/widgets/featured_product.dart';
-import 'package:flutter_template_3/app/modules/home/presentation/widgets/product_tile.dart';
+import 'package:unico_app/app/core/widgets/app_widgets/app_loader.dart';
+import 'package:unico_app/app/core/widgets/user_circle_avatar.dart';
+import 'package:unico_app/app/modules/home/presentation/controller/product_controller.dart';
+import 'package:unico_app/app/modules/home/presentation/widgets/featured_product.dart';
+import 'package:unico_app/app/modules/home/presentation/widgets/product_tile.dart';
 import 'package:get/get.dart';
 
 class DashboardPage extends GetView<ProductController> {
@@ -14,7 +14,6 @@ class DashboardPage extends GetView<ProductController> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> sizes = ["S", "M", "L"];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,

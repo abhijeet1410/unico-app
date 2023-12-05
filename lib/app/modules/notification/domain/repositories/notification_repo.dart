@@ -1,5 +1,5 @@
-import 'package:flutter_template_3/app/modules/notification/data/models/notification_request.dart';
-import 'package:flutter_template_3/app/modules/notification/data/models/notification_response.dart';
+import 'package:unico_app/app/modules/notification/data/models/notification_request.dart';
+import 'package:unico_app/app/modules/notification/data/models/notification_response.dart';
 
 ///
 /// Created by Sunil Kumar

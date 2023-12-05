@@ -4,9 +4,9 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:awesome_notifications_fcm/awesome_notifications_fcm.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_template_3/app/core/theme/app_colors.dart';
-import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification.dart';
-import 'package:flutter_template_3/app/modules/notification/data/models/notification_response.dart';
+import 'package:unico_app/app/core/theme/app_colors.dart';
+import 'package:unico_app/app/core/utils/notification_utils/app_notification.dart';
+import 'package:unico_app/app/modules/notification/data/models/notification_response.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 ///

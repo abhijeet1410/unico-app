@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:android_path_provider/android_path_provider.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:flutter_template_3/app/core/utils/permission_utils/permission_util.dart';
+import 'package:unico_app/app/core/utils/permission_utils/permission_util.dart';
 import 'package:path_provider/path_provider.dart';
 
 ///

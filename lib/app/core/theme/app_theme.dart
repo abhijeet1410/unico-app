@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/theme/app_colors.dart';
+import 'package:unico_app/app/core/theme/app_colors.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

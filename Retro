@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packageName="flutter_template_3"
+packageName="unico_app"
 
 camelcase_to_underscore() {
   local camel_case_string=$1

@@ -5,16 +5,16 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_template_3/app/core/bindings/initial_binding.dart';
-import 'package:flutter_template_3/app/core/local/preference/preference_manager_impl.dart';
-import 'package:flutter_template_3/app/core/theme/app_colors.dart';
-import 'package:flutter_template_3/app/core/theme/app_theme.dart';
-import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
-import 'package:flutter_template_3/app/route/app_page_routes.dart';
-import 'package:flutter_template_3/firebase_options.dart';
-import 'package:flutter_template_3/generated/l10n.dart';
+import 'package:unico_app/app/core/bindings/initial_binding.dart';
+import 'package:unico_app/app/core/local/preference/preference_manager_impl.dart';
+import 'package:unico_app/app/core/theme/app_colors.dart';
+import 'package:unico_app/app/core/theme/app_theme.dart';
+import 'package:unico_app/app/core/utils/navigation_utils/navigation_helper.dart';
+import 'package:unico_app/app/route/app_page_routes.dart';
+import 'package:unico_app/firebase_options.dart';
+import 'package:unico_app/generated/l10n.dart';
 import 'package:get/get.dart';
-import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
+import 'package:unico_app/app/core/local/preference/preference_manager.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Vendmat',
+      title: 'Unico App',
       localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
         S.delegate,
         GlobalMaterialLocalizations.delegate,

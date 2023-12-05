@@ -1,7 +1,7 @@
-import 'package:flutter_template_3/app/modules/splash/data/models/splash_refresh_token_request_model.dart';
-import 'package:flutter_template_3/app/route/api_routes.dart';
+import 'package:unico_app/app/modules/splash/data/models/splash_refresh_token_request_model.dart';
+import 'package:unico_app/app/route/api_routes.dart';
 import 'package:get/get.dart';
-import 'package:flutter_template_3/app/modules/splash/data/data_source/splash_data_source.dart';
+import 'package:unico_app/app/modules/splash/data/data_source/splash_data_source.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

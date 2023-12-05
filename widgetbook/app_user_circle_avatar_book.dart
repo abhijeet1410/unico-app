@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/widgets/user_circle_avatar.dart';
+import 'package:unico_app/app/core/widgets/user_circle_avatar.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 ///

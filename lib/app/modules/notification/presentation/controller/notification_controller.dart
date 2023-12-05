@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:developer';
 
- import 'package:flutter_template_3/app/core/base/base_controller.dart';
-import 'package:flutter_template_3/app/core/utils/snakbar_utils/snackbar_helper.dart';
-import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
-import 'package:flutter_template_3/app/modules/notification/data/models/notification_request.dart';
-import 'package:flutter_template_3/app/modules/notification/data/models/notification_response.dart';
-import 'package:flutter_template_3/app/modules/notification/domain/usecases/get_notification_usercase.dart';
+ import 'package:unico_app/app/core/base/base_controller.dart';
+import 'package:unico_app/app/core/utils/snakbar_utils/snackbar_helper.dart';
+import 'package:unico_app/app/modules/login/presentation/controller/user_controller.dart';
+import 'package:unico_app/app/modules/notification/data/models/notification_request.dart';
+import 'package:unico_app/app/modules/notification/data/models/notification_response.dart';
+import 'package:unico_app/app/modules/notification/domain/usecases/get_notification_usercase.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

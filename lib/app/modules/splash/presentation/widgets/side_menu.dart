@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_template_3/app/core/asset/resources.dart';
-import 'package:flutter_template_3/app/core/local/preference/preference_manager.dart';
-import 'package:flutter_template_3/app/core/theme/app_colors.dart';
-import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
-import 'package:flutter_template_3/app/core/widgets/alerts/alert_dialog.dart';
-import 'package:flutter_template_3/app/modules/cart/presentation/cart_page.dart';
-import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
-import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
-import 'package:flutter_template_3/app/modules/users/user_profile/user_profile.dart';
+import 'package:unico_app/app/core/asset/resources.dart';
+import 'package:unico_app/app/core/local/preference/preference_manager.dart';
+import 'package:unico_app/app/core/theme/app_colors.dart';
+import 'package:unico_app/app/core/utils/navigation_utils/navigation_helper.dart';
+import 'package:unico_app/app/core/widgets/alerts/alert_dialog.dart';
+import 'package:unico_app/app/modules/cart/presentation/cart_page.dart';
+import 'package:unico_app/app/modules/home/presentation/home_page.dart';
+import 'package:unico_app/app/modules/login/presentation/login_page.dart';
+import 'package:unico_app/app/modules/users/user_profile/user_profile.dart';
 import 'package:get/get.dart';
 
 ///
@@ -154,30 +154,6 @@ class DrawerEntry {
 
 final List<DrawerEntry> drawerData = <DrawerEntry>[
   DrawerEntry('Home', 0, DashboardPage.routeName, AppAssets.homeBottomNav),
-  DrawerEntry(
-    'Orders',
-    1,
-    CartPage.routeName,
-    AppAssets.ordersBottomNav,
-  ),
-  DrawerEntry(
-    'Slots',
-    2,
-    CartPage.routeName,
-    AppAssets.slotsBottomNav,
-  ),
-  DrawerEntry(
-    'Items',
-    3,
-    CartPage.routeName,
-    AppAssets.itemsBottomNav,
-  ),
-  DrawerEntry(
-    'Profile',
-    4,
-    UserProfilePage.routeName,
-    AppAssets.profileBottomNav,
-  ),
 ];
 
 class DrawerEntryItem extends StatelessWidget {

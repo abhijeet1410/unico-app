@@ -1,13 +1,13 @@
-import 'package:flutter_template_3/app/core/middlewares/auth_check_middleware.dart';
-import 'package:flutter_template_3/app/modules/cart/presentation/cart_page.dart';
-import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
-import 'package:flutter_template_3/app/modules/intro/presentation/intro_page.dart';
-import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
-import 'package:flutter_template_3/app/modules/product/presentation/product_page.dart';
-import 'package:flutter_template_3/app/modules/splash/presentation/splash_page.dart';
-import 'package:flutter_template_3/app/modules/users/all_users/users_page.dart';
-import 'package:flutter_template_3/app/modules/users/blocked_users/blocked_users_page.dart';
-import 'package:flutter_template_3/app/modules/users/unverfied_users/unverified_users_page.dart';
+import 'package:unico_app/app/core/middlewares/auth_check_middleware.dart';
+import 'package:unico_app/app/modules/cart/presentation/cart_page.dart';
+import 'package:unico_app/app/modules/home/presentation/home_page.dart';
+import 'package:unico_app/app/modules/intro/presentation/intro_page.dart';
+import 'package:unico_app/app/modules/login/presentation/login_page.dart';
+import 'package:unico_app/app/modules/product/presentation/product_page.dart';
+import 'package:unico_app/app/modules/splash/presentation/splash_page.dart';
+import 'package:unico_app/app/modules/users/all_users/users_page.dart';
+import 'package:unico_app/app/modules/users/blocked_users/blocked_users_page.dart';
+import 'package:unico_app/app/modules/users/unverfied_users/unverified_users_page.dart';
 import 'package:get/get.dart';
 import '../modules/checkout/presentation/checkout_page.dart';
 

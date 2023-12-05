@@ -1,7 +1,7 @@
-import 'package:flutter_template_3/app/modules/login/data/models/login_request_model.dart';
-import 'package:flutter_template_3/app/modules/login/data/models/user.dart';
-import 'package:flutter_template_3/app/core/domain/usercases/usecase.dart';
-import 'package:flutter_template_3/app/modules/login/domain/repositories/login_repo.dart';
+import 'package:unico_app/app/modules/login/data/models/login_request_model.dart';
+import 'package:unico_app/app/modules/login/data/models/user.dart';
+import 'package:unico_app/app/core/domain/usercases/usecase.dart';
+import 'package:unico_app/app/modules/login/domain/repositories/login_repo.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

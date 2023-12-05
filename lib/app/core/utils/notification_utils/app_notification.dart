@@ -2,25 +2,25 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:awesome_notifications_fcm/awesome_notifications_fcm.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_template_3/app/core/theme/app_colors.dart';
-import 'package:flutter_template_3/app/core/utils/notification_utils/app_notification_handlers.dart';
-import 'package:flutter_template_3/app/modules/notification/data/models/notification_response.dart';
+import 'package:unico_app/app/core/theme/app_colors.dart';
+import 'package:unico_app/app/core/utils/notification_utils/app_notification_handlers.dart';
+import 'package:unico_app/app/modules/notification/data/models/notification_response.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
 ///
 
 class AppNotificationManager {
-  static String channelId = 'com.flutter_template_3';
+  static String channelId = 'com.unico_app';
   static String channelName = 'General';
   static String channelDescription = 'General Notification Channel';
   static String notificationTicker = 'ticker';
 
-  static String chatChannelId = 'com.flutter_template_3_chat';
+  static String chatChannelId = 'com.unico_app_chat';
   static String chatChannelName = 'Chat Notification';
   static String chatChannelDescription = 'Chat Notification Channel';
 
-  static String promotionChannelId = 'com.flutter_template_3_promotion';
+  static String promotionChannelId = 'com.unico_app_promotion';
   static String promotionChannelName = 'Promotion Notification';
   static String promotionChannelDescription = 'Promotion Notification Channel';
 

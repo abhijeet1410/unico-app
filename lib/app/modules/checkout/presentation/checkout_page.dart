@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_back_button.dart';
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
-import 'package:flutter_template_3/app/modules/cart/presentation/controller/cart_controller.dart';
-import 'package:flutter_template_3/app/modules/home/presentation/widgets/product_tile.dart';
+import 'package:unico_app/app/core/utils/navigation_utils/navigation_helper.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_back_button.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_primary_button.dart';
+import 'package:unico_app/app/modules/cart/presentation/controller/cart_controller.dart';
+import 'package:unico_app/app/modules/home/presentation/widgets/product_tile.dart';
 import 'package:get/get.dart';
 
 class CheckoutPage extends StatefulWidget {

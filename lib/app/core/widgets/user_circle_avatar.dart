@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_template_3/app/core/asset/resources.dart';
+import 'package:unico_app/app/core/asset/resources.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

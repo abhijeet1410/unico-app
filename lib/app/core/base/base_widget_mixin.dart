@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/generated/l10n.dart';
+import 'package:unico_app/generated/l10n.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
-import 'package:flutter_template_3/flavors/build_config.dart';
+import 'package:unico_app/flavors/build_config.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

@@ -1,5 +1,5 @@
-import 'package:flutter_template_3/app/core/base/base_controller.dart';
-import 'package:flutter_template_3/app/modules/home/data/models/product.dart';
+import 'package:unico_app/app/core/base/base_controller.dart';
+import 'package:unico_app/app/modules/home/data/models/product.dart';
 import 'package:get/get.dart';
 
 class CartController extends BaseController<List<Product>>{

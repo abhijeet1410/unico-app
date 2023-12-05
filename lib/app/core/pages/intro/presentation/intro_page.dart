@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/pages/intro/models/intro_options.dart';
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
+import 'package:unico_app/app/core/pages/intro/models/intro_options.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_primary_button.dart';
 import 'package:get/get.dart';
 
 ///

@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_template_3/app/core/base/base_page.dart';
-import 'package:flutter_template_3/app/core/pages/splash/models/splash_options.dart';
+import 'package:unico_app/app/core/base/base_page.dart';
+import 'package:unico_app/app/core/pages/splash/models/splash_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_template_3/app/core/widgets/app_widgets/app_error_widget.dart';
+import 'package:unico_app/app/core/widgets/app_widgets/app_error_widget.dart';
 import 'package:get/get.dart';
 import 'package:rive/rive.dart';
 

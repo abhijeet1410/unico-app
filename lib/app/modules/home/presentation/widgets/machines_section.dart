@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_template_3/app/core/asset/resources.dart';
-import 'package:flutter_template_3/app/core/theme/app_colors.dart';
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_outline_button.dart';
-import 'package:flutter_template_3/app/core/widgets/user_circle_avatar.dart';
-import 'package:flutter_template_3/app/modules/home/presentation/widgets/add_items_sheet.dart';
+import 'package:unico_app/app/core/asset/resources.dart';
+import 'package:unico_app/app/core/theme/app_colors.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_outline_button.dart';
+import 'package:unico_app/app/core/widgets/user_circle_avatar.dart';
+import 'package:unico_app/app/modules/home/presentation/widgets/add_items_sheet.dart';
 import 'package:get/get.dart';
 
 ///

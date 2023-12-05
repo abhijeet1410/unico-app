@@ -1,6 +1,6 @@
-import 'package:flutter_template_3/app/modules/login/data/data_source/login_data_source.dart';
-import 'package:flutter_template_3/app/modules/login/data/models/login_request_model.dart';
- import 'package:flutter_template_3/app/route/api_routes.dart';
+import 'package:unico_app/app/modules/login/data/data_source/login_data_source.dart';
+import 'package:unico_app/app/modules/login/data/models/login_request_model.dart';
+ import 'package:unico_app/app/route/api_routes.dart';
 import 'package:get/get.dart';
 
 ///

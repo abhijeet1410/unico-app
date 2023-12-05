@@ -1,9 +1,9 @@
-import 'package:flutter_template_3/app/core/base/base_view.dart';
+import 'package:unico_app/app/core/base/base_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/utils/decorations/app_decorations.dart';
-import 'package:flutter_template_3/app/core/utils/validators/app_validators.dart';
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
-import 'package:flutter_template_3/app/modules/login/presentation/controller/login_controller.dart';
+import 'package:unico_app/app/core/utils/decorations/app_decorations.dart';
+import 'package:unico_app/app/core/utils/validators/app_validators.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_primary_button.dart';
+import 'package:unico_app/app/modules/login/presentation/controller/login_controller.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/theme/app_theme.dart';
-import 'package:flutter_template_3/app/core/widgets/app_widgets/app_loader.dart';
+import 'package:unico_app/app/core/theme/app_theme.dart';
+import 'package:unico_app/app/core/widgets/app_widgets/app_loader.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

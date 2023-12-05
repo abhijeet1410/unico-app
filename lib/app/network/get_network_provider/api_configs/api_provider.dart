@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/services.dart';
-import 'package:flutter_template_3/app/network/exceptions/json_format_exception.dart';
-import 'package:flutter_template_3/app/network/get_network_provider/api_configs/api.dart';
-import 'package:flutter_template_3/flavors/build_config.dart';
-import 'package:flutter_template_3/flavors/env_config.dart';
+import 'package:unico_app/app/network/exceptions/json_format_exception.dart';
+import 'package:unico_app/app/network/get_network_provider/api_configs/api.dart';
+import 'package:unico_app/flavors/build_config.dart';
+import 'package:unico_app/flavors/env_config.dart';
 import 'package:get/get.dart';
 import 'package:logger/src/logger.dart';
 

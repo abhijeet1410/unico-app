@@ -1,7 +1,7 @@
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_back_button.dart';
-import 'package:flutter_template_3/app/core/widgets/app_widgets/app_widgets.dart';
-import 'package:flutter_template_3/app/modules/notification/presentation/controller/notification_controller.dart';
-import 'package:flutter_template_3/app/modules/notification/presentation/widgets/notification_tile.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_back_button.dart';
+import 'package:unico_app/app/core/widgets/app_widgets/app_widgets.dart';
+import 'package:unico_app/app/modules/notification/presentation/controller/notification_controller.dart';
+import 'package:unico_app/app/modules/notification/presentation/widgets/notification_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/widgets/app_buttons/app_primary_button.dart';
-import 'package:flutter_template_3/app/core/widgets/photo_chooser.dart';
+import 'package:unico_app/app/core/widgets/app_buttons/app_primary_button.dart';
+import 'package:unico_app/app/core/widgets/photo_chooser.dart';
 import 'package:get/get.dart';
 import 'package:widgetbook/widgetbook.dart';
 

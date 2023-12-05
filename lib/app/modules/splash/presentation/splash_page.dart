@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/modules/splash/presentation/screen/admin_splash_screen.dart';
+import 'package:unico_app/app/modules/splash/presentation/screen/admin_splash_screen.dart';
 import 'package:get/get.dart';
 
 ///

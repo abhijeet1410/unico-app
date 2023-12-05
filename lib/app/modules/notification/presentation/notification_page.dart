@@ -1,5 +1,5 @@
-import 'package:flutter_template_3/app/modules/notification/presentation/controller/notification_controller.dart';
-import 'package:flutter_template_3/app/modules/notification/presentation/screen/notification_screen.dart';
+import 'package:unico_app/app/modules/notification/presentation/controller/notification_controller.dart';
+import 'package:unico_app/app/modules/notification/presentation/screen/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_template_3/app/network/dio_network_provider/mock_interceptor.dart';
-import 'package:flutter_template_3/app/network/dio_network_provider/pretty_dio_logger.dart';
-import 'package:flutter_template_3/flavors/environment.dart';
+import 'package:unico_app/app/network/dio_network_provider/mock_interceptor.dart';
+import 'package:unico_app/app/network/dio_network_provider/pretty_dio_logger.dart';
+import 'package:unico_app/flavors/environment.dart';
 
-import 'package:flutter_template_3/app/network/dio_network_provider/request_headers.dart';
-import 'package:flutter_template_3/flavors/build_config.dart';
+import 'package:unico_app/app/network/dio_network_provider/request_headers.dart';
+import 'package:unico_app/flavors/build_config.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

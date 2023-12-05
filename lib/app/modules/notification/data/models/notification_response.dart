@@ -5,7 +5,7 @@
 import 'dart:convert';
 
  import 'package:flutter/material.dart';
-import 'package:flutter_template_3/app/core/utils/date_utils/date_utils.dart';
+import 'package:unico_app/app/core/utils/date_utils/date_utils.dart';
 import 'package:intl/intl.dart';
 
 NotificationNetworkResponse notificationResponseFromJson(String str) =>

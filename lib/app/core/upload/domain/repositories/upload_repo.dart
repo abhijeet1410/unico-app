@@ -1,5 +1,5 @@
-import 'package:flutter_template_3/app/core/upload/data/models/upload_request_model.dart';
-import 'package:flutter_template_3/app/core/upload/data/models/upload_response_model.dart';
+import 'package:unico_app/app/core/upload/data/models/upload_request_model.dart';
+import 'package:unico_app/app/core/upload/data/models/upload_response_model.dart';
 
 ///
 /// Created by Sunil Kumar

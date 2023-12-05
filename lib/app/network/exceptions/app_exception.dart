@@ -1,4 +1,4 @@
-import 'package:flutter_template_3/app/network/exceptions/base_exception.dart';
+import 'package:unico_app/app/network/exceptions/base_exception.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

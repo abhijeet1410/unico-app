@@ -1,5 +1,5 @@
-import 'package:flutter_template_3/app/modules/splash/data/models/splash_refresh_token_request_model.dart';
-import 'package:flutter_template_3/app/network/get_network_provider/api_configs/api_provider.dart';
+import 'package:unico_app/app/modules/splash/data/models/splash_refresh_token_request_model.dart';
+import 'package:unico_app/app/network/get_network_provider/api_configs/api_provider.dart';
 import 'package:get/get.dart';
 
 ///
