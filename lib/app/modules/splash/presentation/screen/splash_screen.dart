@@ -5,12 +5,8 @@ import 'package:flutter_template_3/app/modules/splash/presentation/widgets/side_
 import 'package:get/get.dart';
 
 import 'package:flutter_template_3/app/core/widgets/responsive.dart';
-import 'package:flutter_template_3/app/modules/forgot_password/forgot_password_page.dart';
-import 'package:flutter_template_3/app/modules/forgot_password_otp/forgot_password_otp_page.dart';
 import 'package:flutter_template_3/app/modules/login/data/models/user.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/controller/user_controller.dart';
-import 'package:flutter_template_3/app/modules/register/presentation/register_page.dart';
-import 'package:flutter_template_3/app/modules/update_password/update_password_page.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate

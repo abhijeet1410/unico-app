@@ -1,15 +1,8 @@
 import 'package:flutter_template_3/app/core/upload/domain/repositories/upload_repo.dart';
-import 'package:flutter_template_3/app/modules/forgot_password/domain/repositories/forgot_pass_repo.dart';
-import 'package:flutter_template_3/app/modules/forgot_password_otp/domain/repositories/forgot_pass_otp_repo.dart';
 import 'package:flutter_template_3/app/modules/home/domain/repositories/home_repository.dart';
 import 'package:flutter_template_3/app/modules/login/domain/repositories/login_repo.dart';
 import 'package:flutter_template_3/app/modules/notification/domain/repositories/notification_repo.dart';
-import 'package:flutter_template_3/app/modules/register/domain/repositories/register_repo.dart';
 import 'package:flutter_template_3/app/modules/splash/domain/repositories/splash_repo.dart';
-import 'package:flutter_template_3/app/modules/update_password/domain/repositories/update_password_repo.dart';
-import 'package:flutter_template_3/app/modules/orders/domain/repositories/orders_repo.dart';
-import 'package:flutter_template_3/app/modules/slots/domain/repositories/slots_repo.dart';
-import 'package:flutter_template_3/app/modules/items/domain/repositories/items_repo.dart';
 
 ///
 /// Created by Sunil Kumar from Boiler plate
@@ -18,17 +11,7 @@ import 'package:flutter_template_3/app/modules/items/domain/repositories/items_r
 abstract class AppRepositoryBinding {
   SplashRepository getSplashRepo();
   LoginRepository getLoginRepo();
-  RegisterRepository getRegisterRepo();
-  ForgotPasswordRepository getForgotPasswordRepo();
-  ForgotPassOtpRepository getForgotOtpRepo();
-  UpdatePasswordRepository getUpdatePassword();
   UploadRepository getUploadRepo();
   HomeRepository getHomeRepo();
   NotificationRepository getNotificationRepo();
-
-  OrdersRepository getOrders();
-
-  SlotsRepository getSlots();
-
-  ItemsRepository getItems();
 }

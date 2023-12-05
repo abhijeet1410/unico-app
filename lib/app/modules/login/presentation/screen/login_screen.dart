@@ -1,8 +1,4 @@
 import 'package:flutter_template_3/app/core/base/base_view.dart';
-import 'package:flutter_template_3/app/core/utils/downloader_utils/app_downloader.dart';
-import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
-import 'package:flutter_template_3/app/modules/forgot_password/forgot_password_page.dart';
-import 'package:flutter_template_3/app/modules/register/presentation/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template_3/app/core/utils/decorations/app_decorations.dart';
 import 'package:flutter_template_3/app/core/utils/validators/app_validators.dart';
@@ -21,14 +17,6 @@ class LoginScreen extends BaseView<LoginController> {
   @override
   Widget body(BuildContext context) {
     return Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: isDarkMode ? Colors.amber : Colors.red,
-          onPressed: () {
-            AppDownloader.startDownload(
-                "https://player.vimeo.com/external/513849098.hd.mp4?s=1055a69a25f3a1f1c2064b7136963b27023c5c49&profile_id=174&oauth2_token_id=57447761");
-            // Get.changeThemeMode(isDarkMode ? ThemeMode.light : ThemeMode.dark);
-          },
-        ),
         body: Obx(() => GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
               child: Form(
@@ -94,22 +82,18 @@ class LoginScreen extends BaseView<LoginController> {
                                       height: 1.4),
                                   textAlignVertical: TextAlignVertical.center,
                                   validator: (val) {
-                                    return AppFormValidators.validatePhone(val);
+                                    return AppFormValidators.validateMail(val);
                                   },
                                   textAlign: TextAlign.left,
                                   onSaved: controller.onEmailSaved,
-                                  keyboardType: TextInputType.phone,
-                                  inputFormatters: [
-                                    LengthLimitingTextInputFormatter(10),
-                                    FilteringTextInputFormatter.digitsOnly
-                                  ],
+                                  keyboardType: TextInputType.emailAddress,
                                   onFieldSubmitted: (v) =>
                                       FocusScope.of(context).nextFocus(),
                                   decoration:
                                       AppDecorations.textFieldDecoration(
                                               context)
                                           .copyWith(
-                                    hintText: "Phone",
+                                    hintText: "Email",
                                   ),
                                 ),
                                 const SizedBox(
@@ -159,24 +143,6 @@ class LoginScreen extends BaseView<LoginController> {
                                 ),
                               ],
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                GestureDetector(
-                                    onTap: () {
-                                      NavigationHelper.toNamed(
-                                          ForgotPasswordPage.routeName);
-                                    },
-                                    child: const Text(
-                                      "Forgot Password?   ",
-                                      style: TextStyle(
-                                          color: Color(0xffCE1C1C),
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold),
-                                    ))
-                              ],
-                            ),
                             const SizedBox(
                               height: 35,
                             ),
@@ -190,26 +156,6 @@ class LoginScreen extends BaseView<LoginController> {
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.w600,
                                   letterSpacing: 0.5,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 15.0),
-                              child: Center(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    NavigationHelper.toNamed(
-                                        RegisterPage.routeName);
-                                  },
-                                  child: Text(
-                                    'Register Now',
-                                    style: TextStyle(
-                                      color: Get.theme.primaryColor,
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: 0.5,
-                                    ),
-                                  ),
                                 ),
                               ),
                             ),

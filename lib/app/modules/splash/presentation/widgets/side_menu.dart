@@ -5,15 +5,9 @@ import 'package:flutter_template_3/app/core/local/preference/preference_manager.
 import 'package:flutter_template_3/app/core/theme/app_colors.dart';
 import 'package:flutter_template_3/app/core/utils/navigation_utils/navigation_helper.dart';
 import 'package:flutter_template_3/app/core/widgets/alerts/alert_dialog.dart';
-import 'package:flutter_template_3/app/modules/feedback/feedback_page.dart';
+import 'package:flutter_template_3/app/modules/cart/presentation/cart_page.dart';
 import 'package:flutter_template_3/app/modules/home/presentation/home_page.dart';
-import 'package:flutter_template_3/app/modules/items/presentation/items_page.dart';
 import 'package:flutter_template_3/app/modules/login/presentation/login_page.dart';
-import 'package:flutter_template_3/app/modules/orders/presentation/orders_page.dart';
-import 'package:flutter_template_3/app/modules/slots/presentation/slots_page.dart';
-import 'package:flutter_template_3/app/modules/users/all_users/users_page.dart';
-import 'package:flutter_template_3/app/modules/users/blocked_users/blocked_users_page.dart';
-import 'package:flutter_template_3/app/modules/users/unverfied_users/unverified_users_page.dart';
 import 'package:flutter_template_3/app/modules/users/user_profile/user_profile.dart';
 import 'package:get/get.dart';
 
@@ -163,19 +157,19 @@ final List<DrawerEntry> drawerData = <DrawerEntry>[
   DrawerEntry(
     'Orders',
     1,
-    OrdersPage.routeName,
+    CartPage.routeName,
     AppAssets.ordersBottomNav,
   ),
   DrawerEntry(
     'Slots',
     2,
-    SlotsPage.routeName,
+    CartPage.routeName,
     AppAssets.slotsBottomNav,
   ),
   DrawerEntry(
     'Items',
     3,
-    ItemsPage.routeName,
+    CartPage.routeName,
     AppAssets.itemsBottomNav,
   ),
   DrawerEntry(
